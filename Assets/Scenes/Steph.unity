@@ -124,7 +124,7 @@ GameObject:
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Player
-  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -280,12 +280,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
-      propertyPath: spawnSpeed
-      value: 0.12
+      propertyPath: speed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
-      propertyPath: rotationSpeed
-      value: 60.1
+      propertyPath: number
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
+      propertyPath: spawnSpeed
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}

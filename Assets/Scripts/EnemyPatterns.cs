@@ -16,12 +16,10 @@ public class EnemyPatterns : MonoBehaviour
     [Header("Spawn Settings")]
     [Range(0, 75)]
     [SerializeField] private int number;
-    [Range(0.0f, 3.0f)]
-    [SerializeField] private float radius;
     [Range(0.0f, 50.0f)]
     [SerializeField] private float speed;
-    [Range(0.0f, 180.0f)]
-    [SerializeField] private float rotationSpeed;
+    [Range(-360, 360)]
+    [SerializeField] private int rotationSpeed;
     [Range(0.0f, 5.0f)]
     [SerializeField] private float spawnSpeed;
     [Range(0.0f, 3.0f)]
@@ -35,6 +33,15 @@ public class EnemyPatterns : MonoBehaviour
     private float dispersionValue = 0;
     private bool decrease;
 
+    private void OnDrawGizmosSelected () {
+        Gizmos.color = Color.red;
+        for(int i = 0; i < number; i++) {
+            float angle = (i * (Mathf.PI*2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
+            Vector2 pos = new Vector2(shootPoint.position.x + 0.1f * Mathf.Cos(angle), shootPoint.position.y + 0.1f * Mathf.Sin(angle));
+            Gizmos.DrawLine(transform.position, pos * 10);
+        }
+    }
+
     void Start()
     {
         dispersionValue = -dispersionAngle;
@@ -44,7 +51,7 @@ public class EnemyPatterns : MonoBehaviour
 
     void Update()
     {
-        if (rotationSpeed > 0) {
+        if (rotationSpeed != 0) {
             transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
         }
 
@@ -59,9 +66,9 @@ public class EnemyPatterns : MonoBehaviour
 
     void SpawnParticles() {
         if (mode == modifier.circle) {
-            for (int i = 0; i < number; i++) {
-                float angle = (i * (360 / number) * Mathf.Deg2Rad) + shootPoint.rotation.z;
-                Vector2 pos = new Vector2(shootPoint.position.x + radius * Mathf.Cos(angle), shootPoint.position.y + radius * Mathf.Sin(angle));
+            for (int i = 1; i < number + 1; i++) {
+                float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
+                Vector2 pos = new Vector2(shootPoint.position.x + 0.1f * Mathf.Cos(angle), shootPoint.position.y + 0.1f * Mathf.Sin(angle));
                 GameObject bullet = Instantiate(shootObject, pos, transform.rotation);
                 Vector2 vel = (Vector2)shootPoint.position - pos;
                 bullet.GetComponent<Rigidbody2D>().velocity = pos * speed;
