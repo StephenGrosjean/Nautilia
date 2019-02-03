@@ -19,9 +19,12 @@ public class EnemyPatterns : MonoBehaviour
 
     public modifier mode;
 
-    //Circle Mode Variables
+    //All modes variables
     [HideInInspector] public int number;
     [HideInInspector] public float speed;
+    [HideInInspector] public float accelleration;
+
+    //Circle Mode Variables
     [HideInInspector] public int rotationSpeed;
     [HideInInspector] public float spawnTime;
 
@@ -38,6 +41,8 @@ public class EnemyPatterns : MonoBehaviour
     private float dispersionValue = 0;
     private bool decrease;
     private Transform player;
+    private modifier prevMode;
+
 
     private void OnDrawGizmosSelected () {
         if (mode != modifier.player) {
@@ -55,11 +60,17 @@ public class EnemyPatterns : MonoBehaviour
         dispersionValue = -dispersionAngle;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        SetMode();
+    }
+
+    void SetMode() {
+        CancelInvoke();
+
         if (mode != modifier.burst) {
             InvokeRepeating("SpawnParticles", 0, spawnTime);
         }
         else {
-            StartCoroutine("BustSpawn");
+            StartCoroutine("BurstSpawn");
         }
     }
 
@@ -69,7 +80,15 @@ public class EnemyPatterns : MonoBehaviour
             transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
         }
 
-        if(mode == modifier.player) {
+
+
+        if(prevMode != mode) {
+            SetMode();
+        }
+        prevMode = mode;
+
+        if (mode == modifier.player) {
+            number = 1;
             Vector3 vectorToTarget = player.position - transform.position;
             float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angleToTarget, Vector3.forward);
@@ -84,11 +103,13 @@ public class EnemyPatterns : MonoBehaviour
                 float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
                 Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
                 GameObject bullet = Instantiate(requiredObjects.shootObject, pos, transform.rotation);
+                bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
                 Vector2 vel = (Vector2)requiredObjects.shootPoint.position - pos;
                 bullet.GetComponent<Rigidbody2D>().velocity = pos * speed;
             }
         }
         else if (mode == modifier.player) {
+
             if (dispersionValue > dispersionAngle) {
                 decrease = true;
             }
@@ -107,18 +128,21 @@ public class EnemyPatterns : MonoBehaviour
             float offset = dispersionValue;
             Vector2 pos = new Vector2(requiredObjects.shootDirection.position.x + dispersionValue, requiredObjects.shootDirection.position.y);
             GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.transform.position, transform.rotation);
+            bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
             Vector2 vel = (Vector2)pos - (Vector2)requiredObjects.shootPoint.position;
             bullet.GetComponent<Rigidbody2D>().velocity = pos * speed/100;
         }
     }
 
-    IEnumerator BustSpawn() {
-        while (true) {
+    IEnumerator BurstSpawn() {
+        while (mode == modifier.burst) {
+
             for (int ii = 1; ii < numberByBurst + 1; ii++) {
                 for (int i = 1; i < number + 1; i++) {
                     float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
                     Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
                     GameObject bullet = Instantiate(requiredObjects.shootObject, pos, transform.rotation);
+                    bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
                     Vector2 vel = (Vector2)requiredObjects.shootPoint.position - pos;
                     bullet.GetComponent<Rigidbody2D>().velocity = pos * speed;
                 }

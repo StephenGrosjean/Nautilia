@@ -48,23 +48,35 @@ public class EnemyPatternsEditor : Editor
         }
 
         #region BaseVariables
-        GUILayout.BeginHorizontal();
-        {
-            GUILayout.Label("<b>Number of Axes   </b>", label);
-            script.number = (int)GUILayout.HorizontalSlider(script.number, 0, 75, GUILayout.Width(150));
-            int val1 = (int)script.number;
-            string valstring = string.Format("{0:00}", val1);
+        if (script.mode != EnemyPatterns.modifier.player) {
+            GUILayout.BeginHorizontal();
+            {
+                GUILayout.Label("<b>Number of Axes   </b>", label);
+                script.number = (int)GUILayout.HorizontalSlider(script.number, 0, 75, GUILayout.Width(150));
+                int val1 = (int)script.number;
+                string valstring = string.Format("{0:00}", val1);
 
-            GUILayout.Box(valstring, value);
+                GUILayout.Box(valstring, value);
+            }
+            GUILayout.EndHorizontal();
         }
-        GUILayout.EndHorizontal();
-
         GUILayout.BeginHorizontal();
         {
             GUILayout.Label("<b>Bullet Speed           </b>", label);
             script.speed = Mathf.Round(GUILayout.HorizontalSlider(script.speed, 0.0f, 50.0f, GUILayout.Width(150)) * 10f) / 10f;
             int val1 = (int)script.speed % 100;
             float val2 = Mathf.Round((script.speed - val1) * 10);
+            string valstring = string.Format("{0:00}.{1}", val1, val2);
+            GUILayout.Label(valstring, value);
+        }
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        {
+            GUILayout.Label("<b>Bullet Acceleration   </b>", label);
+            script.accelleration = Mathf.Round(GUILayout.HorizontalSlider(script.accelleration, 0.0f, 10.0f, GUILayout.Width(150)) * 10f) / 10f;
+            int val1 = (int)script.accelleration % 100;
+            float val2 = Mathf.Round((script.accelleration - val1) * 10);
             string valstring = string.Format("{0:00}.{1}", val1, val2);
             GUILayout.Label(valstring, value);
         }
@@ -79,7 +91,7 @@ public class EnemyPatternsEditor : Editor
                 GUILayout.BeginHorizontal();
                 {
                     GUILayout.Label("<b>Rotation Speed   </b>", label);
-                    script.rotationSpeed = (int)GUILayout.HorizontalSlider(script.rotationSpeed, -360, 360, GUILayout.Width(150));
+                    script.rotationSpeed = (int)GUILayout.HorizontalSlider(script.rotationSpeed, -100, 100, GUILayout.Width(150));
                     int val1 = (int)script.rotationSpeed;
                     string valstring = string.Format("{0:00}", val1);
 
