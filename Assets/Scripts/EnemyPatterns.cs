@@ -5,40 +5,48 @@ using UnityEngine;
 public class EnemyPatterns : MonoBehaviour
 {
 
-    private enum modifier { circle, player};
-    private Transform player;
+    public enum modifier { circle, player, burst};
 
-    [Header("Spawn Objects")]
-    [SerializeField] private Transform shootPoint, shootDirection;
-    [SerializeField] private GameObject shootObject;
+    [System.Serializable]
+    private class neededObjects {
+        public Transform shootPoint;
+        public Transform shootDirection;
+        public GameObject shootObject;
+    }
 
+    [SerializeField] private neededObjects requiredObjects;
     [Space(15)]
-    [Header("Spawn Settings")]
-    [Range(0, 75)]
-    [SerializeField] private int number;
-    [Range(0.0f, 50.0f)]
-    [SerializeField] private float speed;
-    [Range(-360, 360)]
-    [SerializeField] private int rotationSpeed;
-    [Range(0.0f, 5.0f)]
-    [SerializeField] private float spawnSpeed;
-    [Range(0.0f, 3.0f)]
-    [SerializeField] private float dispersionAngle;
 
-    [Space(15)]
-    [Header("Modifiers")]
-    [SerializeField] private modifier mode;
+    public modifier mode;
 
+    //Circle Mode Variables
+    [HideInInspector] public int number;
+    [HideInInspector] public float speed;
+    [HideInInspector] public int rotationSpeed;
+    [HideInInspector] public float spawnTime;
+
+    //Player Mode Variables
+    [HideInInspector] public float dispersionAngle;
+
+    //Burst Mode Variables
+    [HideInInspector] public int numberByBurst;
+    [HideInInspector] public float timeBetweenBursts;
+    [HideInInspector] public float timeBetweenBulletsInBurst;
+
+    
     //Variables for the shoot at player mode
     private float dispersionValue = 0;
     private bool decrease;
+    private Transform player;
 
     private void OnDrawGizmosSelected () {
-        Gizmos.color = Color.red;
-        for(int i = 0; i < number; i++) {
-            float angle = (i * (Mathf.PI*2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
-            Vector2 pos = new Vector2(shootPoint.position.x + 0.1f * Mathf.Cos(angle), shootPoint.position.y + 0.1f * Mathf.Sin(angle));
-            Gizmos.DrawLine(transform.position, pos * 10);
+        if (mode != modifier.player) {
+            Gizmos.color = Color.red;
+            for (int i = 0; i < number; i++) {
+                float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
+                Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
+                Gizmos.DrawLine(transform.position, pos * 10);
+            }
         }
     }
 
@@ -46,7 +54,13 @@ public class EnemyPatterns : MonoBehaviour
     {
         dispersionValue = -dispersionAngle;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        InvokeRepeating("SpawnParticles", 0, spawnSpeed);
+
+        if (mode != modifier.burst) {
+            InvokeRepeating("SpawnParticles", 0, spawnTime);
+        }
+        else {
+            StartCoroutine("BustSpawn");
+        }
     }
 
     void Update()
@@ -68,18 +82,18 @@ public class EnemyPatterns : MonoBehaviour
         if (mode == modifier.circle) {
             for (int i = 1; i < number + 1; i++) {
                 float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
-                Vector2 pos = new Vector2(shootPoint.position.x + 0.1f * Mathf.Cos(angle), shootPoint.position.y + 0.1f * Mathf.Sin(angle));
-                GameObject bullet = Instantiate(shootObject, pos, transform.rotation);
-                Vector2 vel = (Vector2)shootPoint.position - pos;
+                Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
+                GameObject bullet = Instantiate(requiredObjects.shootObject, pos, transform.rotation);
+                Vector2 vel = (Vector2)requiredObjects.shootPoint.position - pos;
                 bullet.GetComponent<Rigidbody2D>().velocity = pos * speed;
             }
         }
-        else if(mode == modifier.player) {
-            if(dispersionValue > dispersionAngle) {
+        else if (mode == modifier.player) {
+            if (dispersionValue > dispersionAngle) {
                 decrease = true;
             }
 
-            if (dispersionValue < -dispersionAngle){
+            if (dispersionValue < -dispersionAngle) {
                 decrease = false;
             }
 
@@ -91,10 +105,26 @@ public class EnemyPatterns : MonoBehaviour
             }
 
             float offset = dispersionValue;
-            Vector2 pos = new Vector2(shootDirection.position.x+dispersionValue, shootDirection.position.y);
-            GameObject bullet = Instantiate(shootObject, shootPoint.transform.position, transform.rotation);
-            Vector2 vel = (Vector2)pos - (Vector2)shootPoint.position;
-            bullet.GetComponent<Rigidbody2D>().velocity = pos * speed;
+            Vector2 pos = new Vector2(requiredObjects.shootDirection.position.x + dispersionValue, requiredObjects.shootDirection.position.y);
+            GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.transform.position, transform.rotation);
+            Vector2 vel = (Vector2)pos - (Vector2)requiredObjects.shootPoint.position;
+            bullet.GetComponent<Rigidbody2D>().velocity = pos * speed/100;
+        }
+    }
+
+    IEnumerator BustSpawn() {
+        while (true) {
+            for (int ii = 1; ii < numberByBurst + 1; ii++) {
+                for (int i = 1; i < number + 1; i++) {
+                    float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
+                    Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
+                    GameObject bullet = Instantiate(requiredObjects.shootObject, pos, transform.rotation);
+                    Vector2 vel = (Vector2)requiredObjects.shootPoint.position - pos;
+                    bullet.GetComponent<Rigidbody2D>().velocity = pos * speed;
+                }
+                yield return new WaitForSeconds(timeBetweenBulletsInBurst);
+            }
+            yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
 }

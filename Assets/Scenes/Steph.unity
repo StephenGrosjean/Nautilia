@@ -142,6 +142,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1164268170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1923409556, guid: 8edffebf65ea861438dc8529c2e36486,
+    type: 3}
+  m_PrefabInstance: {fileID: 6519885659223902691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1621056276 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1797632724, guid: 8edffebf65ea861438dc8529c2e36486,
+    type: 3}
+  m_PrefabInstance: {fileID: 6519885659223902691}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1991471221
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,15 +293,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
       propertyPath: speed
-      value: 20
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
       propertyPath: number
-      value: 4
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
       propertyPath: spawnSpeed
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
+      propertyPath: spawnTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
+      propertyPath: mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
+      propertyPath: numberByBurst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
+      propertyPath: timeBetweenBursts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
+      propertyPath: requiredObjects.shootPoint
+      value: 
+      objectReference: {fileID: 1621056276}
+    - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
+      propertyPath: requiredObjects.shootDirection
+      value: 
+      objectReference: {fileID: 1164268170}
+    - target: {fileID: 1797632722, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
+      propertyPath: requiredObjects.shootObject
+      value: 
+      objectReference: {fileID: 9041213885814699274, guid: e7ba5553957264042b2f14da0a15eb4a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8edffebf65ea861438dc8529c2e36486, type: 3}
