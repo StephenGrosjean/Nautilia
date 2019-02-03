@@ -119,10 +119,10 @@ public class EnemyPatterns : MonoBehaviour
             }
 
             if (decrease) {
-                dispersionValue -= 0.1f;
+                dispersionValue -= 0.5f;
             }
             else {
-                dispersionValue += 0.1f;
+                dispersionValue += 0.5f;
             }
 
             float offset = dispersionValue;
