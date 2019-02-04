@@ -8,18 +8,36 @@ public class BulletBehaviour : MonoBehaviour
     public float Acceleration {
         set { acceleration = value; }
     }
-    private Rigidbody2D rigid;
 
-    // Start is called before the first frame update
+    [SerializeField] private bool isSine;
+    public bool IsSine {
+        set { isSine = value; }
+    }
+
+    private Rigidbody2D rigid;
+    private Vector2 vel;
+
+
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-    }
+        vel = rigid.velocity;
 
-    // Update is called once per frame
+        GetComponentInChildren<Animator>().SetBool("isSine", isSine);
+
+
+        Vector3 vectorToTarget = vel - (Vector2)transform.position;
+        float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angleToTarget, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);
+    }
     void FixedUpdate()
     {
-        Vector2 vel = rigid.velocity;
+        vel = rigid.velocity;
+
         rigid.AddForce(vel * acceleration/50, ForceMode2D.Force);
+
+
     }
+
 }
