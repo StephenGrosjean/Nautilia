@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float shootDelay = 1f;
     private float _movementHorizontal;
     private float _movementVertical;
     private Rigidbody2D _playerRb;
@@ -22,11 +20,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _movementHorizontal = Input.GetAxisRaw("Horizontal");
         _movementVertical = Input.GetAxisRaw("Vertical");
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            PlayerShoot();
-        }
     } 
 
     private void FixedUpdate()
@@ -34,15 +27,5 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = new Vector2(_movementHorizontal,_movementVertical);
 
         _playerRb.velocity = movement * playerSpeed;
-    }
-
-    private void PlayerShoot()
-    {
-        shootDelay -= Time.deltaTime;
-        if (shootDelay <= 0)
-        {
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            shootDelay = 0.2f;
-        }
     }
 }

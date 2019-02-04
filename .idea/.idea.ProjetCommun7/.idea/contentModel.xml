@@ -4,10 +4,29 @@
     <e p="C:\Users\ethan\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\ethan\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_ProjetCommun7.45180573.00" t="ExcludeRecursive" />
     <e p="C:\Users\ethan\Desktop\Developement\ProjetCommun7" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="BulletBehavior.cs" t="Include" />
-        <e p="PlayerMovement.cs" t="Include" />
+        <e p="Editor" t="Include">
+          <e p="EnemyPatternsEditor.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Enemy" t="Include">
+            <e p="BulletBehaviour.cs" t="Include" />
+            <e p="EnemyPatterns.cs" t="Include" />
+          </e>
+          <e p="Misc" t="Include">
+            <e p="DestroyByTime.cs" t="Include" />
+            <e p="GizmoDraw.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="Player.cs" t="Include" />
+            <e p="PlayerBulletBehavior.cs" t="Include" />
+            <e p="PlayerMovement.cs" t="Include" />
+            <e p="Shoot.cs" t="Include" />
+          </e>
+          <e p="Upgrades.cs" t="Include" />
+        </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
             <e p="Fonts" t="Include">
@@ -76,7 +95,6 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
-        <e p="Upgrades.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />

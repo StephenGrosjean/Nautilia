@@ -38,7 +38,7 @@ public class EnemyPatterns : MonoBehaviour
 
     
     //Variables for the shoot at player mode
-    private float dispersionValue = 0;
+    private float dispersionValue = 0; 
     private bool decrease;
     private Transform player;
     private modifier prevMode;
