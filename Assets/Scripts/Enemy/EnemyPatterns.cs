@@ -23,6 +23,7 @@ public class EnemyPatterns : MonoBehaviour
     [HideInInspector] public int number;
     [HideInInspector] public float speed;
     [HideInInspector] public float accelleration;
+    [HideInInspector] public bool waveMode;
 
     //Circle Mode Variables
     [HideInInspector] public int rotationSpeed;
@@ -104,6 +105,7 @@ public class EnemyPatterns : MonoBehaviour
                 Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
                 GameObject bullet = Instantiate(requiredObjects.shootObject, pos, transform.rotation);
                 bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
+                bullet.GetComponent<BulletBehaviour>().IsSine = waveMode;
                 Vector2 vel = (Vector2)requiredObjects.shootPoint.position - pos;
                 bullet.GetComponent<Rigidbody2D>().velocity = pos * speed;
             }
@@ -129,6 +131,7 @@ public class EnemyPatterns : MonoBehaviour
             Vector2 pos = new Vector2(requiredObjects.shootDirection.position.x + dispersionValue, requiredObjects.shootDirection.position.y);
             GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.transform.position, transform.rotation);
             bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
+            bullet.GetComponent<BulletBehaviour>().IsSine = waveMode;
             Vector2 vel = (Vector2)pos - (Vector2)requiredObjects.shootPoint.position;
             bullet.GetComponent<Rigidbody2D>().velocity = pos * speed/100;
         }
@@ -143,6 +146,7 @@ public class EnemyPatterns : MonoBehaviour
                     Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
                     GameObject bullet = Instantiate(requiredObjects.shootObject, pos, transform.rotation);
                     bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
+                    bullet.GetComponent<BulletBehaviour>().IsSine = waveMode;
                     Vector2 vel = (Vector2)requiredObjects.shootPoint.position - pos;
                     bullet.GetComponent<Rigidbody2D>().velocity = pos * speed;
                 }

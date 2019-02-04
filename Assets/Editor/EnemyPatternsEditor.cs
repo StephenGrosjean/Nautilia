@@ -81,6 +81,13 @@ public class EnemyPatternsEditor : Editor
             GUILayout.Label(valstring, value);
         }
         GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        {
+            GUILayout.Label("<b>Wave mode</b>", label);
+            script.waveMode = GUILayout.Toggle(script.waveMode, "");
+        }
+        GUILayout.EndHorizontal();
         #endregion
 
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
