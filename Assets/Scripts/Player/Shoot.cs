@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    
     [SerializeField] private GameObject bulletPrefab;
     public float shootDelay = 0.2f;
 
@@ -21,8 +22,8 @@ public class Shoot : MonoBehaviour
         if (shootDelay <= 0)
         {
             Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            
             shootDelay = 0.2f;
-
         }
     }
 }
