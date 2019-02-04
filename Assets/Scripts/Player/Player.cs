@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     
     private void QuadShotUpgrade()
     {
+        doubleShotPoint.SetActive(false);
         quadShotPoint.SetActive(true);
     }
     
@@ -29,7 +30,6 @@ public class Player : MonoBehaviour
         {
             shootMode++;
             ShootingMode();
-            GetComponent<Shoot>().shootDelay = 0.2f;
         }
     }
     
