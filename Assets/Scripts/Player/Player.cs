@@ -6,27 +6,42 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    [SerializeField] private GameObject[] doubleShotPoint; 
-    [SerializeField] private GameObject[] quadShotPoint;
+    [SerializeField] private GameObject doubleShotPoint; 
+    [SerializeField] private GameObject quadShotPoint;
     [SerializeField] private GameObject singleShotPoint;
-    
-    public float accelleration  = 11.0f;
 
+    public int shootMode = 0;
     private void DoubleShotUpgrade()
     {
-        for (int i = 0; i < doubleShotPoint.Length; i++)
-        {
-            doubleShotPoint[i].SetActive(true);
-        }
+        doubleShotPoint.SetActive(true);
         
         singleShotPoint.SetActive(false);
     }
-
+    
+    private void QuadShotUpgrade()
+    {
+        quadShotPoint.SetActive(true);
+    }
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Upgrade"))
         {
+            shootMode++;
+            ShootingMode();
+            GetComponent<Shoot>().shootDelay = 0.2f;
+        }
+    }
+    
+    private void ShootingMode()
+    {
+        if (shootMode == 1)
+        {
             DoubleShotUpgrade();
+        }
+        else if(shootMode == 2)
+        {
+            QuadShotUpgrade();
         }
     }
 }
