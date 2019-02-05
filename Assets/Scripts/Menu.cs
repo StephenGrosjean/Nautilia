@@ -10,6 +10,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("EthanScene");
     }
 
+    public void RestartLevel()
+    {
+        Scene loadedLevel = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(loadedLevel.buildIndex);
+    }
     public void QuitGame()
     {
 #if UNITY_EDITOR
