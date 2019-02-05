@@ -4,25 +4,20 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    
     [SerializeField] private GameObject bulletPrefab;
     public float shootDelay = 0.2f;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            PlayerShoot();
+            if (shootDelay <= 0)
+            {
+                Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                shootDelay = 0.2f;
+            }
         }
-    }
-
-    private void PlayerShoot()
-    {
         shootDelay -= Time.deltaTime;
-        if (shootDelay <= 0)
-        {
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            shootDelay = 0.2f;
-
-        }
     }
 }
