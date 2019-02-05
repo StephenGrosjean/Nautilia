@@ -6,18 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    
+#region Player variable
     [SerializeField] private GameObject doubleShotPoint; 
     [SerializeField] private GameObject quadShotPoint;
     [SerializeField] private GameObject singleShotPoint;
     [SerializeField] private GameObject playerSprite;
+   
     public int playerLife = 3;
     public int shootMode = 0;
     
     [SerializeField] private float blinkInterval = 0.2f;
     [SerializeField] private float maxInvincibilityTime = 1.0f;
+    [SerializeField] private float deathAnimation = 1.0f;
+    
     private bool _isInvincible = false;
-
+    
+#endregion
 
     private void Start()
     {
@@ -29,7 +33,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Die();
+        StartCoroutine(Die(deathAnimation));
+        
     }
 
     private void DoubleShotUpgrade()
@@ -49,6 +54,7 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Upgrade"))
         {
+            ScoreManager.scoreValue += 1000;
             shootMode++;
             ShootingMode();
         }
@@ -71,11 +77,11 @@ public class Player : MonoBehaviour
             QuadShotUpgrade();
         }
     }
-
-    private void Die()
+    private IEnumerator Die(float time)
     {
         if (playerLife == 0)
         {
+            yield return new WaitForSeconds(time);
             Scene loadedLevel = SceneManager.GetActiveScene();
             SceneManager.LoadScene(loadedLevel.buildIndex);
         }
