@@ -49,9 +49,9 @@ public class EnemyPatterns : MonoBehaviour
         if (mode != modifier.player) {
             Gizmos.color = Color.red;
             for (int i = 0; i < number; i++) {
-                float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
-                Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
-                Gizmos.DrawLine(transform.position, pos * 10);
+                float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.localEulerAngles.z * Mathf.Deg2Rad;
+                Vector2 pos = new Vector2(requiredObjects.shootPoint.localPosition.x + 1f* Mathf.Cos(angle), requiredObjects.shootPoint.localPosition.y + 1f * Mathf.Sin(angle));
+                Gizmos.DrawLine(requiredObjects.shootPoint.localPosition, pos);
             }
         }
     }
@@ -81,8 +81,6 @@ public class EnemyPatterns : MonoBehaviour
             transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
         }
 
-
-
         if(prevMode != mode) {
             SetMode();
         }
@@ -101,10 +99,7 @@ public class EnemyPatterns : MonoBehaviour
     void SpawnParticles() {
         if (mode == modifier.circle) {
             for (int i = 1; i < number + 1; i++) {
-                float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
-                Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
-                GameObject bullet = Instantiate(requiredObjects.shootObject, pos, transform.rotation);
-                SetBulletParams(bullet, pos);
+                SpawnBullet(i);
             }
         }
         else if (mode == modifier.player) {
@@ -124,10 +119,7 @@ public class EnemyPatterns : MonoBehaviour
                 dispersionValue += 0.5f;
             }
 
-            float offset = dispersionValue;
-            Vector2 pos = new Vector2(requiredObjects.shootDirection.position.x + dispersionValue, requiredObjects.shootDirection.position.y);
-            GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.transform.position, transform.rotation);
-            SetBulletParams(bullet, pos, 100);
+            SpawnBullet();
 
         }
     }
@@ -137,22 +129,35 @@ public class EnemyPatterns : MonoBehaviour
 
             for (int ii = 1; ii < numberByBurst + 1; ii++) {
                 for (int i = 1; i < number + 1; i++) {
-                    float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
-                    Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 0.1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 0.1f * Mathf.Sin(angle));
-                    GameObject bullet = Instantiate(requiredObjects.shootObject, pos, transform.rotation);
-                    SetBulletParams(bullet, pos);
+                    SpawnBullet(i);
                 }
                 yield return new WaitForSeconds(timeBetweenBulletsInBurst);
             }
             yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
+  
+    void SpawnBullet(int i = 1) {
+        if (mode != modifier.player) {
+            float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.localEulerAngles.z * Mathf.Deg2Rad;
+            Vector2 pos = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+            GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.position, Quaternion.Euler(Mathf.Cos(angle), Mathf.Sin(angle), 0));
+            SetBulletParams(bullet, pos);
+        }
+        else {
+            Vector2 pos = new Vector2(requiredObjects.shootDirection.position.x + dispersionValue, requiredObjects.shootDirection.position.y);
+            GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.transform.position, transform.rotation);
+            SetBulletParams(bullet, pos, 100);
+        }
+    }
 
     void SetBulletParams(GameObject bullet, Vector2 pos, int divider = 1) {
+
         bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
         bullet.GetComponent<BulletBehaviour>().IsSine = waveMode;
         bullet.GetComponent<BulletBehaviour>().IsArround = arroundMode;
-        bullet.GetComponent<Rigidbody2D>().velocity = pos * speed/divider;
+        bullet.GetComponent<BulletBehaviour>().SetVel(pos, speed, divider);
+
     }
 }
 

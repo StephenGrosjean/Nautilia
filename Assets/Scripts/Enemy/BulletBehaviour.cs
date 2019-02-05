@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    public float speed;
     [SerializeField] private float acceleration;
     public float Acceleration {
         set { acceleration = value; }
@@ -19,30 +20,34 @@ public class BulletBehaviour : MonoBehaviour
         set { isArround = value; }
     }
 
+
     private Rigidbody2D rigid;
-    private Vector2 vel;
+    public Vector2 vel;
 
 
-    void Start()
+
+    void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        vel = rigid.velocity;
+    }
+    private void Start() {
 
         GetComponentInChildren<Animator>().SetBool("isSine", isSine);
         GetComponentInChildren<Animator>().SetBool("isArround", isArround);
-
-        Vector3 vectorToTarget = vel - (Vector2)transform.position;
-        float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angleToTarget, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);
     }
+
     void FixedUpdate()
     {
         vel = rigid.velocity;
-
+        speed = vel.magnitude;
         rigid.AddForce(vel * acceleration/50, ForceMode2D.Force);
-
+        Vector3 vectorToTarget = vel * 5 - (Vector2)transform.position;
+        float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angleToTarget, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);
 
     }
-
+    public void SetVel(Vector2 pos, float speed, float divider = 1) {
+        rigid.velocity = pos * speed / divider;
+    }
 }
