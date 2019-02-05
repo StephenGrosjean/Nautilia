@@ -326,5 +326,10 @@ PrefabInstance:
       propertyPath: dispersionAngle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1621056274, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
+      propertyPath: requiredObjects.shootObject
+      value: 
+      objectReference: {fileID: 5285953335344077992, guid: 2260a57e7ed61c149b8eb73814c058cd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
