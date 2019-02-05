@@ -88,6 +88,14 @@ public class EnemyPatternsEditor : Editor
             script.waveMode = GUILayout.Toggle(script.waveMode, "");
         }
         GUILayout.EndHorizontal();
+
+
+        GUILayout.BeginHorizontal();
+        {
+            GUILayout.Label("<b>Arround mode</b>", label);
+            script.arroundMode = GUILayout.Toggle(script.arroundMode, "");
+        }
+        GUILayout.EndHorizontal();
         #endregion
 
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);

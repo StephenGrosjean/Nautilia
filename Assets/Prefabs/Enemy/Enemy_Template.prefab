@@ -129,12 +129,14 @@ MonoBehaviour:
     shootObject: {fileID: 9041213885814699274, guid: e7ba5553957264042b2f14da0a15eb4a,
       type: 3}
   mode: 0
-  number: 9
-  speed: 11.2
-  accelleration: 3.2
+  number: 12
+  speed: 25.3
+  accelleration: 0
+  waveMode: 0
+  arroundMode: 0
   rotationSpeed: 0
-  spawnTime: 0.2
+  spawnTime: 0.1
   dispersionAngle: 2
-  numberByBurst: 4
-  timeBetweenBursts: 0.4
-  timeBetweenBulletsInBurst: 0.3
+  numberByBurst: 10
+  timeBetweenBursts: 3
+  timeBetweenBulletsInBurst: 0.1

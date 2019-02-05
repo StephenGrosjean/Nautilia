@@ -14,6 +14,11 @@ public class BulletBehaviour : MonoBehaviour
         set { isSine = value; }
     }
 
+    [SerializeField] private bool isArround;
+    public bool IsArround {
+        set { isArround = value; }
+    }
+
     private Rigidbody2D rigid;
     private Vector2 vel;
 
@@ -24,7 +29,7 @@ public class BulletBehaviour : MonoBehaviour
         vel = rigid.velocity;
 
         GetComponentInChildren<Animator>().SetBool("isSine", isSine);
-
+        GetComponentInChildren<Animator>().SetBool("isArround", isArround);
 
         Vector3 vectorToTarget = vel - (Vector2)transform.position;
         float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
