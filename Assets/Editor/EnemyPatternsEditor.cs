@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CanEditMultipleObjects]
 [CustomEditor(typeof(EnemyPatterns))]
 public class EnemyPatternsEditor : Editor
 {

@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &217884772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 217884773}
+  - component: {fileID: 217884774}
+  m_Layer: 0
+  m_Name: Emitter (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &217884773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217884772}
+  m_LocalRotation: {x: 0, y: 0, z: 0.4694715, w: 0.8829476}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1621056276}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 56}
+--- !u!114 &217884774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217884772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d8a27e41d148ab4aa0122bcf3c4e104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredObjects:
+    shootPoint: {fileID: 217884773}
+    shootObject: {fileID: 5285953335344077992, guid: 2260a57e7ed61c149b8eb73814c058cd,
+      type: 3}
+  mode: 0
+  number: 4
+  speed: 1.1
+  accelleration: 0
+  waveMode: 0
+  arroundMode: 0
+  waveSpeed: 2
+  rotationSpeed: 0
+  spawnTime: 0.6
+  dispersionAngle: 0
+  numberByBurst: 5
+  timeBetweenBursts: 0.4
+  timeBetweenBulletsInBurst: 0.2
 --- !u!1 &1621056273
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,6 +90,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2015007307}
+  - {fileID: 217884773}
+  - {fileID: 2118102180}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb597b6bf4d7e214eb0313c3dd5427c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 12
+  rotationSpeed: 29
 --- !u!1 &2015007306
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,14 +205,74 @@ MonoBehaviour:
       type: 3}
   mode: 0
   number: 4
-  speed: 5
+  speed: 1.1
   accelleration: 0
-  waveMode: 1
+  waveMode: 0
   arroundMode: 0
   waveSpeed: 2
   rotationSpeed: 0
-  spawnTime: 0.2
+  spawnTime: 0.6
   dispersionAngle: 0
-  numberByBurst: 10
-  timeBetweenBursts: 3
-  timeBetweenBulletsInBurst: 0.1
+  numberByBurst: 5
+  timeBetweenBursts: 0.4
+  timeBetweenBulletsInBurst: 0.2
+--- !u!1 &2118102179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118102180}
+  - component: {fileID: 2118102181}
+  m_Layer: 0
+  m_Name: Emitter (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118102180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118102179}
+  m_LocalRotation: {x: 0, y: 0, z: 0.309017, w: 0.95105654}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1621056276}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36}
+--- !u!114 &2118102181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118102179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d8a27e41d148ab4aa0122bcf3c4e104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredObjects:
+    shootPoint: {fileID: 2118102180}
+    shootObject: {fileID: 5285953335344077992, guid: 2260a57e7ed61c149b8eb73814c058cd,
+      type: 3}
+  mode: 0
+  number: 4
+  speed: 1.1
+  accelleration: 0
+  waveMode: 0
+  arroundMode: 0
+  waveSpeed: 2
+  rotationSpeed: 0
+  spawnTime: 0.6
+  dispersionAngle: 0
+  numberByBurst: 5
+  timeBetweenBursts: 0.4
+  timeBetweenBulletsInBurst: 0.2

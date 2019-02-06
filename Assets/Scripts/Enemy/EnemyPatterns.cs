@@ -11,6 +11,7 @@ public class EnemyPatterns : MonoBehaviour
     private class neededObjects {
         [HideInInspector] public Transform shootPoint;
         public GameObject shootObject;
+        [HideInInspector] public Transform bulletContainer;
     }
 
     [SerializeField] private neededObjects requiredObjects;
@@ -59,6 +60,7 @@ public class EnemyPatterns : MonoBehaviour
 
     void Start()
     {
+        requiredObjects.bulletContainer = GameObject.FindGameObjectWithTag("Container").transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         requiredObjects.shootPoint = transform;
         SetMode();
@@ -126,11 +128,13 @@ public class EnemyPatterns : MonoBehaviour
             float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
             Vector2 pos = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
             GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.position, Quaternion.Euler(Mathf.Cos(angle), Mathf.Sin(angle), 0));
+            bullet.transform.parent = requiredObjects.bulletContainer;
             SetBulletParams(bullet, pos);
         }
         else {
             Vector2 pos = new Vector2(player.position.x + dispersionAngle, player.position.y) -(Vector2) requiredObjects.shootPoint.position;
             GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.transform.position, transform.rotation);
+            bullet.transform.parent = requiredObjects.bulletContainer;
             SetBulletParams(bullet, pos, 100);
         }
     }
