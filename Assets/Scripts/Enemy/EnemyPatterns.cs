@@ -24,13 +24,14 @@ public class EnemyPatterns : MonoBehaviour
     [HideInInspector] public float speed;
     [HideInInspector] public float accelleration;
     [HideInInspector] public bool waveMode, arroundMode;
+    [HideInInspector] public float waveSpeed;
 
     //Circle Mode Variables
     [HideInInspector] public int rotationSpeed;
     [HideInInspector] public float spawnTime;
 
     //Player Mode Variables
-    [HideInInspector] public float dispersionAngle;
+    [HideInInspector] public float dispersionAngle; // not implemented
 
     //Burst Mode Variables
     [HideInInspector] public int numberByBurst;
@@ -39,13 +40,13 @@ public class EnemyPatterns : MonoBehaviour
 
     
     //Variables for the shoot at player mode
-    private float dispersionValue = 0; 
     private bool decrease;
     private Transform player;
     private modifier prevMode;
 
 
-    private void OnDrawGizmosSelected () {
+
+    private void OnDrawGizmos () {
         if (mode != modifier.player) {
             Gizmos.color = Color.red;
             for (int i = 0; i < number; i++) {
@@ -58,7 +59,6 @@ public class EnemyPatterns : MonoBehaviour
 
     void Start()
     {
-        dispersionValue = -dispersionAngle;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         SetMode();
@@ -91,7 +91,7 @@ public class EnemyPatterns : MonoBehaviour
             Vector3 vectorToTarget = player.position - transform.position;
             float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angleToTarget, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 15);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);
         }
 
     }
@@ -103,22 +103,6 @@ public class EnemyPatterns : MonoBehaviour
             }
         }
         else if (mode == modifier.player) {
-
-            if (dispersionValue > dispersionAngle) {
-                decrease = true;
-            }
-
-            if (dispersionValue < -dispersionAngle) {
-                decrease = false;
-            }
-
-            if (decrease) {
-                dispersionValue -= 0.5f;
-            }
-            else {
-                dispersionValue += 0.5f;
-            }
-
             SpawnBullet();
 
         }
@@ -145,7 +129,7 @@ public class EnemyPatterns : MonoBehaviour
             SetBulletParams(bullet, pos);
         }
         else {
-            Vector2 pos = new Vector2(requiredObjects.shootDirection.position.x + dispersionValue, requiredObjects.shootDirection.position.y);
+            Vector2 pos = new Vector2(player.position.x + dispersionAngle, player.position.y) -(Vector2) requiredObjects.shootPoint.position;
             GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.transform.position, transform.rotation);
             SetBulletParams(bullet, pos, 100);
         }
@@ -157,6 +141,7 @@ public class EnemyPatterns : MonoBehaviour
         bullet.GetComponent<BulletBehaviour>().IsSine = waveMode;
         bullet.GetComponent<BulletBehaviour>().IsArround = arroundMode;
         bullet.GetComponent<BulletBehaviour>().SetVel(pos, speed, divider);
+        bullet.GetComponent<BulletBehaviour>().WaveSpeed = waveSpeed;
 
     }
 }

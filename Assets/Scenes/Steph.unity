@@ -254,13 +254,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1621056273, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 1621056276, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.14
+      value: 2.67
       objectReference: {fileID: 0}
     - target: {fileID: 1621056276, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.85
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 1621056276, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -300,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1621056274, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: speed
-      value: 25
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: 1621056274, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: spawnTime
@@ -320,10 +325,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1621056274, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1621056274, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: dispersionAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621056274, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
+      propertyPath: requiredObjects.shootObject
+      value: 
+      objectReference: {fileID: 5285953335344077992, guid: 2260a57e7ed61c149b8eb73814c058cd,
+        type: 3}
+    - target: {fileID: 1621056274, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2843323}
+    - target: {fileID: 1164268170, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
