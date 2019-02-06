@@ -86,6 +86,9 @@ public class EnemyPatternsEditor : Editor
         {
             GUILayout.Label("<b>Wave mode</b>", label);
             script.waveMode = GUILayout.Toggle(script.waveMode, "");
+
+            GUILayout.Label("<b>Wave Speed</b>", label);
+            script.waveSpeed = EditorGUILayout.FloatField(script.waveSpeed);
         }
         GUILayout.EndHorizontal();
 
@@ -111,6 +114,15 @@ public class EnemyPatternsEditor : Editor
                     string valstring = string.Format("{0:00}", val1);
 
                     GUILayout.Box(valstring, value);
+
+                }
+                GUILayout.EndHorizontal();
+
+                GUILayout.BeginHorizontal(); {
+
+                    if (GUILayout.Button("Reset Rotation")) {
+                        script.rotationSpeed = 0;
+                    }
                 }
                 GUILayout.EndHorizontal();
 
@@ -130,7 +142,7 @@ public class EnemyPatternsEditor : Editor
             case EnemyPatterns.modifier.player:
                 #region PlayerMode
                 GUILayout.BeginHorizontal(); {
-                    GUILayout.Label("<b>Dispersion Angle     </b>", label);
+                    GUILayout.Label("<b><color=RED>Dispersion Angle     </color></b>", label);
                     script.dispersionAngle = Mathf.Round(GUILayout.HorizontalSlider(script.dispersionAngle, 0.0f, 3.0f, GUILayout.Width(150)) * 10f) / 10f;
                     int val1 = (int)script.dispersionAngle % 100;
                     float val2 = Mathf.Round((script.dispersionAngle - val1) * 10);

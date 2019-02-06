@@ -20,10 +20,14 @@ public class BulletBehaviour : MonoBehaviour
         set { isArround = value; }
     }
 
+    [SerializeField] private float waveSpeed;
+    public float WaveSpeed {
+        set { waveSpeed = value; }
+    }
+
 
     private Rigidbody2D rigid;
     public Vector2 vel;
-
 
 
     void Awake()
@@ -34,6 +38,8 @@ public class BulletBehaviour : MonoBehaviour
 
         GetComponentInChildren<Animator>().SetBool("isSine", isSine);
         GetComponentInChildren<Animator>().SetBool("isArround", isArround);
+        GetComponentInChildren<Animator>().SetFloat("Speed", waveSpeed);
+
     }
 
     void FixedUpdate()
@@ -49,5 +55,10 @@ public class BulletBehaviour : MonoBehaviour
     }
     public void SetVel(Vector2 pos, float speed, float divider = 1) {
         rigid.velocity = pos * speed / divider;
+    }
+
+
+   public void OnBecameInvisible() {
+        Destroy(gameObject);
     }
 }
