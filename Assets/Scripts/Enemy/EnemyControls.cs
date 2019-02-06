@@ -6,16 +6,26 @@ public class EnemyControls : MonoBehaviour
 {
     [Range(-100, 100)]
     [SerializeField] private int rotationSpeed;
+    [SerializeField] private bool delete;
+
+    private EnemySpawnSystem enemySpawnSystem;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemySpawnSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (delete) {
+            Destroy(gameObject);
+        }
         transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
+    }
+
+    private void OnDestroy() {
+        enemySpawnSystem.CurrentEnemies.Remove(gameObject);
     }
 }
