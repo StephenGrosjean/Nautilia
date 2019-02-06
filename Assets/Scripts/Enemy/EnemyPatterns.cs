@@ -9,8 +9,7 @@ public class EnemyPatterns : MonoBehaviour
 
     [System.Serializable]
     private class neededObjects {
-        public Transform shootPoint;
-        public Transform shootDirection;
+        [HideInInspector] public Transform shootPoint;
         public GameObject shootObject;
     }
 
@@ -47,12 +46,13 @@ public class EnemyPatterns : MonoBehaviour
 
 
     private void OnDrawGizmos () {
+        requiredObjects.shootPoint = transform;
         if (mode != modifier.player) {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.green;
             for (int i = 0; i < number; i++) {
-                float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.localEulerAngles.z * Mathf.Deg2Rad;
-                Vector2 pos = new Vector2(requiredObjects.shootPoint.localPosition.x + 1f* Mathf.Cos(angle), requiredObjects.shootPoint.localPosition.y + 1f * Mathf.Sin(angle));
-                Gizmos.DrawLine(requiredObjects.shootPoint.localPosition, pos);
+                float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z* Mathf.Deg2Rad;
+                Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 1f* Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 1f * Mathf.Sin(angle));
+                Gizmos.DrawLine(requiredObjects.shootPoint.position, pos);
             }
         }
     }
@@ -60,7 +60,7 @@ public class EnemyPatterns : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        requiredObjects.shootPoint = transform;
         SetMode();
     }
 
@@ -123,7 +123,7 @@ public class EnemyPatterns : MonoBehaviour
   
     void SpawnBullet(int i = 1) {
         if (mode != modifier.player) {
-            float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.localEulerAngles.z * Mathf.Deg2Rad;
+            float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
             Vector2 pos = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
             GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.position, Quaternion.Euler(Mathf.Cos(angle), Mathf.Sin(angle), 0));
             SetBulletParams(bullet, pos);

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
+[CanEditMultipleObjects]
 [CustomEditor(typeof(EnemyPatterns))]
 public class EnemyPatternsEditor : Editor
 {
@@ -52,7 +53,7 @@ public class EnemyPatternsEditor : Editor
             GUILayout.BeginHorizontal();
             {
                 GUILayout.Label("<b>Number of Axes   </b>", label);
-                script.number = (int)GUILayout.HorizontalSlider(script.number, 0, 75, GUILayout.Width(150));
+                script.number = (int)GUILayout.HorizontalSlider(script.number, 1, 75, GUILayout.Width(150));
                 int val1 = (int)script.number;
                 string valstring = string.Format("{0:00}", val1);
 
