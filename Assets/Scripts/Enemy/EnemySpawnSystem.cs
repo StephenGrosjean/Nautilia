@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemySpawnSystem : MonoBehaviour
 {
-    public enum zone { Top_Left, Top_Center, Top_Right, Middle_Left, Middle_Center, Middle_Right, Bottom_Left, Bottom_Center, Bottom_Right };
     [SerializeField] private Transform[] zones;
+    [SerializeField] private Wave[] waves;
 
     [System.Serializable]
     class Wave {
@@ -13,8 +13,7 @@ public class EnemySpawnSystem : MonoBehaviour
         public zone zoneToSpawn;
         public bool waitUntilDestruction;
     }
-
-    [SerializeField] private Wave[] waves;
+    public enum zone { Top_Left, Top_Center, Top_Right, Middle_Left, Middle_Center, Middle_Right, Bottom_Left, Bottom_Center, Bottom_Right };
 
 
     private List<GameObject> currentEnemies = new List<GameObject>();

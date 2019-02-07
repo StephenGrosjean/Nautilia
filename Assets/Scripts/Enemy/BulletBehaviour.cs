@@ -46,7 +46,9 @@ public class BulletBehaviour : MonoBehaviour
     {
         vel = rigid.velocity;
         speed = vel.magnitude;
-        rigid.AddForce(vel * acceleration/50, ForceMode2D.Force);
+        if (acceleration > 0) {
+            rigid.AddForce(vel * acceleration / 50, ForceMode2D.Force);
+        }
         Vector3 vectorToTarget = vel * 5 - (Vector2)transform.position;
         float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angleToTarget, Vector3.forward);
@@ -54,7 +56,9 @@ public class BulletBehaviour : MonoBehaviour
 
     }
     public void SetVel(Vector2 pos, float speed, float divider = 1) {
-        rigid.velocity = pos * speed / divider;
+        if (speed > 0.0f) {
+            rigid.velocity = pos * speed / divider;
+        }
     }
 
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyPatterns : MonoBehaviour
 {
 
-    public enum modifier { circle, player, burst};
+    public enum modifier { circle, player, burst, oneTime};
 
     [System.Serializable]
     private class neededObjects {
@@ -21,7 +21,7 @@ public class EnemyPatterns : MonoBehaviour
 
     //All modes variables
     [HideInInspector] public int number;
-    [HideInInspector] public float speed;
+    public float speed;
     [HideInInspector] public float accelleration;
     [HideInInspector] public bool waveMode, arroundMode;
     [HideInInspector] public float waveSpeed;
@@ -44,7 +44,17 @@ public class EnemyPatterns : MonoBehaviour
     private Transform player;
     private modifier prevMode;
 
-
+    private void OnDrawGizmosSelected() {
+        requiredObjects.shootPoint = transform;
+        if (mode != modifier.player) {
+            Gizmos.color = Color.red;
+            for (int i = 0; i < number; i++) {
+                float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
+                Vector2 pos = new Vector2(requiredObjects.shootPoint.position.x + 1f * Mathf.Cos(angle), requiredObjects.shootPoint.position.y + 1f * Mathf.Sin(angle));
+                Gizmos.DrawLine(requiredObjects.shootPoint.position, pos);
+            }
+        }
+    }
 
     private void OnDrawGizmos () {
         requiredObjects.shootPoint = transform;
@@ -69,11 +79,15 @@ public class EnemyPatterns : MonoBehaviour
     void SetMode() {
         CancelInvoke();
 
-        if (mode != modifier.burst) {
+        if (mode != modifier.burst && mode != modifier.oneTime) {
             InvokeRepeating("SpawnParticles", 0, spawnTime);
         }
-        else {
+        else if(mode == modifier.burst){
             StartCoroutine("BurstSpawn");
+        }
+        else if(mode == modifier.oneTime) {
+            StartCoroutine("SingleShot");
+
         }
     }
 
@@ -122,14 +136,21 @@ public class EnemyPatterns : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
-  
-    void SpawnBullet(int i = 1) {
+
+    IEnumerator SingleShot() {
+        for (int i = 1; i < number + 1; i++) {
+            SpawnBullet(i);
+        }
+        yield return new WaitForSeconds(spawnTime);
+    }
+
+    void SpawnBullet(int i = 1, float divider = 1) {
         if (mode != modifier.player) {
             float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
             Vector2 pos = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
             GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.position, Quaternion.Euler(Mathf.Cos(angle), Mathf.Sin(angle), 0));
             bullet.transform.parent = requiredObjects.bulletContainer;
-            SetBulletParams(bullet, pos);
+            SetBulletParams(bullet, pos, divider);
         }
         else {
             Vector2 pos = new Vector2(player.position.x + dispersionAngle, player.position.y) -(Vector2) requiredObjects.shootPoint.position;
@@ -139,7 +160,7 @@ public class EnemyPatterns : MonoBehaviour
         }
     }
 
-    void SetBulletParams(GameObject bullet, Vector2 pos, int divider = 1) {
+    void SetBulletParams(GameObject bullet, Vector2 pos, float divider = 1) {
 
         bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
         bullet.GetComponent<BulletBehaviour>().IsSine = waveMode;
