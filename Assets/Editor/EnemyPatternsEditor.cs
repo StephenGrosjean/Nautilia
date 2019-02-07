@@ -44,6 +44,11 @@ public class EnemyPatternsEditor : Editor
                 EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
                 GUILayout.Space(10);
                 break;
+            case EnemyPatterns.modifier.oneTime:
+                GUILayout.Label("<b><color=RED>Sigle Shot Mode Settings</color></b>", title);
+                EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+                GUILayout.Space(10);
+                break;
                 #endregion
         }
 

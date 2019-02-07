@@ -10,13 +10,11 @@ public class EnemyControls : MonoBehaviour
 
     private EnemySpawnSystem enemySpawnSystem;
 
-    // Start is called before the first frame update
     void Start()
     {
         enemySpawnSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnSystem>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (delete) {
