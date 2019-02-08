@@ -15,19 +15,23 @@
             <e p="BulletBehaviour.cs" t="Include" />
             <e p="EnemyPatterns.cs" t="Include" />
           </e>
-          <e p="Menu.cs" t="Include" />
           <e p="Misc" t="Include">
             <e p="DestroyByTime.cs" t="Include" />
             <e p="GizmoDraw.cs" t="Include" />
+            <e p="TEST.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="Player.cs" t="Include" />
             <e p="PlayerBulletBehavior.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="Shoot.cs" t="Include" />
+            <e p="Upgrades.cs" t="Include" />
           </e>
-          <e p="SettingMenu.cs" t="Include" />
-          <e p="Upgrades.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="Menu.cs" t="Include" />
+            <e p="ScoreManager.cs" t="Include" />
+            <e p="SettingMenu.cs" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
