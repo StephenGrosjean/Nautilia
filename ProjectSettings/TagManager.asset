@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Upgrade
+  - Container
+  - EnemyContainer
   layers:
   - Default
   - TransparentFX
