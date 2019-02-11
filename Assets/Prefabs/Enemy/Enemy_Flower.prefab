@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 2034136422349315961}
   - component: {fileID: 2034136422349315962}
   - component: {fileID: 2034136422349315963}
+  - component: {fileID: 6651428167336088463}
   m_Layer: 0
   m_Name: Enemy_Flower
   m_TagString: Untagged
@@ -218,3 +219,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0
   delete: 0
+--- !u!95 &6651428167336088463
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034136422349315964}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95853b6c9bb4b6f45a2c1581bccfc69d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
