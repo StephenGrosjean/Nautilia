@@ -14,7 +14,7 @@ public class EnemySpawnSystem : MonoBehaviour
         public bool waitUntilDestruction;
     }
     public enum zone { Top_Left, Top_Center, Top_Right, Middle_Left, Middle_Center, Middle_Right, Bottom_Left, Bottom_Center, Bottom_Right };
-
+    
 
     private List<GameObject> currentEnemies = new List<GameObject>();
     public List<GameObject> CurrentEnemies{
@@ -22,8 +22,12 @@ public class EnemySpawnSystem : MonoBehaviour
         set { currentEnemies = value; }
     }
 
+    private Transform enemyContainer;
+
     void Start()
     {
+        Application.targetFrameRate = 120;
+        enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform;
         StartCoroutine("SpawnWaves");
     }
 
@@ -33,6 +37,8 @@ public class EnemySpawnSystem : MonoBehaviour
     IEnumerator SpawnWaves() {
         foreach (Wave wave in waves) {
             GameObject enemy = Instantiate(wave.toSpawn, GetSpawnPosition(wave.zoneToSpawn).position, Quaternion.identity);
+            enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn);
+            enemy.transform.position = Vector3.zero;
             currentEnemies.Add(enemy);
             if (wave.waitUntilDestruction) {
                 while (currentEnemies.Count > 0) {
