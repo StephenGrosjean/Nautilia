@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        ShootingMode();
         if (blinkInterval > maxInvincibilityTime)
         {
             blinkInterval = maxInvincibilityTime;

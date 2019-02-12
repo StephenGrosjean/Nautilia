@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(EnemyPatterns))]
+[ExecuteInEditMode]
 public class EnemyPatternsEditor : Editor
 {
 
@@ -9,9 +11,10 @@ public class EnemyPatternsEditor : Editor
     GUIStyle title = new GUIStyle();
     GUIStyle value = new GUIStyle();
 
+    
+
     public override void OnInspectorGUI() {
         EnemyPatterns script = (EnemyPatterns)target;
-        EditorUtility.SetDirty(script);
 
         label.richText = true;
         label.alignment = TextAnchor.MiddleLeft;
@@ -195,5 +198,12 @@ public class EnemyPatternsEditor : Editor
 
         serializedObject.Update();
         serializedObject.ApplyModifiedProperties();
+
+        if (GUI.changed) {
+            EditorUtility.SetDirty(script);
+            EditorSceneManager.MarkSceneDirty(script.gameObject.scene);
+        }
+        
+
     }
 }

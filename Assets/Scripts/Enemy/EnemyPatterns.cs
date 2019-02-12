@@ -73,7 +73,7 @@ public class EnemyPatterns : MonoBehaviour
         requiredObjects.bulletContainer = GameObject.FindGameObjectWithTag("Container").transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         requiredObjects.shootPoint = transform;
-        SetMode();
+        Invoke("SetMode", 0.2f);
     }
 
     void SetMode() {

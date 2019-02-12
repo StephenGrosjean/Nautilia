@@ -26,6 +26,7 @@ public class EnemySpawnSystem : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 120;
         enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform;
         StartCoroutine("SpawnWaves");
     }
@@ -36,7 +37,8 @@ public class EnemySpawnSystem : MonoBehaviour
     IEnumerator SpawnWaves() {
         foreach (Wave wave in waves) {
             GameObject enemy = Instantiate(wave.toSpawn, GetSpawnPosition(wave.zoneToSpawn).position, Quaternion.identity);
-            enemy.transform.parent = enemyContainer;
+            enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn);
+            enemy.transform.position = Vector3.zero;
             currentEnemies.Add(enemy);
             if (wave.waitUntilDestruction) {
                 while (currentEnemies.Count > 0) {
