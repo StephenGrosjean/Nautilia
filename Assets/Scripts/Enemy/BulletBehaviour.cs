@@ -42,6 +42,21 @@ public class BulletBehaviour : MonoBehaviour
 
     }
 
+    private void Update() {
+        if(transform.position.x > 2.5f) {
+            Destroy(gameObject);
+        }
+        if (transform.position.x < -2.5f) {
+            Destroy(gameObject);
+        }
+        if (transform.position.y > 4) {
+            Destroy(gameObject);
+        }
+        if (transform.position.y < -4) {
+            Destroy(gameObject);
+        }
+    }
+
     void FixedUpdate()
     {
         vel = rigid.velocity;
@@ -62,7 +77,9 @@ public class BulletBehaviour : MonoBehaviour
     }
 
 
+
    public void OnBecameInvisible() {
         Destroy(gameObject);
     }
+
 }

@@ -71,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300036, guid: 9d8b76d573b2d9a4ea20d7c23a721934, type: 3}
+  m_SortingLayerID: 1979546751
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 517d4d3d24bdc8444997a46a78c6004c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7219890cb840978408919d17eba21e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 100
+  life: 200
 --- !u!95 &1969714069856955843
 Animator:
   serializedVersion: 3
@@ -159,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 1621056273}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5174c58386fac442b6036666114c2cd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 95853b6c9bb4b6f45a2c1581bccfc69d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -218,13 +218,13 @@ MonoBehaviour:
     bulletContainer: {fileID: 0}
   mode: 0
   number: 4
-  speed: 1.1
+  speed: 2.2
   accelleration: 0
-  waveMode: 1
+  waveMode: 0
   arroundMode: 0
-  waveSpeed: 2
-  rotationSpeed: 0
-  spawnTime: 0.4
+  waveSpeed: 1
+  rotationSpeed: 19
+  spawnTime: 0.2
   dispersionAngle: 0
   numberByBurst: 5
   timeBetweenBursts: 0.4
