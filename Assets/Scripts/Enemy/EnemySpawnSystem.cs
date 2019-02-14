@@ -4,50 +4,54 @@ using UnityEngine;
 
 public class EnemySpawnSystem : MonoBehaviour
 {
-    [SerializeField] private Transform[] zones;
-    [SerializeField] private Wave[] waves;
+    //Zones enum
+    public enum zone { Top_Left, Top_Center, Top_Right, Middle_Left, Middle_Center, Middle_Right, Bottom_Left, Bottom_Center, Bottom_Right };
 
+    [SerializeField] private Transform[] zones; //Zones transform
+    [SerializeField] private Wave[] waves; //Waves array
+
+    //Wave setup class
     [System.Serializable]
     class Wave {
         public GameObject toSpawn;
         public zone zoneToSpawn;
         public bool waitUntilDestruction;
     }
-    public enum zone { Top_Left, Top_Center, Top_Right, Middle_Left, Middle_Center, Middle_Right, Bottom_Left, Bottom_Center, Bottom_Right };
     
-
+    //List of enemies
     private List<GameObject> currentEnemies = new List<GameObject>();
     public List<GameObject> CurrentEnemies{
         get { return currentEnemies; }
         set { currentEnemies = value; }
     }
 
+    //Enemy container
     private Transform enemyContainer;
 
+    
     void Start()
     {
-        Application.targetFrameRate = 120;
-        enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform;
-        StartCoroutine("SpawnWaves");
-    }
-
-    private void Update() {
+        enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform; //Get the enemy container transform
+        StartCoroutine("SpawnWaves"); //Start the wave spawn
     }
 
     IEnumerator SpawnWaves() {
         foreach (Wave wave in waves) {
-            GameObject enemy = Instantiate(wave.toSpawn, GetSpawnPosition(wave.zoneToSpawn).position, Quaternion.identity);
-            enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn);
-            enemy.transform.position = Vector3.zero;
-            currentEnemies.Add(enemy);
+            GameObject enemy = Instantiate(wave.toSpawn, GetSpawnPosition(wave.zoneToSpawn).position, Quaternion.identity); //Instantiate enemy in correct zone
+            enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn); //Put the enemy in the zone transform
+            enemy.transform.position = Vector3.zero; //Set the enemy position to the zone transform position
+            currentEnemies.Add(enemy); //Add the enemy to the list
+
+            //If the wave need to wait before spawning the next wave
             if (wave.waitUntilDestruction) {
-                while (currentEnemies.Count > 0) {
+                while (currentEnemies.Count > 0) { //Check if all the enemies are destroyed
                     yield return new WaitForSeconds(0.1f);
                 }
             }
         }
     }
 
+    //Get all spawn positions
     Transform GetSpawnPosition(zone zone) {
         switch (zone) {
             case zone.Top_Left:

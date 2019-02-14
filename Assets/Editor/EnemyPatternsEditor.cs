@@ -11,7 +11,6 @@ public class EnemyPatternsEditor : Editor
     GUIStyle title = new GUIStyle();
     GUIStyle value = new GUIStyle();
 
-    
 
     public override void OnInspectorGUI() {
         EnemyPatterns script = (EnemyPatterns)target;
