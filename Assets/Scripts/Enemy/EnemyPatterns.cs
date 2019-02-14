@@ -22,7 +22,7 @@ public class EnemyPatterns : MonoBehaviour
 
     //All modes variables
     [HideInInspector] public int number;
-    public float speed;
+    [HideInInspector] public float speed;
     [HideInInspector] public float accelleration;
     [HideInInspector] public bool waveMode, arroundMode;
     [HideInInspector] public float waveSpeed;
@@ -183,6 +183,7 @@ public class EnemyPatterns : MonoBehaviour
         bullet.GetComponent<BulletBehaviour>().IsArround = arroundMode;
         bullet.GetComponent<BulletBehaviour>().SetVel(pos, speed, divider);
         bullet.GetComponent<BulletBehaviour>().WaveSpeed = waveSpeed;
+        bullet.GetComponent<BulletBehaviour>().Initiator = gameObject;
     }
 }
 
