@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyControls : MonoBehaviour
 {
     [SerializeField] private bool delete; //Destroy the enemy (Used for testing)
+    [SerializeField] private GameObject[] powerupsDrop;
 
     [Range(-100, 100)]
     [SerializeField] private int rotationSpeed; //Rotation speed of the enemy
@@ -38,6 +39,10 @@ public class EnemyControls : MonoBehaviour
 
     //Remove the object from the List in enemySpawnSystem at object destroy
     private void OnDestroy() {
+        if (powerupsDrop.Length > 0) {
+            Instantiate(powerupsDrop[Random.Range(0, powerupsDrop.Length)], transform.position, Quaternion.identity);
+        }
+
         enemySpawnSystem.CurrentEnemies.Remove(gameObject);
     }
 
