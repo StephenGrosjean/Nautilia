@@ -7,7 +7,8 @@ public class Point : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("PointCollector")) {
-            collision.transform.parent.GetComponent<Points>().AddScore(1000);
+            //collision.transform.parent.GetComponent<Points>().AddScore(1000);
+            ScoreManager.AddScore(100);
             Destroy(gameObject);
         }
     }

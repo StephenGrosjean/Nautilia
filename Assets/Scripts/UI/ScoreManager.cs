@@ -15,6 +15,12 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        score.text = "Score" + scoreValue;
+        score.text = "Score : " + scoreValue;
     }
+
+    public static void AddScore(int value) {
+        scoreValue += value;
+    }
+
+    
 }
