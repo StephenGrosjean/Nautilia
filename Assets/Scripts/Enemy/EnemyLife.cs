@@ -4,28 +4,20 @@ using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
 {
-    [SerializeField] private int life = 100;
+    [SerializeField] private int life = 100; //Life script 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Decrease life function
     public void DecreaseLife(int value) {
         life -= value;
     }
 
+    //Increase life function
     public void IncreaseLife(int value) {
         life += value;
     }
 
+
+    //Return the life variable
     public int GetLife() {
         return life;
     }
