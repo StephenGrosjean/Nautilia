@@ -23,7 +23,7 @@ public class EnemyPatterns : MonoBehaviour
     //All modes variables
     [HideInInspector] public int number;
     [HideInInspector] public float speed;
-    [HideInInspector] public float accelleration;
+    [HideInInspector] public float acceleration;
     [HideInInspector] public bool waveMode, arroundMode;
     [HideInInspector] public float waveSpeed;
 
@@ -183,7 +183,7 @@ public class EnemyPatterns : MonoBehaviour
 
     //Set the params for the bullet
     void SetBulletParams(GameObject bullet, Vector2 pos, float divider = 1) {
-        bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
+        bullet.GetComponent<BulletBehaviour>().Acceleration = acceleration;
         bullet.GetComponent<BulletBehaviour>().IsSine = waveMode;
         bullet.GetComponent<BulletBehaviour>().IsArround = arroundMode;
         //bullet.GetComponent<BulletBehaviour>().SetVel(pos, speed, divider);
