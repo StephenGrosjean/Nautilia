@@ -7,6 +7,11 @@ TagManager:
   - Bullet
   - Upgrade
   - Container
+  - EnemyContainer
+  - PlayerBullet
+  - Point
+  - PointCollector
+  - Pool
   layers:
   - Default
   - TransparentFX
@@ -18,8 +23,8 @@ TagManager:
   - 
   - Bullet
   - Player
-  - 
-  - 
+  - Attracted
+  - Collector
   - 
   - 
   - 
@@ -43,4 +48,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4218099175
+    locked: 0
+  - name: UI
+    uniqueID: 2917900599
+    locked: 0
+  - name: Entity
+    uniqueID: 1979546751
     locked: 0
