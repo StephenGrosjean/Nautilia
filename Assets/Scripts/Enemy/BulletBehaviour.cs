@@ -11,7 +11,6 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] private bool isArround; //Animation form toggle
     [SerializeField] private float waveSpeed; //Speed of the wave animation
     [SerializeField] private GameObject initiator; //Who spawned the bullet?
-
     [SerializeField] private GameObject point;
 
     //Public variables (Get/Set)
@@ -148,4 +147,6 @@ public class BulletBehaviour : MonoBehaviour
         initiator = null;
         CanBePulled = true;
     }
+    
+    
 }
