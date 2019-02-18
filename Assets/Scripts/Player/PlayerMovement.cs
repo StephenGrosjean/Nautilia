@@ -4,28 +4,71 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float _movementHorizontal;
-    private float _movementVertical;
-    private Rigidbody2D _playerRb;
     
-    public float playerSpeed = 10;
-     
-     
-    private void Start()
-    {
-        _playerRb = GetComponent<Rigidbody2D>();
+    [SerializeField] private Vector2 touchPos, pos;
+    [SerializeField] private bool cursorMode;
+    [SerializeField] private float speed;
+    [SerializeField] private float yOffset;
+    private bool isInPlayerZone;
+    private Camera camera;
+    private void OnDrawGizmos() {
     }
 
-    private void Update()
+    private void Start()
     {
-        _movementHorizontal = Input.GetAxisRaw("Horizontal");
-        _movementVertical = Input.GetAxisRaw("Vertical");
-    } 
+        camera = Camera.main;
+    }
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        Vector2 movement = new Vector2(_movementHorizontal,_movementVertical);
+        if (!cursorMode) {
+            if (Input.touchCount > 0) {
+                Touch touch = Input.GetTouch(0);
+                touchPos = camera.ScreenToWorldPoint(touch.position);
+                touchPos = new Vector2(touchPos.x, touchPos.y + yOffset);
 
-        _playerRb.velocity = movement * playerSpeed;
+                if (isInPlayerZone) {
+                    transform.position = Vector2.Lerp(transform.position, touchPos, Time.deltaTime * speed);
+                }
+
+                RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector3.forward);
+                if (hit.collider != null) {
+                    if (hit.transform.tag == "Player") {
+                        isInPlayerZone = true;
+                    }
+                }
+            }
+            else if(Input.touchCount == 0) {
+                isInPlayerZone = false;
+            }
+        }
+        else {
+
+            if (Input.GetMouseButton(0)) {
+                
+                pos = Input.mousePosition;
+                pos = camera.ScreenToWorldPoint(pos);
+                pos = new Vector2(pos.x, pos.y + yOffset);
+
+                if (isInPlayerZone) {
+                    transform.position = Vector2.Lerp(transform.position, pos, Time.deltaTime * speed);
+                    
+                }
+            }
+            if (Input.GetMouseButtonDown(0)) {
+                RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.forward);
+                if (hit.collider != null) {
+                    if(hit.transform.tag == "Player") {
+                        isInPlayerZone = true;
+                    }
+                }
+            }
+
+            if (Input.GetMouseButtonUp(0)) {
+                isInPlayerZone = false;
+            }
+
+        }
     }
 }

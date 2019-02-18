@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1621056276}
   - component: {fileID: 1905590553}
   - component: {fileID: 6137384853510712115}
-  - component: {fileID: 383708311260314086}
   - component: {fileID: 8631288295531225984}
   - component: {fileID: 1969714069856955843}
   m_Layer: 0
@@ -50,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delete: 0
+  powerupsDrop: []
   rotationSpeed: 0
 --- !u!58 &6137384853510712115
 CircleCollider2D:
@@ -67,27 +67,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.78
---- !u!50 &383708311260314086
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621056273}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &8631288295531225984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7219890cb840978408919d17eba21e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 200
+  life: 250
 --- !u!95 &1969714069856955843
 Animator:
   serializedVersion: 3
@@ -171,7 +150,7 @@ MonoBehaviour:
     bulletContainer: {fileID: 0}
   number: 4
   speed: 1.1
-  accelleration: 0
+  acceleration: 0
   waveMode: 0
   arroundMode: 0
   waveSpeed: 1

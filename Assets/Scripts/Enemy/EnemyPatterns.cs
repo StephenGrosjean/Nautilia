@@ -23,7 +23,7 @@ public class EnemyPatterns : MonoBehaviour
     //All modes variables
     [HideInInspector] public int number;
     [HideInInspector] public float speed;
-    [HideInInspector] public float accelleration;
+    [HideInInspector] public float acceleration;
     [HideInInspector] public bool waveMode, arroundMode;
     [HideInInspector] public float waveSpeed;
 
@@ -44,6 +44,7 @@ public class EnemyPatterns : MonoBehaviour
     private bool decrease;
     private Transform player;
     private modifier prevMode;
+    private BulletPooler objectPool;
 
     #region DebugGizmo
     private void OnDrawGizmosSelected() {
@@ -74,6 +75,7 @@ public class EnemyPatterns : MonoBehaviour
 
     void Start()
     {
+        objectPool = GameObject.FindGameObjectWithTag("Pool").GetComponent<BulletPooler>();
         requiredObjects.bulletContainer = GameObject.FindGameObjectWithTag("Container").transform; //Get the container for the bullet
         player = GameObject.FindGameObjectWithTag("Player").transform; //Get the player object
         requiredObjects.shootPoint = transform; //Get the transform reference
@@ -163,9 +165,12 @@ public class EnemyPatterns : MonoBehaviour
         if (mode != modifier.player) {
             float angle = (i * (Mathf.PI * 2 / number) - Mathf.PI * 2) + transform.eulerAngles.z * Mathf.Deg2Rad;
             Vector2 pos = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-            GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.position, Quaternion.Euler(Mathf.Cos(angle), Mathf.Sin(angle), 0));
-            bullet.transform.parent = requiredObjects.bulletContainer;
+            //GameObject bullet = Instantiate(requiredObjects.shootObject, requiredObjects.shootPoint.position, Quaternion.Euler(Mathf.Cos(angle), Mathf.Sin(angle), 0));
+            GameObject bullet = objectPool.GetBullet();
             SetBulletParams(bullet, pos, divider);
+            bullet.transform.position = requiredObjects.shootPoint.position;
+            bullet.transform.rotation = Quaternion.Euler(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+
         }
         //If it's targeting player, shoot on a single axis toward player (Rotated in update function)
         else {
@@ -178,10 +183,11 @@ public class EnemyPatterns : MonoBehaviour
 
     //Set the params for the bullet
     void SetBulletParams(GameObject bullet, Vector2 pos, float divider = 1) {
-        bullet.GetComponent<BulletBehaviour>().Acceleration = accelleration;
+        bullet.GetComponent<BulletBehaviour>().Acceleration = acceleration;
         bullet.GetComponent<BulletBehaviour>().IsSine = waveMode;
         bullet.GetComponent<BulletBehaviour>().IsArround = arroundMode;
-        bullet.GetComponent<BulletBehaviour>().SetVel(pos, speed, divider);
+        //bullet.GetComponent<BulletBehaviour>().SetVel(pos, speed, divider);
+        bullet.GetComponent<BulletBehaviour>().target = pos * 10;
         bullet.GetComponent<BulletBehaviour>().WaveSpeed = waveSpeed;
         bullet.GetComponent<BulletBehaviour>().Initiator = gameObject;
     }
