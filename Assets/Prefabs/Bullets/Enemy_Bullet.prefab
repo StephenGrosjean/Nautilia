@@ -146,6 +146,7 @@ MonoBehaviour:
   isArround: 0
   waveSpeed: 0
   initiator: {fileID: 0}
+  enableRange: 0.5
   point: {fileID: 7042125005257105704, guid: 39a2a4148f2c1a941b0419fae962d881, type: 3}
   target: {x: 0, y: 0}
 --- !u!212 &7719598089854887261
