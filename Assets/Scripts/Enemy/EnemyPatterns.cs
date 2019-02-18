@@ -23,7 +23,7 @@ public class EnemyPatterns : MonoBehaviour
     //All modes variables
     [HideInInspector] public int number;
     [HideInInspector] public float speed;
-    [HideInInspector] public float accelleration;
+    [HideInInspector] public float acceleration;
     [HideInInspector] public bool waveMode, arroundMode;
     [HideInInspector] public float waveSpeed;
 

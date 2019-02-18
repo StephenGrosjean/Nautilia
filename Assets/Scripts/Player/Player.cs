@@ -6,20 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
+    public enum PlayerUpgrade { FirstUpgrade, SecondUpgrade, ThirdUpgrade, FourthUpgrade, FifthUpgrade }
+    
+    
 #region Player variable
-    [SerializeField] private GameObject doubleShotPoint; 
-    [SerializeField] private GameObject quadShotPoint;
-    [SerializeField] private GameObject singleShotPoint;
+    [SerializeField] private GameObject firstUpgradePoint; 
+    [SerializeField] private GameObject secondUpgradePoint;
+    [SerializeField] private GameObject thirdUpgradePoint;
+    [SerializeField] private GameObject fourthUpgradePoint;
+    [SerializeField] private GameObject fifthUpgradePoint;
     [SerializeField] private GameObject playerSprite;
    
     public int playerLife = 3;
-    public int shootMode = 0;
     
     [SerializeField] private float blinkInterval = 0.2f;
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
     
     private bool _isInvincible = false;
+    private PlayerUpgrade _playerUpgrade;
     
 #endregion
 
@@ -37,26 +43,13 @@ public class Player : MonoBehaviour
         StartCoroutine(Die(deathAnimation));
         
     }
-
-    private void DoubleShotUpgrade()
-    {
-        doubleShotPoint.SetActive(true);
-        
-        singleShotPoint.SetActive(false);
-    }
-    
-    private void QuadShotUpgrade()
-    {
-        doubleShotPoint.SetActive(false);
-        quadShotPoint.SetActive(true);
-    }
     
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Upgrade"))
         {
             ScoreManager.scoreValue += 1000;
-            shootMode++;
+            _playerUpgrade++;
             ShootingMode();
         }
 
@@ -66,18 +59,37 @@ public class Player : MonoBehaviour
             playerLife -= 1;
         }
     }
-    
+
     private void ShootingMode()
     {
-        if (shootMode == 1)
+        switch (_playerUpgrade)
         {
-            DoubleShotUpgrade();
-        }
-        else if(shootMode == 2)
-        {
-            QuadShotUpgrade();
+            case PlayerUpgrade.FirstUpgrade:
+                firstUpgradePoint.SetActive(true);
+                break;
+
+            case PlayerUpgrade.SecondUpgrade:
+                firstUpgradePoint.SetActive(false);
+                secondUpgradePoint.SetActive(true);
+                break;
+
+            case PlayerUpgrade.ThirdUpgrade:
+                secondUpgradePoint.SetActive(false);
+                thirdUpgradePoint.SetActive(true);
+                break;
+
+            case PlayerUpgrade.FourthUpgrade:
+                thirdUpgradePoint.SetActive(false);
+                fourthUpgradePoint.SetActive(true);
+                break;
+
+            case PlayerUpgrade.FifthUpgrade:
+                fourthUpgradePoint.SetActive(false);
+                fifthUpgradePoint.SetActive(true);
+                break;
         }
     }
+
     private IEnumerator Die(float time)
     {
         if (playerLife == 0)
