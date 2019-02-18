@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="921cc21c-d910-4abb-85af-92a0883db3ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetCommun7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetCommun7/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetCommun7/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetCommun7/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/BulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/BulletBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -163,37 +153,37 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/BulletBehaviour.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="151" column="4" selection-start-line="151" selection-start-column="4" selection-end-line="151" selection-end-column="4" />
+            <state relative-caret-position="-210">
+              <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
               <folding>
-                <marker date="1550485286398" expanded="false" signature="6:78" ph="..." />
-                <marker date="1550485286398" expanded="true" signature="124:4430" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="642:687" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="711:750" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="777:819" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="847:889" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="922:998" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="1309:1448" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="1370:1442" ph="/* Get rigidbody component ... */" />
-                <marker date="1550485286398" expanded="true" signature="1476:1530" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="1560:2068" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="1636:1850" ph="/* GetComponentInChildren&lt;Animator&gt;().SetBool(&quot;isSine&quot;, isSine); ... */" />
-                <marker date="1550485286398" expanded="true" signature="1985:2062" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="2087:3397" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="2377:2425" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="2475:2524" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="2636:2682" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="2722:2831" ph="/* if (acceleration &gt; 0) { ... */" />
-                <marker date="1550485286398" expanded="true" signature="2841:3213" ph="/* Rotate the bullet toward the velocity vector ... */" />
-                <marker date="1550485286398" expanded="true" signature="3277:3391" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="3519:3616" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="3547:3610" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="3693:3731" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="3754:3952" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="3832:3916" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="3973:4115" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="4145:4176" ph="{...}" />
-                <marker date="1550485286398" expanded="true" signature="4209:4418" ph="{...}" />
+                <marker date="1550485457773" expanded="false" signature="6:78" ph="..." />
+                <marker date="1550485457773" expanded="true" signature="124:4429" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="641:686" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="710:749" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="776:818" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="846:888" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="921:997" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="1308:1447" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="1369:1441" ph="/* Get rigidbody component ... */" />
+                <marker date="1550485457773" expanded="true" signature="1475:1529" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="1559:2067" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="1635:1849" ph="/* GetComponentInChildren&lt;Animator&gt;().SetBool(&quot;isSine&quot;, isSine); ... */" />
+                <marker date="1550485457773" expanded="true" signature="1984:2061" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="2086:3396" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="2376:2424" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="2474:2523" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="2635:2681" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="2721:2830" ph="/* if (acceleration &gt; 0) { ... */" />
+                <marker date="1550485457773" expanded="true" signature="2840:3212" ph="/* Rotate the bullet toward the velocity vector ... */" />
+                <marker date="1550485457773" expanded="true" signature="3276:3390" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="3518:3615" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="3546:3609" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="3692:3730" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="3753:3951" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="3831:3915" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="3972:4114" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="4144:4175" ph="{...}" />
+                <marker date="1550485457773" expanded="true" signature="4208:4417" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -416,12 +406,12 @@
       <workItem from="1549265254112" duration="7869000" />
       <workItem from="1549360920586" duration="4394000" />
       <workItem from="1550478593714" duration="85000" />
-      <workItem from="1550479013459" duration="6067000" />
+      <workItem from="1550479013459" duration="7443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42145000" />
+    <option name="totallyTimeSpent" value="43521000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -725,37 +715,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/BulletBehaviour.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="151" column="4" selection-start-line="151" selection-start-column="4" selection-end-line="151" selection-end-column="4" />
+        <state relative-caret-position="-210">
+          <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
           <folding>
-            <marker date="1550485286398" expanded="false" signature="6:78" ph="..." />
-            <marker date="1550485286398" expanded="true" signature="124:4430" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="642:687" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="711:750" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="777:819" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="847:889" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="922:998" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="1309:1448" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="1370:1442" ph="/* Get rigidbody component ... */" />
-            <marker date="1550485286398" expanded="true" signature="1476:1530" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="1560:2068" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="1636:1850" ph="/* GetComponentInChildren&lt;Animator&gt;().SetBool(&quot;isSine&quot;, isSine); ... */" />
-            <marker date="1550485286398" expanded="true" signature="1985:2062" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="2087:3397" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="2377:2425" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="2475:2524" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="2636:2682" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="2722:2831" ph="/* if (acceleration &gt; 0) { ... */" />
-            <marker date="1550485286398" expanded="true" signature="2841:3213" ph="/* Rotate the bullet toward the velocity vector ... */" />
-            <marker date="1550485286398" expanded="true" signature="3277:3391" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="3519:3616" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="3547:3610" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="3693:3731" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="3754:3952" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="3832:3916" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="3973:4115" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="4145:4176" ph="{...}" />
-            <marker date="1550485286398" expanded="true" signature="4209:4418" ph="{...}" />
+            <marker date="1550485457773" expanded="false" signature="6:78" ph="..." />
+            <marker date="1550485457773" expanded="true" signature="124:4429" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="641:686" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="710:749" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="776:818" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="846:888" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="921:997" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="1308:1447" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="1369:1441" ph="/* Get rigidbody component ... */" />
+            <marker date="1550485457773" expanded="true" signature="1475:1529" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="1559:2067" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="1635:1849" ph="/* GetComponentInChildren&lt;Animator&gt;().SetBool(&quot;isSine&quot;, isSine); ... */" />
+            <marker date="1550485457773" expanded="true" signature="1984:2061" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="2086:3396" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="2376:2424" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="2474:2523" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="2635:2681" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="2721:2830" ph="/* if (acceleration &gt; 0) { ... */" />
+            <marker date="1550485457773" expanded="true" signature="2840:3212" ph="/* Rotate the bullet toward the velocity vector ... */" />
+            <marker date="1550485457773" expanded="true" signature="3276:3390" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="3518:3615" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="3546:3609" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="3692:3730" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="3753:3951" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="3831:3915" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="3972:4114" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="4144:4175" ph="{...}" />
+            <marker date="1550485457773" expanded="true" signature="4208:4417" ph="{...}" />
           </folding>
         </state>
       </provider>
