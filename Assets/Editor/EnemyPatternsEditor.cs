@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(EnemyPatterns))]
+[ExecuteInEditMode]
 public class EnemyPatternsEditor : Editor
 {
 
@@ -9,9 +11,9 @@ public class EnemyPatternsEditor : Editor
     GUIStyle title = new GUIStyle();
     GUIStyle value = new GUIStyle();
 
+
     public override void OnInspectorGUI() {
         EnemyPatterns script = (EnemyPatterns)target;
-        EditorUtility.SetDirty(script);
 
         label.richText = true;
         label.alignment = TextAnchor.MiddleLeft;
@@ -44,6 +46,11 @@ public class EnemyPatternsEditor : Editor
                 EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
                 GUILayout.Space(10);
                 break;
+            case EnemyPatterns.modifier.oneTime:
+                GUILayout.Label("<b><color=RED>Sigle Shot Mode Settings</color></b>", title);
+                EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+                GUILayout.Space(10);
+                break;
                 #endregion
         }
 
@@ -52,7 +59,7 @@ public class EnemyPatternsEditor : Editor
             GUILayout.BeginHorizontal();
             {
                 GUILayout.Label("<b>Number of Axes   </b>", label);
-                script.number = (int)GUILayout.HorizontalSlider(script.number, 0, 75, GUILayout.Width(150));
+                script.number = (int)GUILayout.HorizontalSlider(script.number, 1, 75, GUILayout.Width(150));
                 int val1 = (int)script.number;
                 string valstring = string.Format("{0:00}", val1);
 
@@ -86,6 +93,17 @@ public class EnemyPatternsEditor : Editor
         {
             GUILayout.Label("<b>Wave mode</b>", label);
             script.waveMode = GUILayout.Toggle(script.waveMode, "");
+
+            GUILayout.Label("<b>Wave Speed</b>", label);
+            script.waveSpeed = EditorGUILayout.FloatField(script.waveSpeed);
+        }
+        GUILayout.EndHorizontal();
+
+
+        GUILayout.BeginHorizontal();
+        {
+            GUILayout.Label("<b>Arround mode</b>", label);
+            script.arroundMode = GUILayout.Toggle(script.arroundMode, "");
         }
         GUILayout.EndHorizontal();
         #endregion
@@ -103,6 +121,15 @@ public class EnemyPatternsEditor : Editor
                     string valstring = string.Format("{0:00}", val1);
 
                     GUILayout.Box(valstring, value);
+
+                }
+                GUILayout.EndHorizontal();
+
+                GUILayout.BeginHorizontal(); {
+
+                    if (GUILayout.Button("Reset Rotation")) {
+                        script.rotationSpeed = 0;
+                    }
                 }
                 GUILayout.EndHorizontal();
 
@@ -122,7 +149,7 @@ public class EnemyPatternsEditor : Editor
             case EnemyPatterns.modifier.player:
                 #region PlayerMode
                 GUILayout.BeginHorizontal(); {
-                    GUILayout.Label("<b>Dispersion Angle     </b>", label);
+                    GUILayout.Label("<b><color=RED>Dispersion Angle     </color></b>", label);
                     script.dispersionAngle = Mathf.Round(GUILayout.HorizontalSlider(script.dispersionAngle, 0.0f, 3.0f, GUILayout.Width(150)) * 10f) / 10f;
                     int val1 = (int)script.dispersionAngle % 100;
                     float val2 = Mathf.Round((script.dispersionAngle - val1) * 10);
@@ -170,5 +197,12 @@ public class EnemyPatternsEditor : Editor
 
         serializedObject.Update();
         serializedObject.ApplyModifiedProperties();
+
+        if (GUI.changed) {
+            EditorUtility.SetDirty(script);
+            EditorSceneManager.MarkSceneDirty(script.gameObject.scene);
+        }
+        
+
     }
 }
