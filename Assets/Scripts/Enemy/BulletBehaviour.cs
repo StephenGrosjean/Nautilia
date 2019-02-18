@@ -9,7 +9,7 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] private bool isArround; //Animation form toggle
     [SerializeField] private float waveSpeed; //Speed of the wave animation
     [SerializeField] private GameObject initiator; //Who spawned the bullet?
-
+    [SerializeField] private float enableRange;
     [SerializeField] private GameObject point;
 
     //Public variables (Get/Set)
@@ -34,45 +34,71 @@ public class BulletBehaviour : MonoBehaviour
     private float speed;
     private Rigidbody2D rigid;
     private Vector2 vel;
+    public Vector2 target;
+    private Transform player;
+    private Collider2D collider;
 
     //FailSafe
     private bool canCheckInitiator;
-
+    
 
     void Awake()
     {
         //Get rigidbody component
-        rigid = GetComponent<Rigidbody2D>();
+        //rigid = GetComponent<Rigidbody2D>();
     }
 
 
     private void Start() {
-        //Set animation states
-        GetComponentInChildren<Animator>().SetBool("isSine", isSine);
-        GetComponentInChildren<Animator>().SetBool("isArround", isArround);
-        GetComponentInChildren<Animator>().SetFloat("Speed", waveSpeed);
+        player = GameManager.player.transform;
+        collider = GetComponentInChildren<Collider2D>();
+    }
+
+    private void OnEnable() {
         canCheckInitiator = true;
+
+        //Set animation states
+        /*GetComponentInChildren<Animator>().SetBool("isSine", isSine);
+        GetComponentInChildren<Animator>().SetBool("isArround", isArround);
+        GetComponentInChildren<Animator>().SetFloat("Speed", waveSpeed);*/
+
+
+        //disable animator if not used
+        /*if (!isSine && !isArround) {
+            //GetComponentInChildren<Animator>().enabled = false;
+        }*/
     }
 
     void FixedUpdate()
     {
-        vel = rigid.velocity; //Set the velocity
+       // vel = rigid.velocity; //Set the velocity
         speed = vel.magnitude; //Set the speed
 
+        //Enable collision detection by distance
+        float distance = Vector2.Distance(transform.position, player.position);
+        if (distance < enableRange && collider.enabled == false) {
+            collider.enabled = true;
+        }else if(distance > enableRange && collider.enabled == true) {
+            collider.enabled = false;
+        }
+
+        //Transform to point if the initiator is destroyed
         if(initiator == null && canCheckInitiator) {
             Invoke("MakePoint",0);
         }
 
         //Enable acceleration
-        if (acceleration > 0) {
+        /*if (acceleration > 0) {
             rigid.AddForce(vel * acceleration / 50, ForceMode2D.Force);
-        }
+        }*/
 
-        //Rotate the bullet toward the velocity vector
+       /* //Rotate the bullet toward the velocity vector
         Vector3 vectorToTarget = vel * 5 - (Vector2)transform.position;
         float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angleToTarget, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);*/
+
+        transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * 1f);
 
     }
 
@@ -85,14 +111,24 @@ public class BulletBehaviour : MonoBehaviour
 
     //Destroy the bullet when offscreen
    public void OnBecameInvisible() {
-        Destroy(gameObject);
+        Invoke("Destroy", 0);
+
     }
 
     void MakePoint() {
         float random = Random.Range(0.0f, 100.0f);
-        if (random > 80) {
+        if (random > 40) {
             Instantiate(point, transform.position, Quaternion.identity);
         }
-        Destroy(gameObject);
+        Invoke("Destroy", 0);
+    }
+
+    void Destroy() {
+        canCheckInitiator = false;
+        collider.enabled = false;
+        gameObject.SetActive(false);
+    }
+    private void OnDisable() {
+        CancelInvoke();
     }
 }

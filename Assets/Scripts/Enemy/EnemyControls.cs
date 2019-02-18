@@ -13,10 +13,11 @@ public class EnemyControls : MonoBehaviour
     private EnemySpawnSystem enemySpawnSystem; 
     private EnemyLife lifeScript;
     private bool isBlinking;
-
+    private SpriteRenderer spriteRendererComponent;
 
     void Start()
     {
+        spriteRendererComponent = GetComponentInChildren<SpriteRenderer>();
         lifeScript = GetComponent<EnemyLife>(); //Get life script 
         enemySpawnSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnSystem>(); //Find the enemySpawnSystem
     }
@@ -63,9 +64,9 @@ public class EnemyControls : MonoBehaviour
     //Blink Ienumerator (Need optimisation)
     IEnumerator Blink() {
         float time = 0.02f;
-        GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+        spriteRendererComponent.color = new Color(1, 0, 0);
         yield return new WaitForSeconds(time);
-        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+        spriteRendererComponent.color = new Color(1, 1, 1);
         yield return new WaitForSeconds(time);
         isBlinking = false;
 
