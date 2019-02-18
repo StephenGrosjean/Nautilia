@@ -81,9 +81,9 @@ public class EnemyPatternsEditor : Editor
         GUILayout.BeginHorizontal();
         {
             GUILayout.Label("<b>Bullet Acceleration   </b>", label);
-            script.accelleration = Mathf.Round(GUILayout.HorizontalSlider(script.accelleration, 0.0f, 10.0f, GUILayout.Width(150)) * 10f) / 10f;
-            int val1 = (int)script.accelleration % 100;
-            float val2 = Mathf.Round((script.accelleration - val1) * 10);
+            script.acceleration = Mathf.Round(GUILayout.HorizontalSlider(script.acceleration, 0.0f, 10.0f, GUILayout.Width(150)) * 10f) / 10f;
+            int val1 = (int)script.acceleration % 100;
+            float val2 = Mathf.Round((script.acceleration - val1) * 10);
             string valstring = string.Format("{0:00}.{1}", val1, val2);
             GUILayout.Label(valstring, value);
         }

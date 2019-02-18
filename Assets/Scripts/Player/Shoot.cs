@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     
     [SerializeField] private GameObject bulletPrefab;
+    
     public float shootDelay = 0.05f;
 
     private void Update()

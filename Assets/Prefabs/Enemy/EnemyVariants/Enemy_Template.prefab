@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7219890cb840978408919d17eba21e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 100
+  life: 250
 --- !u!95 &1969714069856955843
 Animator:
   serializedVersion: 3
@@ -150,7 +150,7 @@ MonoBehaviour:
     bulletContainer: {fileID: 0}
   number: 4
   speed: 1.1
-  accelleration: 0
+  acceleration: 0
   waveMode: 0
   arroundMode: 0
   waveSpeed: 1
