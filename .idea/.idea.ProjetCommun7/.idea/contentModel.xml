@@ -32,7 +32,9 @@
           <e p="Player" t="Include">
             <e p="Player.cs" t="Include" />
             <e p="PlayerBulletBehavior.cs" t="Include" />
+            <e p="PlayerLife.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
+            <e p="PlayerTakeDamage.cs" t="Include" />
             <e p="Shoot.cs" t="Include" />
             <e p="Upgrades.cs" t="Include" />
           </e>
