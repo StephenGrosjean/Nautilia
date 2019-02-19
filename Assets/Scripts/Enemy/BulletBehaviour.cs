@@ -40,7 +40,7 @@ public class BulletBehaviour : MonoBehaviour
 
     //FailSafe
     private bool canCheckInitiator;
-    
+
 
     void Awake()
     {
@@ -58,45 +58,39 @@ public class BulletBehaviour : MonoBehaviour
         canCheckInitiator = true;
 
         //Set animation states
-        /*GetComponentInChildren<Animator>().SetBool("isSine", isSine);
+       /* GetComponentInChildren<Animator>().SetBool("isSine", isSine);
         GetComponentInChildren<Animator>().SetBool("isArround", isArround);
-        GetComponentInChildren<Animator>().SetFloat("Speed", waveSpeed);*/
+        GetComponentInChildren<Animator>().SetFloat("Speed", waveSpeed);
 
 
         //disable animator if not used
-        /*if (!isSine && !isArround) {
+        if (!isSine && !isArround) {
             //GetComponentInChildren<Animator>().enabled = false;
         }*/
     }
 
     void FixedUpdate()
     {
-       // vel = rigid.velocity; //Set the velocity
         speed = vel.magnitude; //Set the speed
 
         //Enable collision detection by distance
         float distance = Vector2.Distance(transform.position, player.position);
         if (distance < enableRange && collider.enabled == false) {
             collider.enabled = true;
-        }else if(distance > enableRange && collider.enabled == true) {
+        }
+        else if (distance > enableRange && collider.enabled == true) {
             collider.enabled = false;
         }
 
         //Transform to point if the initiator is destroyed
-        if(initiator == null && canCheckInitiator) {
+        if (System.Object.ReferenceEquals(initiator, null) && canCheckInitiator) {
             Invoke("MakePoint",0);
         }
 
-        //Enable acceleration
+        //Enable acceleration (NOT IMPLEMENTED)
         /*if (acceleration > 0) {
             rigid.AddForce(vel * acceleration / 50, ForceMode2D.Force);
         }*/
-
-       /* //Rotate the bullet toward the velocity vector
-        Vector3 vectorToTarget = vel * 5 - (Vector2)transform.position;
-        float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angleToTarget, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);*/
 
         transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * 1f);
 
@@ -111,6 +105,7 @@ public class BulletBehaviour : MonoBehaviour
 
     //Destroy the bullet when offscreen
    public void OnBecameInvisible() {
+
         Invoke("Destroy", 0);
 
     }

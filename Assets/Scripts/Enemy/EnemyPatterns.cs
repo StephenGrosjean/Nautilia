@@ -143,9 +143,15 @@ public class EnemyPatterns : MonoBehaviour
                 for (int i = 1; i < number + 1; i++) {
                     SpawnBullet(i);
                 }
-                yield return new WaitForSeconds(timeBetweenBulletsInBurst);
+                float t = Time.time;
+                while (Time.time < t + timeBetweenBulletsInBurst) { yield return null; }
+                t = 0;
+                //yield return new WaitForSeconds(timeBetweenBulletsInBurst);
             }
-            yield return new WaitForSeconds(timeBetweenBursts);
+            float tt = Time.time;
+            while (Time.time < tt + timeBetweenBursts) { yield return null; }
+            tt = 0;
+            //yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
 

@@ -600,7 +600,7 @@ PrefabInstance:
     - target: {fileID: 7616306006855113985, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7616306006855113996, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
@@ -660,7 +660,7 @@ PrefabInstance:
     - target: {fileID: 7616306006855113998, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: m_Radius
-      value: 0.05
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 7616306006855113998, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
@@ -671,6 +671,11 @@ PrefabInstance:
         type: 3}
       propertyPath: playerLife
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628748009141436753, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: collisionRadius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1462705358895298978, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
@@ -719,7 +724,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829340059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.082, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 822427024}

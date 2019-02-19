@@ -8,9 +8,10 @@ public class Player : MonoBehaviour
 {
 
     public enum PlayerUpgrade { FirstUpgrade, SecondUpgrade, ThirdUpgrade, FourthUpgrade, FifthUpgrade }
-    
-    
-#region Player variable
+
+    public Collider2D hitColliders;
+    #region Player variable
+    [SerializeField] private float collisionRadius;
     [SerializeField] private GameObject firstUpgradePoint; 
     [SerializeField] private GameObject secondUpgradePoint;
     [SerializeField] private GameObject thirdUpgradePoint;
@@ -26,8 +27,13 @@ public class Player : MonoBehaviour
     
     private bool _isInvincible = false;
     private PlayerUpgrade _playerUpgrade;
-    
-#endregion
+
+    #endregion
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, collisionRadius);
+    }
 
     private void Start()
     {
@@ -41,9 +47,15 @@ public class Player : MonoBehaviour
     private void Update()
     {
         StartCoroutine(Die(deathAnimation));
-        
     }
-    
+
+    private void FixedUpdate() {
+        hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius, LayerMask.NameToLayer("Entity"));
+        if (hitColliders != null && hitColliders.CompareTag("Bullet") && !_isInvincible) {
+            StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Upgrade"))
@@ -53,11 +65,11 @@ public class Player : MonoBehaviour
             ShootingMode();
         }
 
-        if (col.CompareTag("Bullet") && !_isInvincible)
+        /*if (col.CompareTag("Bullet") && !_isInvincible)
         {
             StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
             playerLife -= 1;
-        }
+        }*/
     }
 
     private void ShootingMode()
