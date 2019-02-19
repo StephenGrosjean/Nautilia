@@ -184,7 +184,7 @@ public class EnemyPatterns : MonoBehaviour
     void SetBulletParams(GameObject bullet, Vector2 pos, float divider = 1) {
         BulletBehaviour bbh = bullet.GetComponent<BulletBehaviour>();
         bullet.SetActive(true);
-        bbh.Acceleration = accelleration;
+        bbh.Acceleration = acceleration;
         bbh.IsSine = waveMode;
         bbh.IsArround = arroundMode;
         //bullet.GetComponent<BulletBehaviour>().SetVel(pos, speed, divider);
