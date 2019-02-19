@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delete: 0
   powerupsDrop: []
+  collisionRadius: 0.87
   rotationSpeed: 0
 --- !u!58 &6137384853510712115
 CircleCollider2D:

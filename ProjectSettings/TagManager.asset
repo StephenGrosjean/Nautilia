@@ -12,6 +12,7 @@ TagManager:
   - Point
   - PointCollector
   - Pool
+  - PoolPlayer
   layers:
   - Default
   - TransparentFX
