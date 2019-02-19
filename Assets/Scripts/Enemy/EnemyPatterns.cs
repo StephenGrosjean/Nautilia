@@ -143,9 +143,15 @@ public class EnemyPatterns : MonoBehaviour
                 for (int i = 1; i < number + 1; i++) {
                     SpawnBullet(i);
                 }
-                yield return new WaitForSeconds(timeBetweenBulletsInBurst);
+                float t = Time.time;
+                while (Time.time < t + timeBetweenBulletsInBurst) { yield return null; }
+                t = 0;
+                //yield return new WaitForSeconds(timeBetweenBulletsInBurst);
             }
-            yield return new WaitForSeconds(timeBetweenBursts);
+            float tt = Time.time;
+            while (Time.time < tt + timeBetweenBursts) { yield return null; }
+            tt = 0;
+            //yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
 
@@ -184,7 +190,7 @@ public class EnemyPatterns : MonoBehaviour
     void SetBulletParams(GameObject bullet, Vector2 pos, float divider = 1) {
         BulletBehaviour bbh = bullet.GetComponent<BulletBehaviour>();
         bullet.SetActive(true);
-        bbh.Acceleration = accelleration;
+        bbh.Acceleration = acceleration;
         bbh.IsSine = waveMode;
         bbh.IsArround = arroundMode;
         //bullet.GetComponent<BulletBehaviour>().SetVel(pos, speed, divider);
