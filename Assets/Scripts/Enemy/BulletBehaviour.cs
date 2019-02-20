@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    public bool CanBePulled = true;
-
     [SerializeField] private float acceleration; //Acceleration of the bullet
     [SerializeField] private bool isSine; //Animation wave toggle
     [SerializeField] private bool isArround; //Animation form toggle
     [SerializeField] private float waveSpeed; //Speed of the wave animation
     [SerializeField] private GameObject initiator; //Who spawned the bullet?
+    [SerializeField] private float enableRange;
     [SerializeField] private GameObject point;
 
     //Public variables (Get/Set)
@@ -38,15 +37,13 @@ public class BulletBehaviour : MonoBehaviour
     public Vector2 target;
     private Transform player;
     private Collider2D collider;
-    private BulletPooler currentPooler;
 
     //FailSafe
     private bool canCheckInitiator;
-    
+
 
     void Awake()
     {
-        currentPooler = BulletPooler.current;
         //Get rigidbody component
         //rigid = GetComponent<Rigidbody2D>();
     }
@@ -54,57 +51,49 @@ public class BulletBehaviour : MonoBehaviour
 
     private void Start() {
         player = GameManager.player.transform;
+        collider = GetComponentInChildren<Collider2D>();
     }
 
     private void OnEnable() {
         canCheckInitiator = true;
 
         //Set animation states
-        /*GetComponentInChildren<Animator>().SetBool("isSine", isSine);
+       /* GetComponentInChildren<Animator>().SetBool("isSine", isSine);
         GetComponentInChildren<Animator>().SetBool("isArround", isArround);
-        GetComponentInChildren<Animator>().SetFloat("Speed", waveSpeed);*/
-
-        collider = GetComponentInChildren<Collider2D>();
+        GetComponentInChildren<Animator>().SetFloat("Speed", waveSpeed);
 
 
         //disable animator if not used
         if (!isSine && !isArround) {
             //GetComponentInChildren<Animator>().enabled = false;
-        }
+        }*/
     }
 
-    void Update()
+    void FixedUpdate()
     {
-       // vel = rigid.velocity; //Set the velocity
         speed = vel.magnitude; //Set the speed
 
         //Enable collision detection by distance
         float distance = Vector2.Distance(transform.position, player.position);
-        if (distance < 1 && collider.enabled == false) {
+        if (distance < enableRange && collider.enabled == false) {
             collider.enabled = true;
-        }else if(distance > 1 && collider.enabled == true) {
+        }
+        else if (distance > enableRange && collider.enabled == true) {
             collider.enabled = false;
         }
 
         //Transform to point if the initiator is destroyed
-        if(initiator == null && canCheckInitiator) {
+        if (System.Object.ReferenceEquals(initiator, null) && canCheckInitiator) {
             Invoke("MakePoint",0);
         }
 
-        //Enable acceleration
+        //Enable acceleration (NOT IMPLEMENTED)
         /*if (acceleration > 0) {
             rigid.AddForce(vel * acceleration / 50, ForceMode2D.Force);
         }*/
 
-        /* //Rotate the bullet toward the velocity vector
-         Vector3 vectorToTarget = vel * 5 - (Vector2)transform.position;
-         float angleToTarget = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-         Quaternion q = Quaternion.AngleAxis(angleToTarget, Vector3.forward);
-         transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);*/
+        transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * 1f);
 
-        if (target != (Vector2)currentPooler.OffPos.position) {
-            transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * 1f);
-        }
     }
 
     //Set the velocity (used by the bullet spawner)
@@ -116,6 +105,7 @@ public class BulletBehaviour : MonoBehaviour
 
     //Destroy the bullet when offscreen
    public void OnBecameInvisible() {
+
         Invoke("Destroy", 0);
 
     }
@@ -131,22 +121,9 @@ public class BulletBehaviour : MonoBehaviour
     void Destroy() {
         canCheckInitiator = false;
         collider.enabled = false;
-        resetParams();
-        currentPooler.MoveOff(gameObject);
+        gameObject.SetActive(false);
     }
     private void OnDisable() {
         CancelInvoke();
     }
-
-    private void resetParams() {
-        acceleration = 0;
-        isSine = false;
-        isArround = false;
-        target = currentPooler.OffPos.position;
-        waveSpeed = 0;
-        initiator = null;
-        CanBePulled = true;
-    }
-    
-    
 }

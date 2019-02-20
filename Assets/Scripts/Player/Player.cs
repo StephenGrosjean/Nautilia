@@ -6,9 +6,10 @@ public class Player : MonoBehaviour
 {
 
     public enum PlayerUpgrade { FirstUpgrade, SecondUpgrade, ThirdUpgrade, FourthUpgrade, FifthUpgrade }
-    
-    
-#region Player variable
+
+    public Collider2D hitColliders;
+    #region Player variable
+    [SerializeField] private float collisionRadius;
     [SerializeField] private GameObject firstUpgradePoint; 
     [SerializeField] private GameObject secondUpgradePoint;
     [SerializeField] private GameObject thirdUpgradePoint;
@@ -17,9 +18,9 @@ public class Player : MonoBehaviour
     
     [SerializeField] private float deathAnimation = 1.0f;
     
+    private bool _isInvincible = false;
     private PlayerUpgrade _playerUpgrade;
-    private PlayerLife _playerScript;
-    private PlayerTakeDamage _playerDamaged;
+    
 #endregion
 
     private void Start()
@@ -31,7 +32,14 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(Die(deathAnimation));
     }
-    
+
+    private void FixedUpdate() {
+        hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius, LayerMask.NameToLayer("Entity"));
+        if (hitColliders != null && hitColliders.CompareTag("Bullet") && !_isInvincible) {
+            StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Upgrade"))
@@ -39,6 +47,12 @@ public class Player : MonoBehaviour
             ScoreManager.AddScore(10000);
             _playerUpgrade++;
             ShootingMode();
+        }
+
+        if (col.CompareTag("Bullet") && !_isInvincible)
+        {
+            StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
+            playerLife -= 1;
         }
     }
 
@@ -82,3 +96,8 @@ public class Player : MonoBehaviour
         }
     }
 }
+
+    private PlayerUpgrade _playerUpgrade;
+    private PlayerLife _playerScript;
+    private PlayerTakeDamage _playerDamaged;
+#endregion

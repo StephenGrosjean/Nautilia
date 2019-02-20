@@ -74,7 +74,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.24, y: 0.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7374238067677727340}
   - component: {fileID: 6271469428246994167}
-  - component: {fileID: 7719598089854887261}
+  - component: {fileID: 3813615892737807688}
   m_Layer: 8
   m_Name: Enemy_Bullet
   m_TagString: Bullet
@@ -146,9 +146,10 @@ MonoBehaviour:
   isArround: 0
   waveSpeed: 0
   initiator: {fileID: 0}
+  enableRange: 0.5
   point: {fileID: 7042125005257105704, guid: 39a2a4148f2c1a941b0419fae962d881, type: 3}
   target: {x: 0, y: 0}
---- !u!212 &7719598089854887261
+--- !u!212 &3813615892737807688
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,17 +183,17 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1979546751
-  m_SortingLayer: 3
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
