@@ -9,6 +9,9 @@ TagManager:
   - Container
   - EnemyContainer
   - PlayerBullet
+  - Point
+  - PointCollector
+  - Pool
   layers:
   - Default
   - TransparentFX
@@ -20,8 +23,8 @@ TagManager:
   - 
   - Bullet
   - Player
-  - 
-  - 
+  - Attracted
+  - Collector
   - 
   - 
   - 

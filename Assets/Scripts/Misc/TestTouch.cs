@@ -28,7 +28,7 @@ public class TestTouch : MonoBehaviour
 
                 RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector3.forward);
                 if (hit.collider != null) {
-                    if (hit.transform.tag == "Player") {
+                    if (hit.transform.tag == "TouchFiled") {
                         isInPlayerZone = true;
                     }
                 }
