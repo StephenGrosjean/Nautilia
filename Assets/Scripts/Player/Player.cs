@@ -20,8 +20,13 @@ public class Player : MonoBehaviour
     
     private bool _isInvincible = false;
     private PlayerUpgrade _playerUpgrade;
-    
-#endregion
+
+    #endregion
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, collisionRadius);
+    }
 
     private void Start()
     {
@@ -101,3 +106,11 @@ public class Player : MonoBehaviour
     private PlayerLife _playerScript;
     private PlayerTakeDamage _playerDamaged;
 #endregion
+    private PlayerUpgrade _playerUpgrade;
+
+    #endregion
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, collisionRadius);
+    }

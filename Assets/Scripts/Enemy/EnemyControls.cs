@@ -6,8 +6,9 @@ public class EnemyControls : MonoBehaviour
 {
     [SerializeField] private bool delete; //Destroy the enemy (Used for testing)
     [SerializeField] private GameObject[] powerupsDrop;
-
-    [Range(-100, 100)] [SerializeField] private int rotationSpeed; //Rotation speed of the enemy
+    [SerializeField] private float collisionRadius;
+    [Range(-100, 100)]
+    [SerializeField] private int rotationSpeed; //Rotation speed of the enemy
 
 
     [SerializeField] private GameObject upgradeObject;
@@ -17,6 +18,11 @@ public class EnemyControls : MonoBehaviour
     private bool isBlinking;
     private SpriteRenderer spriteRendererComponent;
 
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, collisionRadius);
+    }
+
     void Start()
     {
         spriteRendererComponent = GetComponentInChildren<SpriteRenderer>();
@@ -25,9 +31,18 @@ public class EnemyControls : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnSystem>(); //Find the enemySpawnSystem
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        int upgradeDropRate = Random.Range(1, 100);
+
+        Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius, LayerMask.NameToLayer("Entity"));
+        if (hitColliders != null && hitColliders.CompareTag("PlayerBullet")) {
+            lifeScript.DecreaseLife(1); //Decrease life
+            if (!isBlinking) {
+                isBlinking = true;
+                StartCoroutine("Blink");
+            }
+        }
+
         //Delete the object (Used for testing)
         if (delete)
         {
@@ -49,6 +64,8 @@ public class EnemyControls : MonoBehaviour
         transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
     }
 
+
+
     //Remove the object from the List in enemySpawnSystem at object destroy
     private void OnDestroy()
     {
@@ -60,27 +77,9 @@ public class EnemyControls : MonoBehaviour
         enemySpawnSystem.CurrentEnemies.Remove(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Check the collision with a player bullet
-        if (collision.CompareTag("PlayerBullet"))
-        {
-            lifeScript.DecreaseLife(1); //Decrease life
-
-            //Blink the object
-            if (!isBlinking)
-            {
-                isBlinking = true;
-                StartCoroutine("Blink");
-            }
-        }
-    }
-
-
     //Blink Ienumerator (Need optimisation)
-    IEnumerator Blink()
-    {
-        float time = 0.02f;
+    IEnumerator Blink() {
+        float time = 0.03f;
         spriteRendererComponent.color = new Color(1, 0, 0);
         yield return new WaitForSeconds(time);
         spriteRendererComponent.color = new Color(1, 1, 1);
