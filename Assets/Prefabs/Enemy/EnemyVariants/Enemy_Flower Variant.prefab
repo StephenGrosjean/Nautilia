@@ -64,6 +64,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5845843904931835803, guid: e9e59f0121d76ec42a226f5c092b340e,
         type: 3}
+    - target: {fileID: 1905590553, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
+      propertyPath: upgradeObject
+      value: 
+      objectReference: {fileID: 5845843904931835803, guid: e9e59f0121d76ec42a226f5c092b340e,
+        type: 3}
     - target: {fileID: 8631288295531225984, guid: af98acc1466d56949ba444bd2297afe4,
         type: 3}
       propertyPath: life

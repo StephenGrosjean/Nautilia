@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class ScoreManager : MonoBehaviour
 {
     public static int scoreValue;
@@ -19,19 +20,21 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        if(prevScore != scoreValue) {
+        if (prevScore != scoreValue)
+        {
             UpdateUI();
         }
+
         prevScore = scoreValue;
     }
 
-    public static void AddScore(int value) {
+    public static void AddScore(int value)
+    {
         scoreValue += value;
     }
 
-    void UpdateUI() {
+    void UpdateUI()
+    {
         score.text = "Score : " + scoreValue;
     }
-
-    
 }

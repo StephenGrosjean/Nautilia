@@ -51,6 +51,8 @@ MonoBehaviour:
   delete: 0
   powerupsDrop: []
   rotationSpeed: 0
+  upgradeObject: {fileID: 5845843904931835803, guid: e9e59f0121d76ec42a226f5c092b340e,
+    type: 3}
 --- !u!58 &6137384853510712115
 CircleCollider2D:
   m_ObjectHideFlags: 0
