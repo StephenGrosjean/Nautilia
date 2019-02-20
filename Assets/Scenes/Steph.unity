@@ -661,7 +661,7 @@ PrefabInstance:
     - target: {fileID: 7616306006855113998, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: m_Radius
-      value: 0.26
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7616306006855113998, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
@@ -688,6 +688,11 @@ PrefabInstance:
       propertyPath: speed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1462705358895298978, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: yOffset
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4325154983789749558, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: m_Radius
@@ -700,7 +705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1829154818, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
