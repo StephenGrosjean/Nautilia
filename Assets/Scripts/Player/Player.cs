@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        _playerScript = GetComponent<PlayerLife>();
         ShootingMode();
     }
 
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
         hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius, LayerMask.NameToLayer("Entity"));
         if (hitColliders != null && hitColliders.CompareTag("Bullet") && !_isInvincible) {
             StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
+            _playerScript.DecreaseLife(1);
         }
     }
 
@@ -54,12 +56,6 @@ public class Player : MonoBehaviour
             ScoreManager.AddScore(10000);
             _playerUpgrade++;
             ShootingMode();
-        }
-
-        if (col.CompareTag("Bullet") && !_isInvincible)
-        {
-            StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
-            _playerScript.DecreaseLife(1);
         }
     }
 
