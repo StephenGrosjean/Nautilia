@@ -15,12 +15,14 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject thirdUpgradePoint;
     [SerializeField] private GameObject fourthUpgradePoint;
     [SerializeField] private GameObject fifthUpgradePoint;
-    
+    [SerializeField] private GameObject playerSprite;
+    [SerializeField] private float blinkInterval = 0.2f;
+    [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
     
     private bool _isInvincible = false;
     private PlayerUpgrade _playerUpgrade;
-
+    private PlayerLife _playerScript;
     #endregion
 
     private void OnDrawGizmosSelected() {
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour
         if (col.CompareTag("Bullet") && !_isInvincible)
         {
             StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
-            playerLife -= 1;
+            _playerScript.DecreaseLife(1);
         }
     }
 
@@ -100,17 +102,28 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(loadedLevel.buildIndex);
         }
     }
-}
+    
+    private IEnumerator InvincibilityBlink(float time)
+    {
+        _isInvincible = true;
 
-    private PlayerUpgrade _playerUpgrade;
-    private PlayerLife _playerScript;
-    private PlayerTakeDamage _playerDamaged;
-#endregion
-    private PlayerUpgrade _playerUpgrade;
+        for (float i = 0; i < time; i += blinkInterval)
+        {
+            if (playerSprite.activeInHierarchy)
+            {
+                playerSprite.SetActive(false);
+            }
+            
+            else
+            {
+                playerSprite.SetActive(true);
+            }
+            
+            yield return new WaitForSeconds(blinkInterval);
+        }
+        
+        playerSprite.SetActive(true);
 
-    #endregion
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, collisionRadius);
+        _isInvincible = false;
     }
+}
