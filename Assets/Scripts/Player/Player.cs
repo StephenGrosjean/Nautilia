@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     public enum PlayerUpgrade { FirstUpgrade, SecondUpgrade, ThirdUpgrade, FourthUpgrade, FifthUpgrade }
 
-    public Collider2D hitColliders;
+    private Collider2D hitColliders;
     #region Player variable
     [SerializeField] private float collisionRadius;
     [SerializeField] private GameObject firstUpgradePoint; 
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         if (col.CompareTag("Upgrade"))
         {
             ScoreManager.AddScore(10000);
-            _playerUpgrade++;
+            //_playerUpgrade++;
             ShootingMode();
         }
     }

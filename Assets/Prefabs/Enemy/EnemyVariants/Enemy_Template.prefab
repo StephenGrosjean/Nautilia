@@ -51,9 +51,9 @@ MonoBehaviour:
   delete: 0
   powerupsDrop: []
   collisionRadius: 0.87
-  rotationSpeed: 0
   upgradeObject: {fileID: 5845843904931835803, guid: e9e59f0121d76ec42a226f5c092b340e,
     type: 3}
+  rotationSpeed: 0
 --- !u!58 &6137384853510712115
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7219890cb840978408919d17eba21e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1000
+  life: 100
 --- !u!95 &1969714069856955843
 Animator:
   serializedVersion: 3
@@ -173,6 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8959037566363816548}
   - component: {fileID: 6115522645326049605}
+  - component: {fileID: 5056314651281762697}
   m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -242,3 +243,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5056314651281762697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979584134364222691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81cc649dd14a2df4684667f5ebfaf84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: 517d4d3d24bdc8444997a46a78c6004c, type: 3}
+  - {fileID: 21300000, guid: 90a374fa1abb5d347b140aab5120e1f3, type: 3}
+  - {fileID: 21300000, guid: 8d424df0e8a70484bb4685f06eb0b3f2, type: 3}
+  - {fileID: 21300000, guid: ea5438a2c147bdb4c81711659e71072d, type: 3}
+  - {fileID: 21300000, guid: 4a2f16dd289ce6146b4b89b8b50d68de, type: 3}
+  - {fileID: 21300000, guid: ea5438a2c147bdb4c81711659e71072d, type: 3}
+  - {fileID: 21300000, guid: 8d424df0e8a70484bb4685f06eb0b3f2, type: 3}
+  - {fileID: 21300000, guid: 90a374fa1abb5d347b140aab5120e1f3, type: 3}
+  waitEachFrame: 0.12
+  spriteRenderer: {fileID: 6115522645326049605}

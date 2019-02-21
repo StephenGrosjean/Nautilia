@@ -27,7 +27,7 @@ public class PlayerBulletBehavior : MonoBehaviour
         Invoke("Destroy", 0);
     }
 
-    void Destroy() {
+    public void Destroy() {
         gameObject.SetActive(false);
     }
 }

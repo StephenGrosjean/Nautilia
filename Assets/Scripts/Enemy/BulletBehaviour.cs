@@ -83,7 +83,7 @@ public class BulletBehaviour : MonoBehaviour
         }
 
         //Transform to point if the initiator is destroyed
-        if (System.Object.ReferenceEquals(initiator, null) && canCheckInitiator) {
+        if (initiator == null && canCheckInitiator) {
             Invoke("MakePoint",0);
         }
 
