@@ -19,7 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float blinkInterval = 0.2f;
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
-    
+    [SerializeField] private GameObject hitCollider;
+
     private bool _isInvincible = false;
     public bool IsInvincible {
         get { return _isInvincible; }
@@ -112,7 +113,7 @@ public class Player : MonoBehaviour
     private IEnumerator InvincibilityBlink(float time)
     {
         _isInvincible = true;
-
+        hitCollider.SetActive(false);
         for (float i = 0; i < time; i += blinkInterval)
         {
             if (playerSprite.activeInHierarchy)
@@ -129,6 +130,7 @@ public class Player : MonoBehaviour
         }
         
         playerSprite.SetActive(true);
+        hitCollider.SetActive(true);
 
         _isInvincible = false;
     }
