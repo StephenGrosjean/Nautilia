@@ -16,6 +16,7 @@ TagManager:
   - PlayerHitBox
   - TouchField
   - PoolPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Attracted
   - Collector
   - Point
-  - 
+  - CanBeAttacked
   - 
   - 
   - 
