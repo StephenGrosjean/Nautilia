@@ -11,8 +11,10 @@ public class EnemyControls : MonoBehaviour
     [Range(-100, 100)] [SerializeField] private float rotationSpeed;
     [SerializeField] private int incrementRotation;
     [SerializeField] private float time;
-
-    public bool isDestroying;
+    [SerializeField] private BulletPooler poolPoint;
+    [SerializeField] private int numberOfPoints;
+    [SerializeField] private float pointSpawnRadius;
+    [SerializeField] private GameObject particlesContainer;
 
     private int upgradeDropRate;
     private EnemySpawnSystem enemySpawnSystem;
@@ -28,6 +30,7 @@ public class EnemyControls : MonoBehaviour
 
     void Start()
     {
+        poolPoint = GameObject.FindGameObjectWithTag("PoolPoint").GetComponent<BulletPooler>();
         StartCoroutine("AddRotation");
         spriteRendererComponent = GetComponentInChildren<SpriteRenderer>();
         lifeScript = GetComponent<EnemyLife>(); //Get life script 
@@ -56,8 +59,7 @@ public class EnemyControls : MonoBehaviour
         //Delete the object (Used for testing)
         if (delete)
         {
-            isDestroying = true;
-            StartCoroutine("Delete");
+            Destroy(gameObject); 
         }
 
         //Destroy the object if life is lower than 0
@@ -68,8 +70,14 @@ public class EnemyControls : MonoBehaviour
                 Instantiate(upgradeObject, transform.position, Quaternion.identity);
             }
 
-            isDestroying = true;
-            StartCoroutine("Delete");
+            for (int i = 0; i < numberOfPoints; i++) {
+                GameObject point = poolPoint.GetBullet();
+                point.transform.position = new Vector2(Random.Range(transform.position.x- pointSpawnRadius, transform.position.x+ pointSpawnRadius), Random.Range(transform.position.y - pointSpawnRadius, transform.position.y + pointSpawnRadius));
+                point.SetActive(true);
+            }
+
+            particlesContainer.transform.SetParent(null);
+            Destroy(gameObject);
         }
 
         //Rotate the object 
@@ -81,7 +89,6 @@ public class EnemyControls : MonoBehaviour
 //Remove the object from the List in enemySpawnSystem at object destroy
 private void OnDestroy()
     {
-
         if (powerupsDrop.Length > 0)
         {
             Instantiate(powerupsDrop[Random.Range(0, powerupsDrop.Length)], transform.position, Quaternion.identity);
@@ -107,12 +114,6 @@ private void OnDestroy()
             rotationSpeed += incrementRotation;
             yield return new WaitForSeconds(time);
         }
-    }
-
-    IEnumerator Delete() {
-        yield return new WaitForSeconds(0.1f);
-        Destroy(gameObject);
-
     }
 }
 

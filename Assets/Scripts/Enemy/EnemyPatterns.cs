@@ -75,7 +75,7 @@ public class EnemyPatterns : MonoBehaviour
 
     void Start()
     {
-        objectPool = GameObject.FindGameObjectWithTag("Pool").GetComponent<BulletPooler>();
+//        objectPool = GameObject.FindGameObjectWithTag("Pool").GetComponent<BulletPooler>();
         requiredObjects.bulletContainer = GameObject.FindGameObjectWithTag("Container").transform; //Get the container for the bullet
         player = GameObject.FindGameObjectWithTag("Player").transform; //Get the player object
         requiredObjects.shootPoint = transform; //Get the transform reference
