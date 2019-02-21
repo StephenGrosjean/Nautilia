@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float deathAnimation = 1.0f;
     
     private bool _isInvincible = false;
+    public bool IsInvincible {
+        get { return _isInvincible; }
+    }
     private PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
     #endregion
@@ -42,8 +45,15 @@ public class Player : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius, LayerMask.NameToLayer("Entity"));
+       /* hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius);
         if (hitColliders != null && hitColliders.CompareTag("Bullet") && !_isInvincible) {
+            StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
+            _playerScript.DecreaseLife(1);
+        }*/
+    }
+
+    public void Hit() {
+        if (!_isInvincible) {
             StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
             _playerScript.DecreaseLife(1);
         }

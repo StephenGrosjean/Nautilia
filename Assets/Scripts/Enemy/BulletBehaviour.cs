@@ -112,7 +112,7 @@ public class BulletBehaviour : MonoBehaviour
 
     void MakePoint() {
         float random = Random.Range(0.0f, 100.0f);
-        if (random > 40) {
+        if (random > 00) {
             Instantiate(point, transform.position, Quaternion.identity);
         }
         Invoke("Destroy", 0);
