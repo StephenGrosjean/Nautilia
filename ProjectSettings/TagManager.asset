@@ -13,6 +13,10 @@ TagManager:
   - PointCollector
   - Pool
   - PoolPlayer
+  - PlayerHitBox
+  - TouchField
+  - PoolPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -26,8 +30,8 @@ TagManager:
   - Player
   - Attracted
   - Collector
-  - 
-  - 
+  - Point
+  - CanBeAttacked
   - 
   - 
   - 
@@ -58,4 +62,7 @@ TagManager:
     locked: 0
   - name: Entity
     uniqueID: 1979546751
+    locked: 0
+  - name: Point
+    uniqueID: 2987931715
     locked: 0
