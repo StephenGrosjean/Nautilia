@@ -83,7 +83,7 @@ public class BulletBehaviour : MonoBehaviour
         }
 
         //Transform to point if the initiator is destroyed
-        if (System.Object.ReferenceEquals(initiator, null) && canCheckInitiator) {
+        if (initiator == null && canCheckInitiator) {
             Invoke("MakePoint",0);
         }
 
@@ -112,7 +112,7 @@ public class BulletBehaviour : MonoBehaviour
 
     void MakePoint() {
         float random = Random.Range(0.0f, 100.0f);
-        if (random > 40) {
+        if (random > 00) {
             Instantiate(point, transform.position, Quaternion.identity);
         }
         Invoke("Destroy", 0);

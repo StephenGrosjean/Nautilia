@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905590553, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: rotationSpeed
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1905590553, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: powerupsDrop.Array.data[0]
@@ -92,7 +92,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2015007308, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: rotationSpeed
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2015007308, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: timeBetweenBulletsInBurst
@@ -106,11 +106,22 @@ PrefabInstance:
       propertyPath: requiredObjects.shootPoint
       value: 
       objectReference: {fileID: 225209968051428602}
+    - target: {fileID: 5056314651281762697, guid: af98acc1466d56949ba444bd2297afe4,
+        type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 6340690268337717236}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
 --- !u!4 &225209968051428602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2015007307, guid: af98acc1466d56949ba444bd2297afe4,
+    type: 3}
+  m_PrefabInstance: {fileID: 225209967379975857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &6340690268337717236 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6115522645326049605, guid: af98acc1466d56949ba444bd2297afe4,
     type: 3}
   m_PrefabInstance: {fileID: 225209967379975857}
   m_PrefabAsset: {fileID: 0}

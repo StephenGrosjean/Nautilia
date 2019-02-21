@@ -72,7 +72,7 @@ PrefabInstance:
     - target: {fileID: 8631288295531225984, guid: af98acc1466d56949ba444bd2297afe4,
         type: 3}
       propertyPath: life
-      value: 250
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2015007308, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
       propertyPath: requiredObjects.shootPoint
