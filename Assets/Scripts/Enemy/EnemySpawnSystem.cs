@@ -19,6 +19,7 @@ public class EnemySpawnSystem : MonoBehaviour
         public enemies toSpawn;
         public zone zoneToSpawn;
         public bool waitUntilDestruction;
+        public float timeBeforeSpawnNext;
     }
     
     //List of enemies
@@ -52,6 +53,7 @@ public class EnemySpawnSystem : MonoBehaviour
                     yield return new WaitForSeconds(0.1f);
                 }
             }
+            yield return new WaitForSeconds(wave.timeBeforeSpawnNext);
         }
     }
 
