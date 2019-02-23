@@ -4,29 +4,24 @@ using UnityEngine;
 
 public class EnemyControls : MonoBehaviour
 {
-    [SerializeField] private bool delete; //Destroy the enemy (Used for testing)
     [SerializeField] private GameObject[] powerupsDrop;
-    [SerializeField] private float collisionRadius;
+    [SerializeField] private GameObject particlesContainer;
     [SerializeField] private GameObject upgradeObject, rotateObject;
+    [Space(10)]
     [Range(-100, 100)] [SerializeField] private float rotationSpeed;
     [SerializeField] private int incrementRotation;
-    [SerializeField] private float time;
-    [SerializeField] private BulletPooler poolPoint;
+    [Space(10)]
     [SerializeField] private int numberOfPoints;
     [SerializeField] private float pointSpawnRadius;
-    [SerializeField] private GameObject particlesContainer;
+
 
     private int upgradeDropRate;
     private EnemySpawnSystem enemySpawnSystem;
     private EnemyLife lifeScript;
     private bool isBlinking;
     private SpriteRenderer spriteRendererComponent;
+    private BulletPooler poolPoint;
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, collisionRadius);
-    }
 
     void Start()
     {
@@ -49,23 +44,12 @@ public class EnemyControls : MonoBehaviour
     void FixedUpdate()
     {
         upgradeDropRate = Random.Range(1, 100);
-        
-        /*Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius, LayerMask.NameToLayer("Entity"));
-        if (hitColliders != null && hitColliders.CompareTag("PlayerBullet"))
-        {
-            
-        }*/
 
-        //Delete the object (Used for testing)
-        if (delete)
-        {
-            Destroy(gameObject); 
-        }
 
         //Destroy the object if life is lower than 0
         if (lifeScript.GetLife() <= 0)
         {
-            if (upgradeDropRate <= 10)
+            if (upgradeDropRate <= 20)
             {
                 Instantiate(upgradeObject, transform.position, Quaternion.identity);
             }
@@ -112,7 +96,7 @@ private void OnDestroy()
     IEnumerator AddRotation() {
         while (true) {
             rotationSpeed += incrementRotation;
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

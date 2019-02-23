@@ -39,20 +39,24 @@ public class ParticleManager : MonoBehaviour
     }
 
    void Update() {
-        if(transform.eulerAngles.z-baseOffet >= maximumRotation) {
-            increase = false;
-        }
-        if (transform.eulerAngles.z-baseOffet <= minimumRotation) {
-            increase = true;
-        }
+        if (pingPongValues) {
+            if (transform.eulerAngles.z - baseOffet >= maximumRotation) {
+                increase = false;
+            }
+            if (transform.eulerAngles.z - baseOffet <= minimumRotation) {
+                increase = true;
+            }
 
-        if (increase) {
-             rotationSpeed = rotationIncrement;
+            if (increase) {
+                rotationSpeed = rotationIncrement;
+            }
+            else {
+                rotationSpeed = -rotationIncrement;
+            }
         }
         else {
-            rotationSpeed = -rotationIncrement;
+            rotationSpeed = rotationIncrement;
         }
-
         transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
     }
 
