@@ -3737,7 +3737,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 8704
+      m_Bits: 24576
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -4769,4 +4769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378399aa795255b4e94660bb537c73fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 25
+  rotationIncrement: 0
+  isPlayer: 0
+  pingPongValues: 0
+  minimumRotation: 0
+  maximumRotation: 0

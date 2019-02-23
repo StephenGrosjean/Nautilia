@@ -33,7 +33,7 @@ public class Upgrades : MonoBehaviour
             baseCollider.enabled = true;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 6);
+        transform.position = Vector2.MoveTowards(transform.position, Vector2.down * 200, Time.deltaTime * 2);
     }
     
     

@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     public bool IsInvincible {
         get { return _isInvincible; }
     }
-    private PlayerUpgrade _playerUpgrade;
+    public PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
     #endregion
 
@@ -64,8 +64,10 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Upgrade"))
         {
+
             ScoreManager.AddScore(10000);
-            //_playerUpgrade++;
+            Debug.Log("UPGRADE");
+            _playerUpgrade++;
             ShootingMode();
         }
     }
