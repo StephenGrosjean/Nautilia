@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
 
     private Collider2D hitColliders;
     #region Player variable
-    [SerializeField] private float collisionRadius;
     [SerializeField] private GameObject firstUpgradePoint; 
     [SerializeField] private GameObject secondUpgradePoint;
     [SerializeField] private GameObject thirdUpgradePoint;
@@ -28,11 +27,6 @@ public class Player : MonoBehaviour
     public PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
     #endregion
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, collisionRadius);
-    }
 
     private void Start()
     {
@@ -66,7 +60,6 @@ public class Player : MonoBehaviour
         {
 
             ScoreManager.AddScore(10000);
-            Debug.Log("UPGRADE");
             _playerUpgrade++;
             ShootingMode();
         }

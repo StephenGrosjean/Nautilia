@@ -13,10 +13,6 @@ public class PlayerMovement : MonoBehaviour
     public bool _isInPlayerZone;
     private Camera _camera;
 
-    private void OnDrawGizmos()
-    {
-    }
-
     private void Start()
     {
         _camera = Camera.main;
@@ -27,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!cursorMode)
         {
-            if (Input.touchCount > 0)
+            if (Input.touchCount > 0 && Input.touchCount < 2)
             {
                 Touch touch = Input.GetTouch(0);
                 touchPos = _camera.ScreenToWorldPoint(touch.position);

@@ -11,14 +11,14 @@ public class Borders : MonoBehaviour
     [SerializeField] private float offset;
     Vector2 topLeft, topRight, bottomLeft, bottomRight;
 
-    private void OnDrawGizmos() {
+   /* private void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(topLeft, .5f);
         Gizmos.DrawWireSphere(topRight, .5f);
         Gizmos.DrawWireSphere(bottomLeft, .5f);
         Gizmos.DrawWireSphere(bottomRight, .5f);
 
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()
