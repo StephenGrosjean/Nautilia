@@ -174,7 +174,7 @@ SpriteRenderer:
   m_SortingLayerID: 1979546751
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: be5ce20cc83561c499e34e92edac4a8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be62442c3b3b55c48b92bb43b1e0c93e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -198,15 +198,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frames:
-  - {fileID: 21300000, guid: be5ce20cc83561c499e34e92edac4a8a, type: 3}
-  - {fileID: 21300000, guid: 336eac7b4ea0459489bd6e59be07e193, type: 3}
-  - {fileID: 21300000, guid: 9d8f6c9adc2311d4aa766db75a34691c, type: 3}
-  - {fileID: 21300000, guid: 1850b91b04e31d74798257beef642634, type: 3}
-  - {fileID: 21300000, guid: fb0b75f2014290d41a68144a3c875ad3, type: 3}
-  - {fileID: 21300000, guid: 1850b91b04e31d74798257beef642634, type: 3}
-  - {fileID: 21300000, guid: 9d8f6c9adc2311d4aa766db75a34691c, type: 3}
-  - {fileID: 21300000, guid: 336eac7b4ea0459489bd6e59be07e193, type: 3}
-  waitEachFrame: 0.12
+  - {fileID: 21300000, guid: be62442c3b3b55c48b92bb43b1e0c93e, type: 3}
+  - {fileID: 21300000, guid: 3d98070399485bf42a1fe101be6c6554, type: 3}
+  - {fileID: 21300000, guid: be62442c3b3b55c48b92bb43b1e0c93e, type: 3}
+  waitEachFrame: 0.5
   spriteRenderer: {fileID: 6115522645326049605}
 --- !u!1 &3114620177920351971
 GameObject:
