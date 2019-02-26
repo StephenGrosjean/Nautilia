@@ -46,7 +46,7 @@ public class EnemySpawnSystem : MonoBehaviour
             enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn); //Put the enemy in the zone transform
             enemy.transform.position = Vector3.zero; //Set the enemy position to the zone transform position
             currentEnemies.Add(enemy); //Add the enemy to the list
-
+            enemy.tag = "Enemy";
             //If the wave need to wait before spawning the next wave
             if (wave.waitUntilDestruction) {
                 while (currentEnemies.Count > 0) { //Check if all the enemies are destroyed
