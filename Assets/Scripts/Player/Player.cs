@@ -15,16 +15,17 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject fourthUpgradePoint;
     [SerializeField] private GameObject fifthUpgradePoint;
     [SerializeField] private GameObject playerSprite;
+    [SerializeField] private GameObject hitCollider;
     [SerializeField] private float blinkInterval = 0.2f;
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
-    [SerializeField] private GameObject hitCollider;
+    [SerializeField] private CameraShake cameraShake;
 
     private bool _isInvincible = false;
     public bool IsInvincible {
         get { return _isInvincible; }
     }
-    public PlayerUpgrade _playerUpgrade;
+    private PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
     #endregion
 
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
 
     public void Hit() {
         if (!_isInvincible) {
+            StartCoroutine(cameraShake.DoShake(0.1f,0.3f));
             StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
             _playerScript.DecreaseLife(1);
         }

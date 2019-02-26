@@ -520,11 +520,11 @@ MonoBehaviour:
   fourthUpgradePoint: {fileID: 2276017858428204595}
   fifthUpgradePoint: {fileID: 2276017858428204595}
   playerSprite: {fileID: 1829154817}
+  hitCollider: {fileID: 4095040918770360638}
   blinkInterval: 0.2
   maxInvincibilityTime: 1
   deathAnimation: 1
-  hitCollider: {fileID: 4095040918770360638}
-  _playerUpgrade: 0
+  cameraShake: {fileID: 0}
 --- !u!58 &921027251
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -201,7 +201,7 @@ RectTransform:
   m_GameObject: {fileID: 726103650768783790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.00390625, y: 0.00390625, z: 0.00390625}
   m_Children:
   - {fileID: 4420787805686732498}
   - {fileID: 3675874408820332324}
@@ -223,7 +223,7 @@ Canvas:
   m_GameObject: {fileID: 726103650768783790}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 10
   m_PixelPerfect: 0
@@ -247,11 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1440, y: 2560}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4680639846799807133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1497,6 +1497,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07907a1317b22e8409d1b85214a87396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesObject:
+  - {fileID: 1621056273, guid: 134892c6c9abf114094d0ddacb16bbff, type: 3}
+  - {fileID: 1621056273, guid: bc38ef1c95166a645a79c20832c592fc, type: 3}
+  - {fileID: 1621056273, guid: 4ec1772662a61f5458df5831e0cd3400, type: 3}
+  - {fileID: 1621056273, guid: eb3df2fa2f97b264bba83de4cf88ef00, type: 3}
+  - {fileID: 1621056273, guid: fd3a08a2900e5154fb0c9f55a751b09b, type: 3}
+  - {fileID: 1621056273, guid: 1e9136d5c8208684986da457a7d42ec2, type: 3}
+  - {fileID: 1621056273, guid: 154aa1848184c0d499a61cc58a08e935, type: 3}
+  - {fileID: 1621056273, guid: 92dda1424cfe3c740951b140673dc901, type: 3}
   zones:
   - {fileID: 3572220061776426120}
   - {fileID: 3377048035445203555}
@@ -1508,25 +1517,38 @@ MonoBehaviour:
   - {fileID: 981880712033824011}
   - {fileID: 4572936775712214463}
   waves:
-  - toSpawn: {fileID: 1482040413307263258, guid: a7b8af31db7d4dc4ab61bbd380d0d58b,
-      type: 3}
-    zoneToSpawn: 1
-    waitUntilDestruction: 1
-  - toSpawn: {fileID: 225209967908541856, guid: 8a9a80e4a749fa541944a2fd8f225ad0,
-      type: 3}
+  - toSpawn: 0
     zoneToSpawn: 3
     waitUntilDestruction: 0
-  - toSpawn: {fileID: 225209967908541856, guid: 8a9a80e4a749fa541944a2fd8f225ad0,
-      type: 3}
+    timeBeforeSpawnNext: 0
+  - toSpawn: 0
     zoneToSpawn: 5
-    waitUntilDestruction: 1
-  - toSpawn: {fileID: 225209967908541856, guid: 8a9a80e4a749fa541944a2fd8f225ad0,
-      type: 3}
-    zoneToSpawn: 6
     waitUntilDestruction: 0
-  - toSpawn: {fileID: 1621056273, guid: af98acc1466d56949ba444bd2297afe4, type: 3}
-    zoneToSpawn: 8
+    timeBeforeSpawnNext: 0
+  - toSpawn: 5
+    zoneToSpawn: 1
     waitUntilDestruction: 1
+    timeBeforeSpawnNext: 0
+  - toSpawn: 6
+    zoneToSpawn: 1
+    waitUntilDestruction: 1
+    timeBeforeSpawnNext: 0
+  - toSpawn: 7
+    zoneToSpawn: 1
+    waitUntilDestruction: 1
+    timeBeforeSpawnNext: 0
+  - toSpawn: 2
+    zoneToSpawn: 1
+    waitUntilDestruction: 1
+    timeBeforeSpawnNext: 0
+  - toSpawn: 3
+    zoneToSpawn: 1
+    waitUntilDestruction: 1
+    timeBeforeSpawnNext: 0
+  - toSpawn: 4
+    zoneToSpawn: 1
+    waitUntilDestruction: 1
+    timeBeforeSpawnNext: 0
 --- !u!114 &6977314686213357433
 MonoBehaviour:
   m_ObjectHideFlags: 0
