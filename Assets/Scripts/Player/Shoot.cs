@@ -12,7 +12,8 @@ public class Shoot : MonoBehaviour
 
     private void Start()
     {
-        pool = GameObject.FindGameObjectWithTag("Container").GetComponent<BulletPooler>();
+        pool = GameObject.FindGameObjectWithTag("PoolPlayer").GetComponent<BulletPooler>();
+
     }
 
     private void FixedUpdate()

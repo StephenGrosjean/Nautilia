@@ -19,13 +19,20 @@
             <e p="EnemySpawnSystem.cs" t="Include" />
           </e>
           <e p="Misc" t="Include">
+            <e p="Borders.cs" t="Include" />
             <e p="BulletPooler.cs" t="Include" />
+            <e p="CameraShake.cs" t="Include" />
             <e p="DestroyByTime.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="GizmoDraw.cs" t="Include" />
+            <e p="ParticleContainer.cs" t="Include" />
             <e p="Point.cs" t="Include" />
+            <e p="SpriteAnimation.cs" t="Include" />
             <e p="TEST.cs" t="Include" />
             <e p="TestTouch.cs" t="Include" />
+          </e>
+          <e p="ParticleController" t="Include">
+            <e p="ParticleManager.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="Player.cs" t="Include" />
@@ -33,6 +40,7 @@
             <e p="PlayerLife.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerTakeDamage.cs" t="Include" />
+            <e p="PointCollector.cs" t="Include" />
             <e p="Shoot.cs" t="Include" />
             <e p="Upgrades.cs" t="Include" />
           </e>

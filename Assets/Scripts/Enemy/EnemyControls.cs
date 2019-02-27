@@ -4,66 +4,70 @@ using UnityEngine;
 
 public class EnemyControls : MonoBehaviour
 {
-    [SerializeField] private bool delete; //Destroy the enemy (Used for testing)
     [SerializeField] private GameObject[] powerupsDrop;
-    [SerializeField] private float collisionRadius;
-    [SerializeField] private GameObject upgradeObject;
+    [SerializeField] private GameObject particlesContainer;
+    [SerializeField] private GameObject upgradeObject, rotateObject;
+    [Space(10)]
     [Range(-100, 100)] [SerializeField] private float rotationSpeed;
+    [SerializeField] private int incrementRotation;
+    [Space(10)]
+    [SerializeField] private int numberOfPoints;
+    [SerializeField] private float pointSpawnRadius;
 
-    private int upgradeDropRate;
+    private int upgradeDropChance = 20;
+    public int upgradeDropRate = 1;
     private EnemySpawnSystem enemySpawnSystem;
     private EnemyLife lifeScript;
     private bool isBlinking;
     private SpriteRenderer spriteRendererComponent;
+    private BulletPooler poolPoint;
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, collisionRadius);
-    }
 
     void Start()
     {
+        poolPoint = GameObject.FindGameObjectWithTag("PoolPoint").GetComponent<BulletPooler>();
+        StartCoroutine("AddRotation");
         spriteRendererComponent = GetComponentInChildren<SpriteRenderer>();
         lifeScript = GetComponent<EnemyLife>(); //Get life script 
         enemySpawnSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnSystem>(); //Find the enemySpawnSystem
-        upgradeDropRate = Random.Range(1, 100);
+        upgradeDropRate = Random.Range(1, 50);
     }
 
+    public void Hit() {
+        lifeScript.DecreaseLife(1); //Decrease life
+        if (!isBlinking) {
+            isBlinking = true;
+            StartCoroutine("Blink");
+        }
+    }
+    
     void FixedUpdate()
     {
-        upgradeDropRate = Random.Range(1, 100);
-        
-        Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius, LayerMask.NameToLayer("Entity"));
-        if (hitColliders != null && hitColliders.CompareTag("PlayerBullet"))
-        {
-            lifeScript.DecreaseLife(1); //Decrease life
-            if (!isBlinking)
-            {
-                isBlinking = true;
-                StartCoroutine("Blink");
-            }
-        }
+        upgradeDropRate = Random.Range(1, 50);
 
-        //Delete the object (Used for testing)
-        if (delete)
-        {
-            Destroy(gameObject);
-        }
 
         //Destroy the object if life is lower than 0
         if (lifeScript.GetLife() <= 0)
         {
-            if (upgradeDropRate <= 10)
+            upgradeDropChance += 10;
+            if (upgradeDropRate <= upgradeDropChance)
             {
+                
                 Instantiate(upgradeObject, transform.position, Quaternion.identity);
             }
 
+            for (int i = 0; i < numberOfPoints; i++) {
+                GameObject point = poolPoint.GetBullet();
+                point.transform.position = new Vector2(Random.Range(transform.position.x- pointSpawnRadius, transform.position.x+ pointSpawnRadius), Random.Range(transform.position.y - pointSpawnRadius, transform.position.y + pointSpawnRadius));
+                point.SetActive(true);
+            }
+
+            particlesContainer.transform.SetParent(null);
             Destroy(gameObject);
         }
 
         //Rotate the object 
-        transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
+        rotateObject.transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
 
 
     }
@@ -89,4 +93,14 @@ private void OnDestroy()
         isBlinking = false;
 
     }
+
+
+    IEnumerator AddRotation() {
+        while (true) {
+            rotationSpeed += incrementRotation;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 }
+
+

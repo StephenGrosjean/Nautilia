@@ -10,12 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float yOffset;
     
-    private bool _isInPlayerZone;
+    public bool _isInPlayerZone;
     private Camera _camera;
-
-    private void OnDrawGizmos()
-    {
-    }
 
     private void Start()
     {
@@ -27,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!cursorMode)
         {
-            if (Input.touchCount > 0)
+            if (Input.touchCount > 0 && Input.touchCount < 2)
             {
                 Touch touch = Input.GetTouch(0);
                 touchPos = _camera.ScreenToWorldPoint(touch.position);
@@ -43,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("TouchField"))
                     {
+
                         _isInPlayerZone = true;
                     }
                 }
@@ -74,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.forward);
                 if (hit.collider != null)
                 {
-                    if (hit.transform.CompareTag("TouchField"))
+                    if (hit.transform.CompareTag("Player"))
                     {
                         _isInPlayerZone = true;
                     }

@@ -16,14 +16,13 @@ public class Point : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("PointCollector"))
         {
-            ScoreManager.AddScore(100);
             Destroy(gameObject);
         }
-    }
+    }*/
 
     private void Update()
     {
@@ -35,4 +34,5 @@ public class Point : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 6);
     }
+
 }

@@ -7,31 +7,36 @@ public class Player : MonoBehaviour
 
     public enum PlayerUpgrade { FirstUpgrade, SecondUpgrade, ThirdUpgrade, FourthUpgrade, FifthUpgrade }
 
-    public Collider2D hitColliders;
+    private Collider2D hitColliders;
     #region Player variable
-    [SerializeField] private float collisionRadius;
     [SerializeField] private GameObject firstUpgradePoint; 
     [SerializeField] private GameObject secondUpgradePoint;
     [SerializeField] private GameObject thirdUpgradePoint;
     [SerializeField] private GameObject fourthUpgradePoint;
     [SerializeField] private GameObject fifthUpgradePoint;
     [SerializeField] private GameObject playerSprite;
+    [SerializeField] private GameObject hitCollider;
     [SerializeField] private float blinkInterval = 0.2f;
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
+    [SerializeField] private CameraShake cameraShake;
     
     private bool _isInvincible = false;
+    public bool IsInvincible {
+        get { return _isInvincible; }
+    }
+
+    private SpriteRenderer _playerSpriteRenderer;
+    private EnemyControls _enemyScript;
     private PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
+    private bool isBlinking;
     #endregion
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, collisionRadius);
-    }
 
     private void Start()
     {
+        _enemyScript = GetComponent<EnemyControls>();
+        _playerScript = GetComponent<PlayerLife>();
         ShootingMode();
     }
 
@@ -41,9 +46,18 @@ public class Player : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius, LayerMask.NameToLayer("Entity"));
+       /* hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius);
         if (hitColliders != null && hitColliders.CompareTag("Bullet") && !_isInvincible) {
             StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
+            _playerScript.DecreaseLife(1);
+        }*/
+    }
+
+    public void Hit() {
+        if (!_isInvincible) {
+            StartCoroutine(cameraShake.DoShake(0.1f,0.3f));
+            StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
+            _playerScript.DecreaseLife(1);
         }
     }
 
@@ -51,15 +65,12 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Upgrade"))
         {
+            
             ScoreManager.AddScore(10000);
             _playerUpgrade++;
             ShootingMode();
-        }
-
-        if (col.CompareTag("Bullet") && !_isInvincible)
-        {
-            StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
-            _playerScript.DecreaseLife(1);
+            StartCoroutine(Blink());
+            _enemyScript.upgradeDropRate = 1;
         }
     }
 
@@ -106,7 +117,7 @@ public class Player : MonoBehaviour
     private IEnumerator InvincibilityBlink(float time)
     {
         _isInvincible = true;
-
+        hitCollider.SetActive(false);
         for (float i = 0; i < time; i += blinkInterval)
         {
             if (playerSprite.activeInHierarchy)
@@ -123,7 +134,18 @@ public class Player : MonoBehaviour
         }
         
         playerSprite.SetActive(true);
+        hitCollider.SetActive(true);
 
         _isInvincible = false;
+    }
+
+    private IEnumerator Blink()
+    {
+        float time = 0.3f;
+        _playerSpriteRenderer.color = new Color(0, 1, 0);
+        yield return new WaitForSeconds(time);
+        _playerSpriteRenderer.color = new Color(1, 1, 1);
+        yield return new WaitForSeconds(time);
+        isBlinking = false;
     }
 }

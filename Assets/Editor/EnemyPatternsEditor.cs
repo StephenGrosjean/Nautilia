@@ -106,6 +106,18 @@ public class EnemyPatternsEditor : Editor
             script.arroundMode = GUILayout.Toggle(script.arroundMode, "");
         }
         GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        {
+            GUILayout.Label("<b>Rotation Speed   </b>", label);
+            script.rotationSpeed = (int)GUILayout.HorizontalSlider(script.rotationSpeed, -100, 100, GUILayout.Width(150));
+            int val1 = (int)script.rotationSpeed;
+            string valstring = string.Format("{0:00}", val1);
+
+            GUILayout.Box(valstring, value);
+
+        }
+        GUILayout.EndHorizontal();
         #endregion
 
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
@@ -113,17 +125,7 @@ public class EnemyPatternsEditor : Editor
         switch (script.mode) {
             case EnemyPatterns.modifier.circle:
                 #region CircleMode
-                GUILayout.BeginHorizontal();
-                {
-                    GUILayout.Label("<b>Rotation Speed   </b>", label);
-                    script.rotationSpeed = (int)GUILayout.HorizontalSlider(script.rotationSpeed, -100, 100, GUILayout.Width(150));
-                    int val1 = (int)script.rotationSpeed;
-                    string valstring = string.Format("{0:00}", val1);
-
-                    GUILayout.Box(valstring, value);
-
-                }
-                GUILayout.EndHorizontal();
+                
 
                 GUILayout.BeginHorizontal(); {
 
