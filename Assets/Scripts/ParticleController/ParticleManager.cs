@@ -7,6 +7,7 @@ public class ParticleManager : MonoBehaviour
     private ParticleSystem part;
     private List<ParticleCollisionEvent> collisionEvents;
     private Player playerScript;
+    
     [SerializeField] private float rotationIncrement;
     [SerializeField] private bool isPlayer, pingPongValues;
     [SerializeField] private float minimumRotation, maximumRotation;
@@ -19,6 +20,7 @@ public class ParticleManager : MonoBehaviour
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        
     }
 
     void OnParticleCollision(GameObject other) {
