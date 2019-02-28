@@ -9,17 +9,18 @@ public class Player : MonoBehaviour
 
     private Collider2D hitColliders;
     #region Player variable
-    [SerializeField] private float collisionRadius;
     [SerializeField] private GameObject firstUpgradePoint; 
     [SerializeField] private GameObject secondUpgradePoint;
     [SerializeField] private GameObject thirdUpgradePoint;
     [SerializeField] private GameObject fourthUpgradePoint;
     [SerializeField] private GameObject fifthUpgradePoint;
     [SerializeField] private GameObject playerSprite;
+    [SerializeField] private GameObject hitCollider;
     [SerializeField] private float blinkInterval = 0.2f;
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
-    
+    [SerializeField] private CameraShake cameraShake;
+
     private bool _isInvincible = false;
     public bool IsInvincible {
         get { return _isInvincible; }
@@ -27,11 +28,6 @@ public class Player : MonoBehaviour
     private PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
     #endregion
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, collisionRadius);
-    }
 
     private void Start()
     {
@@ -54,6 +50,7 @@ public class Player : MonoBehaviour
 
     public void Hit() {
         if (!_isInvincible) {
+            StartCoroutine(cameraShake.DoShake(0.1f,0.3f));
             StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
             _playerScript.DecreaseLife(1);
         }
@@ -63,8 +60,9 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Upgrade"))
         {
+
             ScoreManager.AddScore(10000);
-            //_playerUpgrade++;
+            _playerUpgrade++;
             ShootingMode();
         }
     }
@@ -112,7 +110,7 @@ public class Player : MonoBehaviour
     private IEnumerator InvincibilityBlink(float time)
     {
         _isInvincible = true;
-
+        hitCollider.SetActive(false);
         for (float i = 0; i < time; i += blinkInterval)
         {
             if (playerSprite.activeInHierarchy)
@@ -129,6 +127,7 @@ public class Player : MonoBehaviour
         }
         
         playerSprite.SetActive(true);
+        hitCollider.SetActive(true);
 
         _isInvincible = false;
     }

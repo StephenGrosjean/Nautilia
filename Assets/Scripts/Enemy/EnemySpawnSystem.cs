@@ -6,16 +6,34 @@ public class EnemySpawnSystem : MonoBehaviour
 {
     //Zones enum
     public enum zone { Top_Left, Top_Center, Top_Right, Middle_Left, Middle_Center, Middle_Right, Bottom_Left, Bottom_Center, Bottom_Right };
+    //Enemies enum
+    public enum enemies {
+        Flower_4,
+        Flower_8,
+        Flower_12,
+        Flower_16,
+        Rotating_1,
+        Rotating_2,
+        Rotating_3,
+        Rotating_4_Changing,
+        Burst_1_5_Down,
+        Burst_2_5_Down,
+        Burst_3_5_Down,
+        Burst_4_5_Down,
+        Burst_12_3_Omni
+    };
 
+    [SerializeField] private GameObject[] enemiesObject;
     [SerializeField] private Transform[] zones; //Zones transform
     [SerializeField] private Wave[] waves; //Waves array
 
     //Wave setup class
     [System.Serializable]
     class Wave {
-        public GameObject toSpawn;
+        public enemies toSpawn;
         public zone zoneToSpawn;
         public bool waitUntilDestruction;
+        public float timeBeforeSpawnNext;
     }
     
     //List of enemies
@@ -37,18 +55,65 @@ public class EnemySpawnSystem : MonoBehaviour
 
     IEnumerator SpawnWaves() {
         foreach (Wave wave in waves) {
-            GameObject enemy = Instantiate(wave.toSpawn, GetSpawnPosition(wave.zoneToSpawn).position, Quaternion.identity); //Instantiate enemy in correct zone
+
+            GameObject enemy = Instantiate(GetEnemy(wave.toSpawn), GetSpawnPosition(wave.zoneToSpawn).position, Quaternion.identity); //Instantiate enemy in correct zone
             enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn); //Put the enemy in the zone transform
             enemy.transform.position = Vector3.zero; //Set the enemy position to the zone transform position
             currentEnemies.Add(enemy); //Add the enemy to the list
-
+            enemy.tag = "Enemy";
             //If the wave need to wait before spawning the next wave
             if (wave.waitUntilDestruction) {
                 while (currentEnemies.Count > 0) { //Check if all the enemies are destroyed
                     yield return new WaitForSeconds(0.1f);
                 }
             }
+            yield return new WaitForSeconds(wave.timeBeforeSpawnNext);
         }
+    }
+
+    GameObject GetEnemy(enemies enemy) {
+        switch (enemy) {
+            case enemies.Flower_4:
+                return enemiesObject[0];
+                break;
+            case enemies.Flower_8:
+                return enemiesObject[1];
+                break;
+            case enemies.Flower_12:
+                return enemiesObject[2];
+                break;
+            case enemies.Flower_16:
+                return enemiesObject[3];
+                break;
+            case enemies.Rotating_1:
+                return enemiesObject[4];
+                break;
+            case enemies.Rotating_2:
+                return enemiesObject[5];
+                break;
+            case enemies.Rotating_3:
+                return enemiesObject[6];
+                break;
+            case enemies.Rotating_4_Changing:
+                return enemiesObject[7];
+                break;
+            case enemies.Burst_1_5_Down:
+                return enemiesObject[8];
+                break;
+            case enemies.Burst_2_5_Down:
+                return enemiesObject[9];
+                break;
+            case enemies.Burst_3_5_Down:
+                return enemiesObject[10];
+                break;
+            case enemies.Burst_4_5_Down:
+                return enemiesObject[11];
+                break;
+            case enemies.Burst_12_3_Omni:
+                return enemiesObject[12];
+                break;
+        }
+        return null;
     }
 
     //Get all spawn positions

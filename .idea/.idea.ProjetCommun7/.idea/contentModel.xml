@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\ethan\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\ethan\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_ProjetCommun7.1282100363.00" t="ExcludeRecursive" />
-    <e p="D:\Developemment\ProjetCommun7" t="IncludeRecursive">
+    <e p="C:\Users\ethan\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_ProjetCommun7.45180573.00" t="ExcludeRecursive" />
+    <e p="C:\Users\ethan\Desktop\Developement\ProjetCommun7" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -19,13 +19,20 @@
             <e p="EnemySpawnSystem.cs" t="Include" />
           </e>
           <e p="Misc" t="Include">
+            <e p="Borders.cs" t="Include" />
             <e p="BulletPooler.cs" t="Include" />
+            <e p="CameraShake.cs" t="Include" />
             <e p="DestroyByTime.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="GizmoDraw.cs" t="Include" />
+            <e p="ParticleContainer.cs" t="Include" />
             <e p="Point.cs" t="Include" />
+            <e p="SpriteAnimation.cs" t="Include" />
             <e p="TEST.cs" t="Include" />
             <e p="TestTouch.cs" t="Include" />
+          </e>
+          <e p="ParticleController" t="Include">
+            <e p="ParticleManager.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="Player.cs" t="Include" />
@@ -33,6 +40,7 @@
             <e p="PlayerLife.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerTakeDamage.cs" t="Include" />
+            <e p="PointCollector.cs" t="Include" />
             <e p="Shoot.cs" t="Include" />
             <e p="Upgrades.cs" t="Include" />
           </e>
