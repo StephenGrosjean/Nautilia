@@ -20,7 +20,8 @@ public class EnemySpawnSystem : MonoBehaviour
         Burst_2_5_Down,
         Burst_3_5_Down,
         Burst_4_5_Down,
-        Burst_12_3_Omni
+        Burst_12_3_Omni,
+        Burst_30_Wait_Omni
     };
 
     [SerializeField] private GameObject[] enemiesObject;
@@ -111,6 +112,9 @@ public class EnemySpawnSystem : MonoBehaviour
                 break;
             case enemies.Burst_12_3_Omni:
                 return enemiesObject[12];
+                break;
+            case enemies.Burst_30_Wait_Omni:
+                return enemiesObject[13];
                 break;
         }
         return null;
