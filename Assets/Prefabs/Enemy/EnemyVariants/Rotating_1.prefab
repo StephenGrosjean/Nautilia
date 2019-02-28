@@ -53,7 +53,7 @@ MonoBehaviour:
   upgradeObject: {fileID: 5845843904931835803, guid: e9e59f0121d76ec42a226f5c092b340e,
     type: 3}
   rotateObject: {fileID: 4372924286203783695}
-  rotationSpeed: 100
+  rotationSpeed: 35
   incrementRotation: 0
   numberOfPoints: 40
   pointSpawnRadius: 2
@@ -247,7 +247,7 @@ ParticleSystem:
   m_GameObject: {fileID: 3114620177920351971}
   serializedVersion: 6
   lengthInSec: 0.2
-  simulationSpeed: 1
+  simulationSpeed: 1.5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -374,7 +374,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
