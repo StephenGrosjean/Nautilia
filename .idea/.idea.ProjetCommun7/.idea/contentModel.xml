@@ -12,6 +12,8 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Enemy" t="Include">
+            <e p="Boss.cs" t="Include" />
+            <e p="BossControls.cs" t="Include" />
             <e p="BulletBehaviour.cs" t="Include" />
             <e p="EnemyControls.cs" t="Include" />
             <e p="EnemyLife.cs" t="Include" />
