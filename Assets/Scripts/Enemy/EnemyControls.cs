@@ -49,11 +49,12 @@ public class EnemyControls : MonoBehaviour
         //Destroy the object if life is lower than 0
         if (lifeScript.GetLife() <= 0)
         {
+            Instantiate(upgradeObject, transform.position, Quaternion.identity);
+
             upgradeDropChance += 10;
             if (upgradeDropRate <= upgradeDropChance)
             {
                 
-                Instantiate(upgradeObject, transform.position, Quaternion.identity);
             }
 
             for (int i = 0; i < numberOfPoints; i++) {
