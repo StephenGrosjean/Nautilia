@@ -6,10 +6,17 @@ public class EnemyLife : MonoBehaviour
 {
     [SerializeField] private int life = 100; //Life script 
 
+    private bool isImortal;
+    public bool IsImortal {
+        get { return isImortal; }
+        set { isImortal = value; }
+    }
     //Decrease life function
     public void DecreaseLife(int value)
     {
-        life -= value;
+        if (!isImortal) {
+            life -= value;
+        }
     }
 
     //Increase life function

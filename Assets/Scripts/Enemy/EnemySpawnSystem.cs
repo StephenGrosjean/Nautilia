@@ -7,7 +7,21 @@ public class EnemySpawnSystem : MonoBehaviour
     //Zones enum
     public enum zone { Top_Left, Top_Center, Top_Right, Middle_Left, Middle_Center, Middle_Right, Bottom_Left, Bottom_Center, Bottom_Right };
     //Enemies enum
-    public enum enemies { Flower_4, Flower_8, Rotating_1, Rotating_2, Rotating_3, Burst_1_5_Down, Burst_2_5_Down, Burst_12_3_Omni};
+    public enum enemies {
+        Flower_4,
+        Flower_8,
+        Flower_12,
+        Flower_16,
+        Rotating_1,
+        Rotating_2,
+        Rotating_3,
+        Rotating_4_Changing,
+        Burst_1_5_Down,
+        Burst_2_5_Down,
+        Burst_3_5_Down,
+        Burst_4_5_Down,
+        Burst_12_3_Omni
+    };
 
     [SerializeField] private GameObject[] enemiesObject;
     [SerializeField] private Transform[] zones; //Zones transform
@@ -65,23 +79,38 @@ public class EnemySpawnSystem : MonoBehaviour
             case enemies.Flower_8:
                 return enemiesObject[1];
                 break;
-            case enemies.Rotating_1:
+            case enemies.Flower_12:
                 return enemiesObject[2];
                 break;
-            case enemies.Rotating_2:
+            case enemies.Flower_16:
                 return enemiesObject[3];
                 break;
-            case enemies.Rotating_3:
+            case enemies.Rotating_1:
                 return enemiesObject[4];
                 break;
-            case enemies.Burst_1_5_Down:
+            case enemies.Rotating_2:
                 return enemiesObject[5];
                 break;
-            case enemies.Burst_2_5_Down:
+            case enemies.Rotating_3:
                 return enemiesObject[6];
                 break;
-            case enemies.Burst_12_3_Omni:
+            case enemies.Rotating_4_Changing:
                 return enemiesObject[7];
+                break;
+            case enemies.Burst_1_5_Down:
+                return enemiesObject[8];
+                break;
+            case enemies.Burst_2_5_Down:
+                return enemiesObject[9];
+                break;
+            case enemies.Burst_3_5_Down:
+                return enemiesObject[10];
+                break;
+            case enemies.Burst_4_5_Down:
+                return enemiesObject[11];
+                break;
+            case enemies.Burst_12_3_Omni:
+                return enemiesObject[12];
                 break;
         }
         return null;

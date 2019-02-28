@@ -15,7 +15,7 @@ public class ParticleManager : MonoBehaviour
     private bool increase = true;
 
     void Start() {
-        baseOffet = transform.eulerAngles.z;
+        baseOffet = WrapAngle(transform.localEulerAngles.z);
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -34,16 +34,19 @@ public class ParticleManager : MonoBehaviour
                 else if (colEvent.colliderComponent.gameObject.CompareTag("Enemy") && isPlayer) {
                     colEvent.colliderComponent.gameObject.GetComponent<EnemyControls>().Hit();
                 }
+                else if (colEvent.colliderComponent.gameObject.CompareTag("Boss") && isPlayer) {
+                    colEvent.colliderComponent.gameObject.GetComponent<BossControls>().Hit();
+                }
             }
         }
     }
 
    void Update() {
         if (pingPongValues) {
-            if (transform.eulerAngles.z - baseOffet >= maximumRotation) {
+            if (WrapAngle(transform.localEulerAngles.z) - baseOffet >= maximumRotation) {
                 increase = false;
             }
-            if (transform.eulerAngles.z - baseOffet <= minimumRotation) {
+            if (WrapAngle(transform.localEulerAngles.z) - baseOffet <= minimumRotation) {
                 increase = true;
             }
 
@@ -60,5 +63,12 @@ public class ParticleManager : MonoBehaviour
         transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
     }
 
+    private float WrapAngle(float angle) {
+        angle %= 360;
+        if (angle > 180)
+            return angle - 360;
+
+        return angle;
+    }
 
 }
