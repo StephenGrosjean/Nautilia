@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\ethan\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\ethan\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_ProjetCommun7.45180573.00" t="ExcludeRecursive" />
-    <e p="C:\Users\ethan\Desktop\Developement\ProjetCommun7" t="IncludeRecursive">
+    <e p="C:\Users\ethan\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_ProjetCommun7.1282100363.00" t="ExcludeRecursive" />
+    <e p="D:\Developemment\ProjetCommun7" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -12,6 +12,8 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Enemy" t="Include">
+            <e p="Boss.cs" t="Include" />
+            <e p="BossControls.cs" t="Include" />
             <e p="BulletBehaviour.cs" t="Include" />
             <e p="EnemyControls.cs" t="Include" />
             <e p="EnemyLife.cs" t="Include" />

@@ -21,16 +21,20 @@ public class Player : MonoBehaviour
     [SerializeField] private float deathAnimation = 1.0f;
     [SerializeField] private CameraShake cameraShake;
 
+    private bool _isBlinking = false;
     private bool _isInvincible = false;
     public bool IsInvincible {
         get { return _isInvincible; }
     }
+
+    public SpriteRenderer _playerSpriteRenderer;
     private PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
     #endregion
 
     private void Start()
     {
+        _playerSpriteRenderer = GetComponent<SpriteRenderer>();
         _playerScript = GetComponent<PlayerLife>();
         ShootingMode();
     }
@@ -38,14 +42,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         StartCoroutine(Die(deathAnimation));
-    }
-
-    private void FixedUpdate() {
-       /* hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius);
-        if (hitColliders != null && hitColliders.CompareTag("Bullet") && !_isInvincible) {
-            StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
-            _playerScript.DecreaseLife(1);
-        }*/
     }
 
     public void Hit() {
@@ -60,8 +56,14 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Upgrade"))
         {
-
+            
             ScoreManager.AddScore(10000);
+            if (!_isBlinking)
+            {
+                _isBlinking = true;
+                StartCoroutine("Blink");
+            }
+            
             _playerUpgrade++;
             ShootingMode();
         }
@@ -130,5 +132,16 @@ public class Player : MonoBehaviour
         hitCollider.SetActive(true);
 
         _isInvincible = false;
+    }
+
+    private IEnumerator Blink()
+    {
+        float time = 1f;
+        _playerSpriteRenderer.color = new Color(0, 1, 0);
+        yield return new WaitForSeconds(time);
+        _playerSpriteRenderer.color = new Color(1, 1, 1);
+        yield return new WaitForSeconds(time);
+        _isBlinking = false;
+
     }
 }
