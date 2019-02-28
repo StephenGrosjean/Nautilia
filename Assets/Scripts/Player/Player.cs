@@ -20,17 +20,22 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
     [SerializeField] private CameraShake cameraShake;
-
+    
     private bool _isInvincible = false;
     public bool IsInvincible {
         get { return _isInvincible; }
     }
+
+    private SpriteRenderer _playerSpriteRenderer;
+    private EnemyControls _enemyScript;
     private PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
+    private bool isBlinking;
     #endregion
 
     private void Start()
     {
+        _enemyScript = GetComponent<EnemyControls>();
         _playerScript = GetComponent<PlayerLife>();
         ShootingMode();
     }
@@ -60,10 +65,12 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Upgrade"))
         {
-
+            
             ScoreManager.AddScore(10000);
             _playerUpgrade++;
             ShootingMode();
+            StartCoroutine(Blink());
+            _enemyScript.upgradeDropRate = 1;
         }
     }
 
@@ -130,5 +137,15 @@ public class Player : MonoBehaviour
         hitCollider.SetActive(true);
 
         _isInvincible = false;
+    }
+
+    private IEnumerator Blink()
+    {
+        float time = 0.3f;
+        _playerSpriteRenderer.color = new Color(0, 1, 0);
+        yield return new WaitForSeconds(time);
+        _playerSpriteRenderer.color = new Color(1, 1, 1);
+        yield return new WaitForSeconds(time);
+        isBlinking = false;
     }
 }
