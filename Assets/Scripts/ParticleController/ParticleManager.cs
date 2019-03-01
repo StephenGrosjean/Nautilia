@@ -8,15 +8,19 @@ public class ParticleManager : MonoBehaviour
     private List<ParticleCollisionEvent> collisionEvents;
     private Player playerScript;
     
-    [SerializeField] private float rotationIncrement;
+    [SerializeField] private float rotationSpeed;
     [SerializeField] private bool isPlayer, pingPongValues;
-    [SerializeField] private float minimumRotation, maximumRotation;
+    [SerializeField] private float rotationAngle;
 
-    private float rotationSpeed, baseOffet;
+    private float baseOffset;
     private bool increase = true;
 
+    void OnDrawGizmosSelected () {
+
+    }
+
     void Start() {
-        baseOffet = WrapAngle(transform.localEulerAngles.z);
+        baseOffset = transform.localEulerAngles.z;
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -43,12 +47,13 @@ public class ParticleManager : MonoBehaviour
         }
     }
 
-   void Update() {
+    void Update() {
         if (pingPongValues) {
-            if (WrapAngle(transform.localEulerAngles.z) - baseOffet >= maximumRotation) {
+
+            /*if (WrapAngle(transform.eulerAngles.z)  >= maximumRotation) {
                 increase = false;
             }
-            if (WrapAngle(transform.localEulerAngles.z) - baseOffet <= minimumRotation) {
+            if (WrapAngle(transform.eulerAngles.z)  <= minimumRotation) {
                 increase = true;
             }
 
@@ -57,14 +62,16 @@ public class ParticleManager : MonoBehaviour
             }
             else {
                 rotationSpeed = -rotationIncrement;
-            }
+            }*/
+            float angle = Mathf.Sin(Time.time * rotationSpeed / 10) * rotationAngle;
+            transform.localRotation = Quaternion.AngleAxis(angle + Mathf.Abs(baseOffset), Vector3.forward);
         }
         else {
-            rotationSpeed = rotationIncrement;
+                transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
         }
-        transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
+            
+        
     }
-
     private float WrapAngle(float angle) {
         angle %= 360;
         if (angle > 180)

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossControls : MonoBehaviour { 
-
+public class BossControls : MonoBehaviour {
+    [SerializeField] private Color blinkColor;
+    [SerializeField] private GameObject particlesContainer;
 
     private EnemyLife lifeScript;
     private bool isBlinking;
@@ -33,6 +34,7 @@ public class BossControls : MonoBehaviour {
         //Destroy the object if life is lower than 0
         if (lifeScript.GetLife() <= 0)
         {
+            particlesContainer.transform.SetParent(null);
             Destroy(gameObject);
         }
 
@@ -41,9 +43,9 @@ public class BossControls : MonoBehaviour {
     //Blink Ienumerator (Need optimisation)
     IEnumerator Blink() {
         float time = 0.03f;
-        spriteRendererComponent.color = new Color(1, 0, 0);
+        spriteRendererComponent.color = blinkColor;
         yield return new WaitForSeconds(time);
-        spriteRendererComponent.color = new Color(1, 1, 1);
+        spriteRendererComponent.color = Color.white;
         yield return new WaitForSeconds(time);
         isBlinking = false;
 
