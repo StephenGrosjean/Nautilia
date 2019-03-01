@@ -890,6 +890,48 @@ PrefabInstance:
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 1991471225}
+    - target: {fileID: 8182269103843507879, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
+    - target: {fileID: 8182269103843507879, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182269103843507879, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.99068594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182269103843507879, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182269102527315232, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
+    - target: {fileID: 8182269102527315232, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182269102527315232, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.99068594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182269102527315232, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
 --- !u!1 &1633718335
@@ -1640,149 +1682,5 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: c0e7be3dd858b5e4a848987a5dc121eb,
-        type: 2}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 21933238807024542, guid: c0e7be3dd858b5e4a848987a5dc121eb,
-        type: 2}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_fontSize
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_text
-      value: 'Score : 123'
-      objectReference: {fileID: 0}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.size
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: waves.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[0]
-      value: 
-      objectReference: {fileID: 1621056273, guid: 134892c6c9abf114094d0ddacb16bbff,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[2]
-      value: 
-      objectReference: {fileID: 1621056273, guid: 457cec9c50f1eb749ba6b2f13cc2a736,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[3]
-      value: 
-      objectReference: {fileID: 1621056273, guid: c89a733f74168504e8bf9cda52d8f3d4,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[4]
-      value: 
-      objectReference: {fileID: 1621056273, guid: 4ec1772662a61f5458df5831e0cd3400,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[5]
-      value: 
-      objectReference: {fileID: 1621056273, guid: eb3df2fa2f97b264bba83de4cf88ef00,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[6]
-      value: 
-      objectReference: {fileID: 1621056273, guid: fd3a08a2900e5154fb0c9f55a751b09b,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[7]
-      value: 
-      objectReference: {fileID: 1621056273, guid: 8bcaa65932d6fed4c92c111c9fd8aa27,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[8]
-      value: 
-      objectReference: {fileID: 1621056273, guid: 1e9136d5c8208684986da457a7d42ec2,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[9]
-      value: 
-      objectReference: {fileID: 1621056273, guid: 154aa1848184c0d499a61cc58a08e935,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[10]
-      value: 
-      objectReference: {fileID: 1621056273, guid: 789f62a3dd1e1c34285edd950104ac54,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[11]
-      value: 
-      objectReference: {fileID: 1621056273, guid: f37b960feede96e4b84ed556eaf84938,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[12]
-      value: 
-      objectReference: {fileID: 1621056273, guid: 92dda1424cfe3c740951b140673dc901,
-        type: 3}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: waves.Array.data[0].zoneToSpawn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: waves.Array.data[0].toSpawn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: enemiesObject.Array.data[13]
-      value: 
-      objectReference: {fileID: 1621056273, guid: 56b853f960e59fd498c3ef6e88e40cdb,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}

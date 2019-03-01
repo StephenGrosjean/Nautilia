@@ -13,6 +13,7 @@ public class EnemyControls : MonoBehaviour
     [Space(10)]
     [SerializeField] private int numberOfPoints;
     [SerializeField] private float pointSpawnRadius;
+    [SerializeField] private Color blinkColor = Color.red;
 
     private int upgradeDropChance = 20;
     public int upgradeDropRate = 1;
@@ -49,12 +50,11 @@ public class EnemyControls : MonoBehaviour
         //Destroy the object if life is lower than 0
         if (lifeScript.GetLife() <= 0)
         {
-            Instantiate(upgradeObject, transform.position, Quaternion.identity);
 
             upgradeDropChance += 10;
             if (upgradeDropRate <= upgradeDropChance)
             {
-                
+                Instantiate(upgradeObject, transform.position, Quaternion.identity);
             }
 
             for (int i = 0; i < numberOfPoints; i++) {
@@ -89,7 +89,7 @@ private void OnDestroy()
         float time = 0.03f;
         spriteRendererComponent.color = new Color(1, 0, 0);
         yield return new WaitForSeconds(time);
-        spriteRendererComponent.color = new Color(1, 1, 1);
+        spriteRendererComponent.color = Color.white;
         yield return new WaitForSeconds(time);
         isBlinking = false;
 
