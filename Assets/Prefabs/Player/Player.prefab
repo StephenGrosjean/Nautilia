@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829340059}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0046, y: 0.4004, z: 0}
+  m_LocalPosition: {x: -0.0003, y: 0.4004, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 7616306006855113996}
@@ -320,9 +320,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.005, y: 0}
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.03
 --- !u!1 &4247314195982472838
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5813263615246902846
 Transform:
   m_ObjectHideFlags: 0
@@ -588,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6049376022140242286
 Transform:
   m_ObjectHideFlags: 0
@@ -706,6 +706,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &1976782086484467143 stripped
@@ -798,9 +804,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
         type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.99068594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &1976782086746846075 stripped
@@ -907,6 +929,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &1976782087343045281 stripped
@@ -999,9 +1027,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
         type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.99068594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &1976782087588622588 stripped
@@ -1103,6 +1147,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &1976782087980009991 stripped
@@ -1224,6 +1274,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &2009026360067642758 stripped
@@ -1325,6 +1381,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &1309196029504115952 stripped
@@ -1426,6 +1488,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &843204092259331729 stripped
@@ -1527,6 +1595,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &1110489526274708657 stripped
@@ -1648,6 +1722,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &3120449432852341210 stripped
@@ -1769,6 +1849,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &3312183004126400328 stripped
@@ -1870,6 +1956,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &6392227539791110387 stripped
@@ -1971,6 +2063,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &5875890733031691393 stripped
@@ -2092,6 +2190,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &5791486132662068356 stripped
@@ -2213,6 +2317,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &6208238896828963086 stripped
@@ -2314,6 +2424,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &5556895551646209442 stripped
@@ -2415,6 +2531,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &4723680373453888005 stripped
@@ -2516,6 +2638,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &9197250270968676446 stripped
@@ -2617,6 +2745,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8182269103373489197, guid: 5b1134b4af0d20548a8b8e548a08f3dd,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1134b4af0d20548a8b8e548a08f3dd, type: 3}
 --- !u!4 &8604819036646094938 stripped

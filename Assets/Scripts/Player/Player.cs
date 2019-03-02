@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float blinkInterval = 0.2f;
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
-    [SerializeField] private CameraShake cameraShake;
     [SerializeField] private SpriteRenderer _playerSpriteRenderer;
 
     private bool _isInvincible = false;
@@ -28,6 +27,7 @@ public class Player : MonoBehaviour
     }
 
     private EnemyControls _enemyScript;
+    private CameraShake cameraShake;
     private PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
     private bool isBlinking;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-
+        cameraShake = Camera.main.GetComponent<CameraShake>();
         _enemyScript = GetComponent<EnemyControls>();
         _playerScript = GetComponent<PlayerLife>();
         ShootingMode();

@@ -890,48 +890,6 @@ PrefabInstance:
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 1991471225}
-    - target: {fileID: 8182269103843507879, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: UVModule.sprites.Array.data[0].sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
-        type: 3}
-    - target: {fileID: 8182269103843507879, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8182269103843507879, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.99068594
-      objectReference: {fileID: 0}
-    - target: {fileID: 8182269103843507879, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8182269102527315232, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: UVModule.sprites.Array.data[0].sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb,
-        type: 3}
-    - target: {fileID: 8182269102527315232, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8182269102527315232, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.99068594
-      objectReference: {fileID: 0}
-    - target: {fileID: 8182269102527315232, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
 --- !u!1 &1633718335
@@ -1681,6 +1639,11 @@ PrefabInstance:
     - target: {fileID: 833228897, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: levelID
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
