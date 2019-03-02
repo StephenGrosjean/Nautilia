@@ -23,10 +23,12 @@ public class EnemySpawnSystem : MonoBehaviour
         Burst_12_3_Omni,
         Burst_30_Wait_Omni
     };
-
+    [SerializeField] private XMLSave saveSystem;
+    [SerializeField] private int levelID;
     [SerializeField] private GameObject[] enemiesObject;
     [SerializeField] private Transform[] zones; //Zones transform
     [SerializeField] private Wave[] waves; //Waves array
+
 
     //Wave setup class
     [System.Serializable]
@@ -69,6 +71,17 @@ public class EnemySpawnSystem : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(wave.timeBeforeSpawnNext);
+        }
+
+        while(currentEnemies.Count > 0) {
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        //Save level
+        saveSystem.Load();
+        if (saveSystem.dataBase.firstDB[0].value < levelID) {
+            saveSystem.dataBase.firstDB[0].value = levelID;
+            saveSystem.Save();
         }
     }
 
