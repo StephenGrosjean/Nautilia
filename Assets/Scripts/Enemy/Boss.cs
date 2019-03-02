@@ -7,7 +7,7 @@ public class Boss : MonoBehaviour
 {
     public enum stage { Left, Right, Head};
 
-    [SerializeField] private int globalLife;
+    [SerializeField] private int globalLife, timeBeforeNextPhase;
     [SerializeField] private Image lifeImage;
     [SerializeField] private EnemyLife leftArm, rightArm, head;
     [SerializeField] private List<GameObject> firstSequenceObj, secondSequenceObj, thirdSequenceObj;
@@ -21,7 +21,7 @@ public class Boss : MonoBehaviour
     {
         currentStage = stage.Left;
         GetLifes();
-        SwitchPhase();
+        StartCoroutine(SwitchPhase());
         maxLife = leftLife + rightLife + headLife;
         InvokeRepeating("UpdateLife", 0, 0.1f);
     }
@@ -33,17 +33,22 @@ public class Boss : MonoBehaviour
                 if (leftArm.GetLife() <= 0) {
                     leftArm_Destroyed = true;
                     currentStage = stage.Right;
-                    SwitchPhase();
+                    StartCoroutine(SwitchPhase());
                 }
                 break;
             case stage.Right:
                 if(rightArm.GetLife() <= 0) {
                     rightArm_Destroyed = true;
                     currentStage = stage.Head;
-                    SwitchPhase();
+                    StartCoroutine(SwitchPhase());
                 }
                 break;
-         }
+            case stage.Head:
+                if (head.GetLife() <= 0) {
+                    DetatchObjects(thirdSequenceObj);
+                }
+                break;
+        }
     }
 
     void GetLifes() {
@@ -68,7 +73,7 @@ public class Boss : MonoBehaviour
         lifeImage.fillAmount = percentage;
     }
 
-    void SwitchPhase() {
+    IEnumerator SwitchPhase() {
         switch (currentStage) {
             case stage.Left:
                 rightArm.IsImortal = true;
@@ -76,17 +81,22 @@ public class Boss : MonoBehaviour
                 EnableObjects(firstSequenceObj);
                 break;
             case stage.Right:
-                rightArm.IsImortal = false;
+                Shake();
                 head.IsImortal = true;
                 DetatchObjects(firstSequenceObj);
+                yield return new WaitForSeconds(timeBeforeNextPhase);
+                rightArm.IsImortal = false;
                 EnableObjects(secondSequenceObj);
                 break;
             case stage.Head:
-                head.IsImortal = false;
+                Shake();
                 DetatchObjects(secondSequenceObj);
+                yield return new WaitForSeconds(timeBeforeNextPhase);
+                head.IsImortal = false;
                 EnableObjects(thirdSequenceObj);
                 break;
         }
+        
     }
 
     void EnableObjects(List<GameObject> toActivate) {
@@ -102,5 +112,9 @@ public class Boss : MonoBehaviour
                 obj.GetComponent<ParticleSystem>().Stop();
             }
         }
+    }
+
+    void Shake() {
+        StartCoroutine(Camera.main.GetComponent<CameraShake>().DoShake(0.02f, 3));
     }
 }
