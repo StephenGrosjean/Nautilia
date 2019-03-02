@@ -48,6 +48,7 @@ public class ParticleManager : MonoBehaviour
     }
 
     void Update() {
+
         if (pingPongValues) {
 
             /*if (WrapAngle(transform.eulerAngles.z)  >= maximumRotation) {

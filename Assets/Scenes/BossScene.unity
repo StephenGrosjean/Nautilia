@@ -1808,6 +1808,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4812647016433227686, guid: f6ab8a8db5b4e534d85ed6239ed2f621,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dcd254fb3c4dfd54393267f396ff4ce1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6ab8a8db5b4e534d85ed6239ed2f621, type: 3}
 --- !u!1 &4211209573126656962 stripped
@@ -1922,10 +1928,65 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1304015064988725268, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07d853656b7b7de4d906b6f1cf8a008f,
+        type: 3}
+    - target: {fileID: 1304015064988725268, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304015064988725268, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: RotationModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1621056274, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
       propertyPath: lifeImage
       value: 
       objectReference: {fileID: 750574397}
+    - target: {fileID: 7018236477763223206, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018236477763223206, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018236477763223206, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018236477763223206, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018236477763223206, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288919483504183956, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691191884, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691191887, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07d853656b7b7de4d906b6f1cf8a008f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
 --- !u!1001 &7708845598129177654
