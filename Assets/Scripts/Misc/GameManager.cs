@@ -16,23 +16,12 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        if (check) {
-            GetBullets();
-        }
-
-        if (bullets.Length > 0) {
-            bulletsNumber = bullets.Length;
-        }
     }
 
     public static GameObject GetPlayer() {
         return player;
-    }
-
-    void GetBullets() {
-        bullets = null;
-        bullets = GameObject.FindGameObjectsWithTag("Bullet") ;
     }
 }
