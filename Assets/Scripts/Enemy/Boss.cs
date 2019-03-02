@@ -17,8 +17,6 @@ public class Boss : MonoBehaviour
     private stage currentStage;
     private int leftLife, rightLife, headLife;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         currentStage = stage.Left;
@@ -28,7 +26,6 @@ public class Boss : MonoBehaviour
         InvokeRepeating("UpdateLife", 0, 0.1f);
     }
 
-    // Update is called once per frame
     void Update() {
         GetLifes();
         switch (currentStage) {
@@ -69,7 +66,6 @@ public class Boss : MonoBehaviour
         }
         float percentage = ((globalLife*100) / maxLife)/100f;
         lifeImage.fillAmount = percentage;
-
     }
 
     void SwitchPhase() {
@@ -82,12 +78,12 @@ public class Boss : MonoBehaviour
             case stage.Right:
                 rightArm.IsImortal = false;
                 head.IsImortal = true;
-                DisableObjects(firstSequenceObj);
+                DetatchObjects(firstSequenceObj);
                 EnableObjects(secondSequenceObj);
                 break;
             case stage.Head:
                 head.IsImortal = false;
-                DisableObjects(secondSequenceObj);
+                DetatchObjects(secondSequenceObj);
                 EnableObjects(thirdSequenceObj);
                 break;
         }
@@ -99,10 +95,11 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void DisableObjects(List<GameObject> toActivate) {
+    void DetatchObjects(List<GameObject> toActivate) {
         foreach (GameObject obj in toActivate) {
             if (obj != null) {
-                obj.SetActive(false);
+                obj.transform.parent = null;
+                obj.GetComponent<ParticleSystem>().Stop();
             }
         }
     }

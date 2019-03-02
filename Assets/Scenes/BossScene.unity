@@ -15440,7 +15440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378399aa795255b4e94660bb537c73fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0
+  rotationSpeed: 7
   isPlayer: 0
   pingPongValues: 1
   rotationAngle: 50
@@ -30817,6 +30817,14 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1621056274, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
+      propertyPath: firstSequenceDis.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621056274, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
+      propertyPath: secondSequenceDis.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621056274, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
       propertyPath: lifeImage
       value: 
       objectReference: {fileID: 750574397}
@@ -30856,6 +30864,22 @@ PrefabInstance:
       propertyPath: thirdSequenceObj.Array.data[3]
       value: 
       objectReference: {fileID: 113215313}
+    - target: {fileID: 1621056274, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
+      propertyPath: firstSequenceDis.Array.data[0]
+      value: 
+      objectReference: {fileID: 7876156148413096511}
+    - target: {fileID: 1621056274, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
+      propertyPath: firstSequenceDis.Array.data[1]
+      value: 
+      objectReference: {fileID: 4972744344083007234}
+    - target: {fileID: 1621056274, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
+      propertyPath: secondSequenceDis.Array.data[0]
+      value: 
+      objectReference: {fileID: 1691191884}
+    - target: {fileID: 1621056274, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
+      propertyPath: secondSequenceDis.Array.data[1]
+      value: 
+      objectReference: {fileID: 1787436881}
     - target: {fileID: 6232192753104930972, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -31148,6 +31172,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016705824676667447, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742488487003540253, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156069702033540362, guid: 78daf87ebbc8976409ff9e1b6fa52e32,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 276207899126510917, guid: 78daf87ebbc8976409ff9e1b6fa52e32, type: 3}
