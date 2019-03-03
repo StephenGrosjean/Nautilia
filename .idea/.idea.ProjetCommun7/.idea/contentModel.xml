@@ -54,6 +54,7 @@
           </e>
           <e p="UI" t="Include">
             <e p="Menu.cs" t="Include" />
+            <e p="MenuManager.cs" t="Include" />
             <e p="ScoreManager.cs" t="Include" />
             <e p="SettingMenu.cs" t="Include" />
           </e>

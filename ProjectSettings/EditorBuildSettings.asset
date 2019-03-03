@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Steph.unity
     guid: 16395362063c8694496a47197d9cdbb9
   - enabled: 0
-    path: Assets/Scenes/DemoScene.unity
+    path: Assets/Scenes/Level2.unity
     guid: 46eaaa495a5200c4fb4600109f42d273
   - enabled: 0
     path: Assets/Scenes/BossScene.unity
