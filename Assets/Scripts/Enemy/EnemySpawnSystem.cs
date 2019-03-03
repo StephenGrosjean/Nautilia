@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawnSystem : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class EnemySpawnSystem : MonoBehaviour
         Burst_30_Wait_Omni,
         Burst_12_3_Omni
     };
+    [SerializeField] private Image bar;
     [SerializeField] private XMLSave saveSystem;
     [SerializeField] private int levelID;
     [SerializeField] private GameObject[] enemiesObject;
@@ -56,11 +58,22 @@ public class EnemySpawnSystem : MonoBehaviour
     //Enemy container
     private Transform enemyContainer;
 
+    //Level Variables
+    private float percentage, currentPercentage;
+    private float currentWave, totalWaves;
     
     void Start()
     {
         enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform; //Get the enemy container transform
         StartCoroutine("SpawnWaves"); //Start the wave spawn
+        totalWaves = waves.Length;
+    }
+
+    private void Update() {
+        if(currentPercentage != percentage) {
+            currentPercentage = Mathf.Lerp(currentPercentage, percentage, Time.deltaTime);
+            bar.fillAmount = currentPercentage;
+        }
     }
 
     IEnumerator SpawnWaves() {
@@ -76,8 +89,10 @@ public class EnemySpawnSystem : MonoBehaviour
                 while (currentEnemies.Count > 0) { //Check if all the enemies are destroyed
                     yield return new WaitForSeconds(0.1f);
                 }
+                DrawBar();
             }
             yield return new WaitForSeconds(wave.timeBeforeSpawnNext);
+
         }
 
         while(currentEnemies.Count > 0) {
@@ -192,5 +207,10 @@ public class EnemySpawnSystem : MonoBehaviour
 
         return null;
        
+    }
+
+    void DrawBar() {
+        currentWave++;
+        percentage = currentWave / totalWaves;
     }
 }
