@@ -14,7 +14,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DemoScene.unity
     guid: 46eaaa495a5200c4fb4600109f42d273
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BossScene.unity
     guid: 325f6ae14967e754e890fcd39d9eccef
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 3578134454a764f4499fce59f02bb9d8
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 77fb038a7a09a2044bafd4864a4776dc
   m_configObjects: {}

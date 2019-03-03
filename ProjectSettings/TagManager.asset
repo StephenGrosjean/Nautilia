@@ -58,12 +58,12 @@ TagManager:
   - name: Background
     uniqueID: 4218099175
     locked: 0
-  - name: UI
-    uniqueID: 2917900599
+  - name: Point
+    uniqueID: 2987931715
     locked: 0
   - name: Entity
     uniqueID: 1979546751
     locked: 0
-  - name: Point
-    uniqueID: 2987931715
+  - name: UI
+    uniqueID: 2917900599
     locked: 0

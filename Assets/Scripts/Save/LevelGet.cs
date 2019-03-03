@@ -18,11 +18,23 @@ public class LevelGet : MonoBehaviour
 
         foreach (FirstDataset dataset in saveScript.dataBase.firstDB) {
             if (dataset.name == "Level") {
-                level = dataset.value;
+                level = (int)dataset.value;
             }
         }
 
-        //text.text = "Level : " + level.ToString();
     }
 
+    public void ResetSettings() {
+        saveScript.dataBase.firstDB[1].value = 1;
+        saveScript.Save();
+    }
+
+    public void ResetGame() {
+        saveScript.dataBase.firstDB[0].value = 0;
+        saveScript.Save();
+    }
+
+    //text.text = "Level : " + level.ToString();
 }
+
+

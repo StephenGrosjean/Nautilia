@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private SpriteRenderer fadeScreen;
     [SerializeField] private GameObject level_1, level_2, level_3, level_4, level_boss;
     [SerializeField] private float fadeSpeed = 0.05f;
+    [SerializeField] private TextMeshProUGUI sectionIndicator;
     
     private Color transparent = new Color(0, 0, 0, 0);
     private section currentSection;
@@ -28,6 +31,7 @@ public class MenuManager : MonoBehaviour
         maxLevel = levelGetScript.Level;
         currentSection = section.Main;
         ActivateLevels();
+        
     }
 
     // Update is called once per frame
@@ -48,6 +52,23 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(ChangeScene(section.Main));
     }
 
+    public void LoadLevel1() {
+        SceneManager.LoadScene("Level1");
+    }
+    public void LoadLevel2() {
+        SceneManager.LoadScene("Level2");
+    }
+    public void LoadLevel3() {
+        SceneManager.LoadScene("Level3");
+    }
+    public void LoadLevel4() {
+        SceneManager.LoadScene("Level4");
+    }
+    public void LoadLevel5() {
+        SceneManager.LoadScene("Level5");
+    }
+
+
     IEnumerator ChangeScene(section section) {
         blockScreen.SetActive(true);
         for(float i = 0; i < 1.1f; i += 0.05f) {
@@ -55,6 +76,8 @@ public class MenuManager : MonoBehaviour
             yield return new WaitForSeconds(fadeSpeed);
         }
         ChangeToSection(section);
+        setIndicatorText();
+        
         for (float i = 0; i < 1.1f; i += 0.05f) {
             fadeScreen.color = Color.Lerp(Color.black, transparent, i);
             yield return new WaitForSeconds(fadeSpeed);
@@ -68,16 +91,19 @@ public class MenuManager : MonoBehaviour
                 mainMenu.SetActive(true);
                 settings.SetActive(false);
                 levels.SetActive(false);
+                currentSection = section.Main;
                 break;
             case section.Levels:
                 mainMenu.SetActive(false);
                 settings.SetActive(false);
                 levels.SetActive(true);
+                currentSection = section.Levels;
                 break;
             case section.Settings:
                 mainMenu.SetActive(false);
                 settings.SetActive(true);
                 levels.SetActive(false);
+                currentSection = section.Settings;
                 break;
         }
     }
@@ -105,6 +131,20 @@ public class MenuManager : MonoBehaviour
                 level_3.SetActive(true);
                 level_4.SetActive(true);
                 level_boss.SetActive(true);
+                break;
+        }
+    }
+
+    void setIndicatorText() {
+        switch (currentSection) {
+            case section.Main:
+                sectionIndicator.text = "Main Menu";
+                break;
+            case section.Settings:
+                sectionIndicator.text = "Settings";
+                break;
+            case section.Levels:
+                sectionIndicator.text = "Levels";
                 break;
         }
     }
