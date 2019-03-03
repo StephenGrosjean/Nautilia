@@ -57,6 +57,8 @@ MonoBehaviour:
   incrementRotation: 0
   numberOfPoints: 40
   pointSpawnRadius: 2
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  upgradeDropRate: 1
 --- !u!58 &6137384853510712115
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -85,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7219890cb840978408919d17eba21e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 100
+  life: 250
 --- !u!95 &4370359453349501467
 Animator:
   serializedVersion: 3
@@ -4995,11 +4997,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378399aa795255b4e94660bb537c73fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationIncrement: 10
+  rotationSpeed: 0
   isPlayer: 0
   pingPongValues: 1
-  minimumRotation: -25
-  maximumRotation: 25
+  rotationAngle: 0
 --- !u!1 &4372924286203783695
 GameObject:
   m_ObjectHideFlags: 0

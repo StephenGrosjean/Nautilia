@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8631288295531225984}
   - component: {fileID: 4370359453349501467}
   m_Layer: 13
-  m_Name: Rotating_4_Changing
+  m_Name: Burst_5_Wait_Omni
   m_TagString: Enemy
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -57,6 +57,7 @@ MonoBehaviour:
   incrementRotation: 0
   numberOfPoints: 40
   pointSpawnRadius: 2
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
   upgradeDropRate: 1
 --- !u!58 &6137384853510712115
 CircleCollider2D:
@@ -73,7 +74,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.45
 --- !u!114 &8631288295531225984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7219890cb840978408919d17eba21e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 100
+  life: 250
 --- !u!95 &4370359453349501467
 Animator:
   serializedVersion: 3
@@ -175,7 +176,7 @@ SpriteRenderer:
   m_SortingLayerID: 1979546751
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 2de25785616637d4d8ac684ce550528c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be5ce20cc83561c499e34e92edac4a8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -199,11 +200,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frames:
-  - {fileID: 21300000, guid: 2de25785616637d4d8ac684ce550528c, type: 3}
-  - {fileID: 21300000, guid: 45174087d04c1be4b8e84e9a7fea35a9, type: 3}
-  - {fileID: 21300000, guid: 5ef1a86505403e5409f90a7db965eb2a, type: 3}
-  - {fileID: 21300000, guid: 45174087d04c1be4b8e84e9a7fea35a9, type: 3}
-  - {fileID: 21300000, guid: 2de25785616637d4d8ac684ce550528c, type: 3}
+  - {fileID: 21300000, guid: be5ce20cc83561c499e34e92edac4a8a, type: 3}
+  - {fileID: 21300000, guid: 336eac7b4ea0459489bd6e59be07e193, type: 3}
+  - {fileID: 21300000, guid: 9d8f6c9adc2311d4aa766db75a34691c, type: 3}
+  - {fileID: 21300000, guid: 1850b91b04e31d74798257beef642634, type: 3}
+  - {fileID: 21300000, guid: fb0b75f2014290d41a68144a3c875ad3, type: 3}
+  - {fileID: 21300000, guid: 1850b91b04e31d74798257beef642634, type: 3}
+  - {fileID: 21300000, guid: 9d8f6c9adc2311d4aa766db75a34691c, type: 3}
+  - {fileID: 21300000, guid: 336eac7b4ea0459489bd6e59be07e193, type: 3}
   waitEachFrame: 0.12
   spriteRenderer: {fileID: 6115522645326049605}
 --- !u!1 &3114620177920351971
@@ -232,13 +236,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3114620177920351971}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 305717482735952873}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!198 &1282825867624154184
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -247,7 +251,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3114620177920351971}
   serializedVersion: 6
-  lengthInSec: 0.2
+  lengthInSec: 4
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -375,7 +379,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -429,7 +433,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1182,7 +1186,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 4
+        scalar: 5
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1232,8 +1236,8 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 1
-      repeatInterval: 0.01
+      cycleCount: 5
+      repeatInterval: 0.3
       probability: 1
   SizeModule:
     enabled: 0
@@ -1748,7 +1752,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2281,30 +2285,48 @@ ParticleSystem:
         m_RotationOrder: 4
     speedModifier:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
+      minMaxState: 1
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
+          value: 0.6399994
+          inSlope: -0.08295785
+          outSlope: -0.08295785
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
+          time: 0.08456491
+          value: 0.033971548
+          inSlope: -0.16414772
+          outSlope: -0.16414772
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 1
+        - serializedVersion: 3
+          time: 0.21164113
+          value: 0.9999995
+          inSlope: Infinity
+          outSlope: Infinity
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.22147533
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: -0.56453884
+          outSlope: -0.56453884
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.53545725
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -4975,10 +4997,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378399aa795255b4e94660bb537c73fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 7
+  rotationSpeed: 50
   isPlayer: 0
   pingPongValues: 1
-  rotationAngle: 90
+  rotationAngle: 0
 --- !u!1 &4372924286203783695
 GameObject:
   m_ObjectHideFlags: 0
