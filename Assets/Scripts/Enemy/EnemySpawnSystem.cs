@@ -45,7 +45,7 @@ public class EnemySpawnSystem : MonoBehaviour
         public zone zoneToSpawn;
         public bool waitUntilDestruction;
         public float timeBeforeSpawnNext;
-        public bool isEndLevel; //to set the en of the level
+        //public bool isEndLevel; //to set the en of the level
     }
     
     //List of enemies

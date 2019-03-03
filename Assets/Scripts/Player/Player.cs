@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Upgrade"))
         {
-            
+            Debug.Log("Upgrade");
             ScoreManager.AddScore(10000);
             _playerUpgrade++;
             ShootingMode();

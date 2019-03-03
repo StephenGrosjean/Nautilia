@@ -54,10 +54,24 @@
           </e>
           <e p="UI" t="Include">
             <e p="Menu.cs" t="Include" />
+            <e p="MenuManager.cs" t="Include" />
             <e p="ScoreManager.cs" t="Include" />
             <e p="SettingMenu.cs" t="Include" />
+            <e p="VolumeSlider.cs" t="Include" />
           </e>
         </e>
+        <e p="Sprites" t="Include">
+          <e p="UI" t="Include">
+            <e p="Island-game-gui" t="Include">
+              <e p="LICENSE.txt" t="Include" />
+              <e p="readme.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="StreamingAssets" t="Include">
+          <e p="database.xml" t="Include" />
+        </e>
+        <e p="StreamingAssetsdatabase.xml" t="Include" />
         <e p="Tayx" t="Include">
           <e p="Graphy - Ultimate Stats Monitor" t="Include">
             <e p="Changelog.txt" t="Include" />
@@ -203,9 +217,6 @@
         <e p="XMLSaver" t="Include">
           <e p="Exemple" t="Include">
             <e p="Visualizer.cs" t="Include" />
-          </e>
-          <e p="StreamingAssets" t="Include">
-            <e p="database.xml" t="Include" />
           </e>
           <e p="XMLSave.cs" t="Include" />
         </e>
