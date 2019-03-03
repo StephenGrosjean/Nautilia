@@ -30,4 +30,9 @@ public class VolumeSlider : MonoBehaviour
             xmlSystem.Save();
         }
     }
+
+    public void UpdateVolume() {
+            slider.value = xmlSystem.dataBase.firstDB[1].value;
+        
+    }
 }
