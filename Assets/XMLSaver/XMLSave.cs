@@ -17,24 +17,28 @@ public class XMLSave : MonoBehaviour {
 
     private void Awake() {
         instance = this;
+        CheckDataPath();
     }
     //END SINGLETON//
 
     //Variables
-    [SerializeField] private string nameFile = "database.xml";
-    [SerializeField] private string path = "/XMLSaver/StreamingAssets/";
+    [SerializeField] private string nameFile = "/database.xml";
+    //[SerializeField] private string path = "/XMLSaver/StreamingAssets/";
+    private string dataPath;
 
     //Database item
     public DataBase dataBase;
 
-
     //Save function
     public void Save() {
         //open xml file
+
         XmlSerializer serializer = new XmlSerializer(typeof(DataBase));
 
         //Create Stream
-        FileStream stream = new FileStream(Application.dataPath + path + nameFile, FileMode.Create);
+        
+        FileStream stream = new FileStream(dataPath + nameFile, FileMode.Create);
+
         //Serialize DB
         serializer.Serialize(stream, dataBase);
 
@@ -44,12 +48,14 @@ public class XMLSave : MonoBehaviour {
 
     //Load function
     public void Load() {
+        CheckDataPath();
+
         //open xml file
         XmlSerializer serializer = new XmlSerializer(typeof(DataBase));
         
         //Create Stream
-        if (File.Exists(Application.dataPath + path + nameFile)) {
-            FileStream stream = new FileStream(Application.dataPath + path + nameFile, FileMode.Open);
+        if (File.Exists(dataPath + nameFile)) {
+            FileStream stream = new FileStream(dataPath + nameFile, FileMode.Open);
 
             //Deserialize DB
             dataBase = serializer.Deserialize(stream) as DataBase;
@@ -59,10 +65,18 @@ public class XMLSave : MonoBehaviour {
         }
         else {
             //Error message
-            Debug.LogErrorFormat("<b><size=12><color=red>ERROR : File " + nameFile + " does not exist at path : </color><color=green> " + path + " </color> <color=red> (Maybe you did not save?) </color></size></b>");
+            Debug.LogErrorFormat("<b><size=12><color=red>ERROR : File " + nameFile + " does not exist at path : </color><color=green> " + dataPath + nameFile + " </color> <color=red> (Maybe you did not save?) </color></size></b>");
         }
     }
 
+    void CheckDataPath() {
+        if (Application.platform == RuntimePlatform.Android) {
+            dataPath = Application.persistentDataPath;
+        }
+        else {
+            dataPath = Application.streamingAssetsPath;
+        }
+    }
 
 }
 
@@ -82,7 +96,7 @@ public class DataBase {
 [System.Serializable]
 public class FirstDataset {
     public string name;
-    public int value;
+    public float value;
 }
 
 //Data type info
