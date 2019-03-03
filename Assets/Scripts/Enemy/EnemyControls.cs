@@ -31,7 +31,7 @@ public class EnemyControls : MonoBehaviour
         spriteRendererComponent = GetComponentInChildren<SpriteRenderer>();
         lifeScript = GetComponent<EnemyLife>(); //Get life script 
         enemySpawnSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnSystem>(); //Find the enemySpawnSystem
-        upgradeDropRate = Random.Range(1, 50);
+        upgradeDropRate = Random.Range(1, 60);
     }
 
     public void Hit() {
@@ -44,14 +44,12 @@ public class EnemyControls : MonoBehaviour
     
     void FixedUpdate()
     {
-        upgradeDropRate = Random.Range(1, 50);
+        upgradeDropRate = Random.Range(1, 60);
 
 
         //Destroy the object if life is lower than 0
         if (lifeScript.GetLife() <= 0)
         {
-
-            upgradeDropChance += 10;
             if (upgradeDropRate <= upgradeDropChance)
             {
                 Instantiate(upgradeObject, transform.position, Quaternion.identity);
