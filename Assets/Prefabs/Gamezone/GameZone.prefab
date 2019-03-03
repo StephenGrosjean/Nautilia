@@ -1324,6 +1324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07907a1317b22e8409d1b85214a87396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bar: {fileID: 0}
   saveSystem: {fileID: 4800062137271722028}
   levelID: 200
   enemiesObject:
@@ -1354,7 +1355,17 @@ MonoBehaviour:
   waves:
   - toSpawn: 13
     zoneToSpawn: 0
-    waitUntilDestruction: 0
+    waitUntilDestruction: 1
+    timeBeforeSpawnNext: 0
+    isEndLevel: 0
+  - toSpawn: 13
+    zoneToSpawn: 0
+    waitUntilDestruction: 1
+    timeBeforeSpawnNext: 0
+    isEndLevel: 0
+  - toSpawn: 13
+    zoneToSpawn: 0
+    waitUntilDestruction: 1
     timeBeforeSpawnNext: 0
     isEndLevel: 0
 --- !u!114 &6977314686213357433
