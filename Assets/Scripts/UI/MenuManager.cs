@@ -28,19 +28,10 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(Fade());
-
         maxLevel = levelGetScript.Level;
         currentSection = section.Main;
         ActivateLevels();
         
-    }
-
-    IEnumerator Fade() {
-        for (float i = 0; i < 1.1f; i += 0.05f) {
-            fadeScreen.color = Color.Lerp(Color.black, transparent, i);
-            yield return new WaitForSeconds(fadeSpeed);
-        }
     }
 
     // Update is called once per frame
@@ -62,29 +53,23 @@ public class MenuManager : MonoBehaviour
     }
 
     public void LoadLevel1() {
-        PlayButtonClick();
         SceneManager.LoadScene("Level1");
     }
     public void LoadLevel2() {
-        PlayButtonClick();
         SceneManager.LoadScene("Level2");
     }
     public void LoadLevel3() {
-        PlayButtonClick();
         SceneManager.LoadScene("Level3");
     }
     public void LoadLevel4() {
-        PlayButtonClick();
         SceneManager.LoadScene("Level4");
     }
     public void LoadLevel5() {
-        PlayButtonClick();
-        SceneManager.LoadScene("BossScene");
+        SceneManager.LoadScene("Level5");
     }
 
 
     IEnumerator ChangeScene(section section) {
-        PlayButtonClick();
         blockScreen.SetActive(true);
         for(float i = 0; i < 1.1f; i += 0.05f) {
             fadeScreen.color = Color.Lerp(transparent, Color.black, i);
@@ -92,13 +77,12 @@ public class MenuManager : MonoBehaviour
         }
         ChangeToSection(section);
         setIndicatorText();
+        
         for (float i = 0; i < 1.1f; i += 0.05f) {
             fadeScreen.color = Color.Lerp(Color.black, transparent, i);
             yield return new WaitForSeconds(fadeSpeed);
-            if(i > 0.8f) {
-                blockScreen.SetActive(false);
-            }
         }
+        blockScreen.SetActive(false);
     }
 
     void ChangeToSection(section section) {
@@ -163,9 +147,5 @@ public class MenuManager : MonoBehaviour
                 sectionIndicator.text = "Levels";
                 break;
         }
-    }
-
-    void PlayButtonClick() {
-        AudioController.instance.PlaySound(AudioController.clips.ButtonClick);
     }
 }
