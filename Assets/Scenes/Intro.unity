@@ -228,6 +228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 0}
+  deathMenu: {fileID: 0}
+  lifeText: {fileID: 0}
 --- !u!1 &155393612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,23 +1404,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1978258080058822049, guid: 003a76b5c7e8cdc47b31ca98a27ecef9,
-        type: 3}
-      propertyPath: mixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 2a4ee79553b59eb41819bce199e09c5a,
-        type: 2}
-    - target: {fileID: 1978258080058822049, guid: 003a76b5c7e8cdc47b31ca98a27ecef9,
-        type: 3}
-      propertyPath: normal
-      value: 
-      objectReference: {fileID: 24500006, guid: 2a4ee79553b59eb41819bce199e09c5a,
-        type: 2}
-    - target: {fileID: 1978258080058822049, guid: 003a76b5c7e8cdc47b31ca98a27ecef9,
-        type: 3}
-      propertyPath: paused
-      value: 
-      objectReference: {fileID: 245753470844138282, guid: 2a4ee79553b59eb41819bce199e09c5a,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 003a76b5c7e8cdc47b31ca98a27ecef9, type: 3}

@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
     [SerializeField] private SpriteRenderer _playerSpriteRenderer;
-    [SerializeField] private GameObject deathScreen;
     [SerializeField] private Menu menuScript;
 
     private bool _isBlinking = false;
