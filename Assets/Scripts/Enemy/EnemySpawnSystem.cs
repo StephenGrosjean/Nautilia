@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class EnemySpawnSystem : MonoBehaviour
 {
+
+    //SINGLETON//
+    public static EnemySpawnSystem instance;
+
+    private void Awake() {
+        instance = this;
+    }
+    //END SINGLETON//
+
     //Zones enum
     public enum zone { Top_Left, Top_Center, Top_Right, Middle_Left, Middle_Center, Middle_Right, Bottom_Left, Bottom_Center, Bottom_Right };
     //Enemies enum
@@ -33,11 +42,12 @@ public class EnemySpawnSystem : MonoBehaviour
     [SerializeField] private float waitBeforeStart;
     [SerializeField] private Image bar;
     [SerializeField] private XMLSave saveSystem;
-    [SerializeField] private int levelID;
     [SerializeField] private GameObject[] enemiesObject;
     [SerializeField] private Transform[] zones; //Zones transform
     [SerializeField] private Wave[] waves; //Waves array
     [SerializeField] private GameObject endLevelPanel;
+    [SerializeField] private int levelID;
+    public int LevelID => levelID;
 
     //Wave setup class
     [System.Serializable]

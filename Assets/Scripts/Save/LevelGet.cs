@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelGet : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class LevelGet : MonoBehaviour
                 level = (int)dataset.value;
             }
         }
+        text.text = "Level : " + level.ToString();
 
     }
 
@@ -34,10 +36,16 @@ public class LevelGet : MonoBehaviour
 
     public void ResetGame() {
         saveScript.dataBase.firstDB[0].value = 0;
+        saveScript.dataBase.firstDB[2].value = 0;
+        saveScript.dataBase.firstDB[3].value = 0;
+        saveScript.dataBase.firstDB[4].value = 0;
+        saveScript.dataBase.firstDB[5].value = 0;
+        saveScript.dataBase.firstDB[6].value = 0;
         saveScript.Save();
+
+        SceneManager.LoadScene("MainMenu");
     }
 
-    //text.text = "Level : " + level.ToString();
 }
 
 

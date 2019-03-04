@@ -57,6 +57,8 @@ MonoBehaviour:
   incrementRotation: 0
   numberOfPoints: 40
   pointSpawnRadius: 2
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  upgradeDropRate: 1
 --- !u!58 &6137384853510712115
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -246,7 +248,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3114620177920351971}
   serializedVersion: 6
-  lengthInSec: 0.15
+  lengthInSec: 0.25
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -374,7 +376,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4974,11 +4976,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378399aa795255b4e94660bb537c73fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationIncrement: 0
+  rotationSpeed: 0
   isPlayer: 0
   pingPongValues: 1
-  minimumRotation: 0
-  maximumRotation: 0
+  rotationAngle: 0
+  hitParticle: {fileID: 0}
 --- !u!1 &4372924286203783695
 GameObject:
   m_ObjectHideFlags: 0

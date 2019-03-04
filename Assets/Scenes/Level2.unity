@@ -558,6 +558,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 003a76b5c7e8cdc47b31ca98a27ecef9, type: 3}
+--- !u!114 &1449748689 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 548957779, guid: 22c146cd4d9d6d74399e7a940b481d25,
+    type: 3}
+  m_PrefabInstance: {fileID: 1680520580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31b6e57b07c8534390e01128e45004d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541498492
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,10 +743,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3628748009141436753, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: menuScript
+      value: 
+      objectReference: {fileID: 1449748689}
     - target: {fileID: 2792294597957198135, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: life
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
@@ -971,16 +988,21 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4712429363733663557, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 29.300049
-      objectReference: {fileID: 0}
     - target: {fileID: 5798677887078602475, guid: 22c146cd4d9d6d74399e7a940b481d25,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1848858165}
+    - target: {fileID: 6926278187624830888, guid: 22c146cd4d9d6d74399e7a940b481d25,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6926278187624830888, guid: 22c146cd4d9d6d74399e7a940b481d25,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
 --- !u!114 &1680520581 stripped
@@ -1092,7 +1114,7 @@ AudioSource:
   m_GameObject: {fileID: 1848858166}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 2a4ee79553b59eb41819bce199e09c5a,
+  OutputAudioMixerGroup: {fileID: 243013882694082696, guid: 2a4ee79553b59eb41819bce199e09c5a,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3519425a1f9e0e148adfb1f421163078, type: 3}
   m_PlayOnAwake: 1
@@ -2568,6 +2590,31 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[48].timeBeforeSpawnNext
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[1].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[0].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[2].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[3].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[4].spawnUpgrade
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734605209460765243, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}

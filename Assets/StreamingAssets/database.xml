@@ -3,14 +3,30 @@
   <First_Dataset>
     <FirstDataset>
       <name>Level</name>
-      <value>4</value>
+      <value>0</value>
     </FirstDataset>
     <FirstDataset>
       <name>Sound</name>
-      <value>1</value>
+      <value>0.5259019</value>
     </FirstDataset>
     <FirstDataset>
-      <name>Score</name>
+      <name>Score_Lvl1</name>
+      <value>0</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>Score_Lvl2</name>
+      <value>0</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>Score_Lvl3</name>
+      <value>0</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>Score_Lvl4</name>
+      <value>0</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>Score_Lvl5</name>
       <value>0</value>
     </FirstDataset>
   </First_Dataset>

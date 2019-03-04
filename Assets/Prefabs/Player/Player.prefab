@@ -525,7 +525,7 @@ MonoBehaviour:
   hitCollider: {fileID: 4095040918770360638}
   blinkInterval: 0.2
   maxInvincibilityTime: 1
-  deathAnimation: 1
+  deathAnimation: 1.5
   _playerSpriteRenderer: {fileID: 1829154818}
   menuScript: {fileID: 0}
 --- !u!58 &921027251
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3722fac2ce00f4ba37906ede6f58c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 500
+  life: 15
 --- !u!114 &921027250
 MonoBehaviour:
   m_ObjectHideFlags: 0
