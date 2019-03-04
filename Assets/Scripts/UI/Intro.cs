@@ -26,6 +26,9 @@ public class Intro : MonoBehaviour
     }
     public void Continue() {
         SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+        if (!Application.isEditor) {
+            VibrationController.Vibrate(50);
+        }
         StartCoroutine(FadeIn());
     }
 

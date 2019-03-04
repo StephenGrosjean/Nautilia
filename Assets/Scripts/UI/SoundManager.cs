@@ -31,7 +31,6 @@ public class SoundManager : MonoBehaviour {
     public void Play(clip clip) {
         switch (clip) {
             case clip.ButtonClick:
-                VibrationController.Vibrate(200);
                 source.PlayOneShot(buttonClick);
                 break;
             case clip.PlayerHit:
