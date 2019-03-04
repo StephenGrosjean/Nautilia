@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour {
 
@@ -14,18 +15,24 @@ public class SoundManager : MonoBehaviour {
 
     public enum clip { ButtonClick, PlayerHit, enemyDeath, bossHit, pauseMenu};
     [SerializeField] private AudioClip buttonClick, playerHit, enemyDeath, bossHit, pauseMenu;
+    [SerializeField] private AudioMixerSnapshot normal, paused;
+    [SerializeField] private AudioMixer mixer;
 
     private AudioSource source;
+    private float volume;
 
     void Start()
     {
-        source = Camera.main.GetComponent<AudioSource>();
+        XMLSave.instance.Load();
+        source = Camera.main.transform.Find("FX").GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        volume = XMLSave.instance.dataBase.firstDB[1].value;
+        mixer.SetFloat("volume", -80+(160*volume)-(80*Mathf.Pow(volume,2)));
     }
 
     public void Play(clip clip) {
@@ -48,4 +55,11 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
+    public void Paused() {
+        paused.TransitionTo(0.2f);
+    }
+
+    public void UnPaused() {
+        normal.TransitionTo(0.2f);
+    }
 }

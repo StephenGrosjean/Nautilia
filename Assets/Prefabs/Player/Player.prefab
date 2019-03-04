@@ -514,6 +514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24ff44d22b2af24aa833eeb9ae99d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathParticles: {fileID: 4023531272325791150, guid: a4ea4197d9af6e740bcc8da528228402,
+    type: 3}
   firstUpgradePoint: {fileID: 4247314195982472838}
   secondUpgradePoint: {fileID: 5567697662383982395}
   thirdUpgradePoint: {fileID: 2335544936125845182}
