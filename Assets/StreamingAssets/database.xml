@@ -7,7 +7,11 @@
     </FirstDataset>
     <FirstDataset>
       <name>Sound</name>
-      <value>0.5</value>
+      <value>0</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>Score</name>
+      <value>0</value>
     </FirstDataset>
   </First_Dataset>
   <Second_Dataset />

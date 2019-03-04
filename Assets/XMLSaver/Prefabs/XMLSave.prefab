@@ -43,10 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1cad958126b7e4383d2292b48f36d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameFile: database.xml
-  path: /XMLSaver/StreamingAssets/
+  nameFile: /database.xml
   dataBase:
     firstDB:
     - name: Level
+      value: 0
+    - name: Sound
+      value: 0
+    - name: Score
       value: 0
     secondDB: []

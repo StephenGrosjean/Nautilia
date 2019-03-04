@@ -11,9 +11,16 @@ public class EnemyLife : MonoBehaviour
         get { return isImortal; }
         set { isImortal = value; }
     }
+    private bool isTouched;
+    private int prevLife;
+
+    private void Start() {
+
+    }
+
+
     //Decrease life function
-    public void DecreaseLife(int value)
-    {
+    public void DecreaseLife(int value) {
         if (!isImortal) {
             life -= value;
         }
@@ -31,4 +38,5 @@ public class EnemyLife : MonoBehaviour
     {
         return life;
     }
+
 }

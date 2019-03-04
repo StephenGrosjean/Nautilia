@@ -1,4 +1,4 @@
-﻿#if !UNITY_ANDROID
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +15,7 @@ public class VibrationController {
 
 
     public static void Vibrate(long milliseconds) {
+        
         Vibrator.Call("vibrate", milliseconds);
     }
 
@@ -23,4 +24,4 @@ public class VibrationController {
     }
 
 }
-#endif
+

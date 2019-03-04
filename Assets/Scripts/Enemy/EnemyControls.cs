@@ -62,6 +62,7 @@ public class EnemyControls : MonoBehaviour
             }
 
             particlesContainer.transform.SetParent(null);
+            VibrationController.Vibrate(50);
             Destroy(gameObject);
         }
 
