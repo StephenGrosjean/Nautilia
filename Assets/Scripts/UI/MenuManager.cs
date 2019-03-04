@@ -28,10 +28,17 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(FadeOut());
         maxLevel = levelGetScript.Level;
         currentSection = section.Main;
         ActivateLevels();
         
+    }
+    IEnumerator FadeOut() {
+        for (float i = 0; i < 1.1f; i += 0.05f) {
+            fadeScreen.color = Color.Lerp(Color.black, transparent, i);
+            yield return new WaitForSeconds(fadeSpeed);
+        }
     }
 
     // Update is called once per frame
@@ -81,8 +88,10 @@ public class MenuManager : MonoBehaviour
         for (float i = 0; i < 1.1f; i += 0.05f) {
             fadeScreen.color = Color.Lerp(Color.black, transparent, i);
             yield return new WaitForSeconds(fadeSpeed);
+            if(i > 0.8f) {
+                blockScreen.SetActive(false);
+            }
         }
-        blockScreen.SetActive(false);
     }
 
     void ChangeToSection(section section) {
