@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float deathAnimation = 1.0f;
     [SerializeField] private SpriteRenderer _playerSpriteRenderer;
 
+    private bool _isBlinking = false;
     private bool _isInvincible = false;
     public bool IsInvincible {
         get { return _isInvincible; }
@@ -46,14 +47,6 @@ public class Player : MonoBehaviour
         StartCoroutine(Die(deathAnimation));
     }
 
-    private void FixedUpdate() {
-       /* hitColliders = Physics2D.OverlapCircle(transform.position, collisionRadius);
-        if (hitColliders != null && hitColliders.CompareTag("Bullet") && !_isInvincible) {
-            StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
-            _playerScript.DecreaseLife(1);
-        }*/
-    }
-
     public void Hit() {
         if (!_isInvincible) {
             Handheld.Vibrate();
@@ -70,6 +63,12 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Upgrade");
             ScoreManager.AddScore(10000);
+            if (!_isBlinking)
+            {
+                _isBlinking = true;
+                StartCoroutine("Blink");
+            }
+            
             _playerUpgrade++;
             ShootingMode();
             StartCoroutine(Blink());

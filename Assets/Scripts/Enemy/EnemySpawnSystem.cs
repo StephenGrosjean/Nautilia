@@ -30,14 +30,13 @@ public class EnemySpawnSystem : MonoBehaviour
         Burst_30_Wait_Omni,
         Burst_12_3_Omni
     };
-    [SerializeField] private float timeBeforeStart;
     [SerializeField] private Image bar;
     [SerializeField] private XMLSave saveSystem;
     [SerializeField] private int levelID;
     [SerializeField] private GameObject[] enemiesObject;
     [SerializeField] private Transform[] zones; //Zones transform
     [SerializeField] private Wave[] waves; //Waves array
-
+    [SerializeField] private GameObject endLevelPanel;
 
     //Wave setup class
     [System.Serializable]
@@ -45,9 +44,7 @@ public class EnemySpawnSystem : MonoBehaviour
         public enemies toSpawn;
         public zone zoneToSpawn;
         public bool waitUntilDestruction;
-        public bool spawnUpgrade;
         public float timeBeforeSpawnNext;
-        //public bool isEndLevel; //to set the en of the level
     }
     
     //List of enemies
@@ -63,7 +60,7 @@ public class EnemySpawnSystem : MonoBehaviour
     //Level Variables
     private float percentage, currentPercentage;
     private float currentWave, totalWaves;
-    
+    private bool isEndLevel; //to set the en of the level
     void Start()
     {
         enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform; //Get the enemy container transform
@@ -76,14 +73,17 @@ public class EnemySpawnSystem : MonoBehaviour
             currentPercentage = Mathf.Lerp(currentPercentage, percentage, Time.deltaTime);
             bar.fillAmount = currentPercentage;
         }
+
+        if (isEndLevel)
+        {
+            endLevelPanel.SetActive(true);
+        }
     }
 
     IEnumerator SpawnWaves() {
-        yield return new WaitForSeconds(timeBeforeStart);
         foreach (Wave wave in waves) {
 
             GameObject enemy = Instantiate(GetEnemy(wave.toSpawn), GetSpawnPosition(wave.zoneToSpawn).position, Quaternion.identity); //Instantiate enemy in correct zone
-            enemy.GetComponent<EnemyControls>().DropUpgrade = wave.spawnUpgrade;
             enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn); //Put the enemy in the zone transform
             enemy.transform.position = Vector3.zero; //Set the enemy position to the zone transform position
             currentEnemies.Add(enemy); //Add the enemy to the list
@@ -108,6 +108,8 @@ public class EnemySpawnSystem : MonoBehaviour
             saveSystem.dataBase.firstDB[0].value = levelID;
             saveSystem.Save();
         }
+
+        isEndLevel = true;
     }
 
     GameObject GetEnemy(enemies enemy) {

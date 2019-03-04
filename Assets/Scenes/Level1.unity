@@ -1029,6 +1029,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1336525070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1336525070, guid: 22c146cd4d9d6d74399e7a940b481d25,
+    type: 3}
+  m_PrefabInstance: {fileID: 2066361317}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1394066956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2311,6 +2317,26 @@ PrefabInstance:
       propertyPath: bar
       value: 
       objectReference: {fileID: 2066361318}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: endLevelPanel
+      value: 
+      objectReference: {fileID: 1336525070}
+    - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: dataBase.firstDB.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: dataBase.firstDB.Array.data[1].name
+      value: Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: dataBase.firstDB.Array.data[2].name
+      value: Score
+      objectReference: {fileID: 0}
     - target: {fileID: 6734605209460765243, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: m_Color.r
@@ -2543,6 +2569,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5798677887078602475, guid: 22c146cd4d9d6d74399e7a940b481d25,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 984628280}
     - target: {fileID: 5798677887778541620, guid: 22c146cd4d9d6d74399e7a940b481d25,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2553,16 +2584,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4712429363733663557, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 29.300049
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798677887078602475, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 984628280}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
 --- !u!114 &2066361318 stripped
