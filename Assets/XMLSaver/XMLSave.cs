@@ -70,7 +70,7 @@ public class XMLSave : MonoBehaviour {
     }
 
     void CheckDataPath() {
-        if (Application.platform == RuntimePlatform.Android) {
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) {
             dataPath = Application.persistentDataPath;
         }
         else {

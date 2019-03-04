@@ -89,13 +89,12 @@ public class EnemySpawnSystem : MonoBehaviour
                 while (currentEnemies.Count > 0) { //Check if all the enemies are destroyed
                     yield return new WaitForSeconds(0.1f);
                 }
-                DrawBar();
             }
             yield return new WaitForSeconds(wave.timeBeforeSpawnNext);
-
+            DrawBar();
         }
 
-        while(currentEnemies.Count > 0) {
+        while (currentEnemies.Count > 0) {
             yield return new WaitForSeconds(0.1f);
         }
 

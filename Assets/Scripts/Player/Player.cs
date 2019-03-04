@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
 
     public void Hit() {
         if (!_isInvincible) {
+            Handheld.Vibrate();
+            SoundManager.instance.Play(SoundManager.clip.PlayerHit);
             StartCoroutine(cameraShake.DoShake(0.1f,0.3f));
             StartCoroutine(InvincibilityBlink(maxInvincibilityTime));
             _playerScript.DecreaseLife(1);
