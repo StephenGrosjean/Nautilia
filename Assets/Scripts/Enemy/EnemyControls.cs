@@ -66,6 +66,7 @@ public class EnemyControls : MonoBehaviour
             }
 
             particlesContainer.transform.SetParent(null);
+            SoundManager.instance.Play(SoundManager.clip.enemyDeath);
             if (!Application.isEditor) {
                 VibrationController.Vibrate(50);
             }

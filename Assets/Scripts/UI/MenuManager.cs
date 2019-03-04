@@ -60,19 +60,39 @@ public class MenuManager : MonoBehaviour
     }
 
     public void LoadLevel1() {
+        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+        if (!Application.isEditor) {
+            VibrationController.Vibrate(50);
+        }
         SceneManager.LoadScene("Level1");
     }
     public void LoadLevel2() {
+        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+        if (!Application.isEditor) {
+            VibrationController.Vibrate(50);
+        }
         SceneManager.LoadScene("Level2");
     }
     public void LoadLevel3() {
+        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+        if (!Application.isEditor) {
+            VibrationController.Vibrate(50);
+        }
         SceneManager.LoadScene("Level3");
     }
     public void LoadLevel4() {
+        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+        if (!Application.isEditor) {
+            VibrationController.Vibrate(50);
+        }
         SceneManager.LoadScene("Level4");
     }
     public void LoadLevel5() {
-        SceneManager.LoadScene("Level5");
+        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+        if (!Application.isEditor) {
+            VibrationController.Vibrate(50);
+        }
+        SceneManager.LoadScene("BossScene");
     }
 
 
