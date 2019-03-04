@@ -11,8 +11,10 @@ public class BossControls : MonoBehaviour {
     private bool isBlinking;
     private SpriteRenderer spriteRendererComponent;
     private bool defeated;
+    private bool firstPowerupSpawned, secondPowerupSpawned;
 
-    public bool firstPowerupSpawned, secondPowerupSpawned;
+    private bool isImortal;
+    public bool IsImortal => isImortal;
 
     void Start()
     {
@@ -33,6 +35,7 @@ public class BossControls : MonoBehaviour {
     
     void FixedUpdate()
     {
+        isImortal = lifeScript.IsImortal;
         if(lifeScript.GetLife() < maxLife / 2 && !firstPowerupSpawned) {
             firstPowerupSpawned = true;
             Instantiate(powerup, transform.position, transform.rotation);
@@ -71,12 +74,13 @@ public class BossControls : MonoBehaviour {
     }
 
     IEnumerator Fade() {
-        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<PolygonCollider2D>().enabled = false;
         defeated = true;
         for (float i = 0; i < 1.1f; i += 0.1f) {
             gameObject.transform.Find("EnemySprite").GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, new Color(1, 1, 1, 0), i);
             yield return new WaitForSeconds(0.1f);
         }
+        gameObject.transform.Find("EnemySprite").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
     }
 }
 
