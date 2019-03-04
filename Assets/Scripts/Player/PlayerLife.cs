@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private int life = 5; //Life script 
+    public int Life => life;
 
     //Decrease life function
     public void DecreaseLife(int value)

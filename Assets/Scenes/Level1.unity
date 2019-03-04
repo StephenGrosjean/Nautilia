@@ -2289,22 +2289,22 @@ PrefabInstance:
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[2].timeBeforeSpawnNext
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[27].timeBeforeSpawnNext
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[29].timeBeforeSpawnNext
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[44].timeBeforeSpawnNext
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
@@ -2322,6 +2322,31 @@ PrefabInstance:
       propertyPath: endLevelPanel
       value: 
       objectReference: {fileID: 1336525070}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waitBeforeStart
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[0].timeBeforeSpawnNext
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[26].timeBeforeSpawnNext
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[28].timeBeforeSpawnNext
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[43].timeBeforeSpawnNext
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: dataBase.firstDB.Array.size
