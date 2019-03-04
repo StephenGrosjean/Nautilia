@@ -1021,7 +1021,7 @@ PrefabInstance:
     - target: {fileID: 2792294597957198135, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: life
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5567697662383982395, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
@@ -1495,6 +1495,11 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5798677887078602475, guid: 22c146cd4d9d6d74399e7a940b481d25,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2040149120}
     - target: {fileID: 3058791715766287863, guid: 22c146cd4d9d6d74399e7a940b481d25,
         type: 3}
       propertyPath: m_Sprite
@@ -1506,11 +1511,6 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5798677887078602475, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 2040149120}
     - target: {fileID: 1698662513, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReturnToMainMenu

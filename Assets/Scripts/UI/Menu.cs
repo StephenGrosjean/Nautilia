@@ -13,7 +13,9 @@ public class Menu : MonoBehaviour
 
      public void Start()
     {
+
         playerLifeScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
+        
         InvokeRepeating("UpdateLifes", 0, 0.2f);
     }
 
@@ -51,13 +53,16 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
         SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+        SoundManager.instance.UnPaused();
+
     }
     public void RestartLevel()
     {
-        Scene loadedLevel = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(loadedLevel.buildIndex);
         Time.timeScale = 1.0f;
         SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+        SoundManager.instance.UnPaused();
+        Scene loadedLevel = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(loadedLevel.buildIndex);
     }
 
     public void ShowDeathMenu() {

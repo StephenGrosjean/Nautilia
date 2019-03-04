@@ -50,6 +50,14 @@ MonoBehaviour:
       value: 0
     - name: Sound
       value: 0
-    - name: Score
+    - name: Score_Lvl1
+      value: 0
+    - name: Score_Lvl2
+      value: 0
+    - name: Score_Lvl3
+      value: 0
+    - name: Score_Lvl4
+      value: 0
+    - name: Score_Lvl5
       value: 0
     secondDB: []

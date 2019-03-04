@@ -623,14 +623,19 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 921027251, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
-      propertyPath: m_Radius
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 3628748009141436753, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: menuScript
+      value: 
+      objectReference: {fileID: 2065260522}
     - target: {fileID: 2792294597957198135, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: life
-      value: 7
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 921027251, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
+      propertyPath: m_Radius
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 921027250, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
       propertyPath: speed
@@ -2992,10 +2997,25 @@ PrefabInstance:
       propertyPath: waves.Array.data[0].spawnUpgrade
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4326230869199928031, guid: 03cc38ff084c5304ba4c95496702d40c,
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
+      propertyPath: waves.Array.data[1].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[2].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[3].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[4].spawnUpgrade
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734605209460765243, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
@@ -3018,6 +3038,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.6037736
       objectReference: {fileID: 0}
+    - target: {fileID: 4326230869199928031, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
 --- !u!1 &1789068321 stripped
@@ -3035,7 +3060,7 @@ AudioSource:
   m_GameObject: {fileID: 1789068321}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 2a4ee79553b59eb41819bce199e09c5a,
+  OutputAudioMixerGroup: {fileID: 243013882694082696, guid: 2a4ee79553b59eb41819bce199e09c5a,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3519425a1f9e0e148adfb1f421163078, type: 3}
   m_PlayOnAwake: 1
@@ -3444,6 +3469,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2065260519}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2065260522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 548957779, guid: 22c146cd4d9d6d74399e7a940b481d25,
+    type: 3}
+  m_PrefabInstance: {fileID: 2065260519}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31b6e57b07c8534390e01128e45004d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2104879071
 GameObject:
   m_ObjectHideFlags: 0

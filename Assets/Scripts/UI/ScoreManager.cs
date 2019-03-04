@@ -11,11 +11,25 @@ public class ScoreManager : MonoBehaviour
     private TMP_Text score;
 
     private int prevScore;
+    private int levelID;
+    private float maxScore1, maxScore2, maxScore3, maxScore4, maxScore5;
+    
+
 
     private void Start()
     {
+        scoreValue = 0;
         score = GetComponent<TMP_Text>();
         score.text = scoreValue.ToString();
+        levelID = EnemySpawnSystem.instance.LevelID;
+
+        maxScore1 = XMLSave.instance.dataBase.firstDB[2].value;
+        maxScore2 = XMLSave.instance.dataBase.firstDB[3].value;
+        maxScore3 = XMLSave.instance.dataBase.firstDB[4].value;
+        maxScore4 = XMLSave.instance.dataBase.firstDB[5].value;
+        maxScore5 = XMLSave.instance.dataBase.firstDB[6].value;
+
+
     }
 
     private void Update()
@@ -23,6 +37,7 @@ public class ScoreManager : MonoBehaviour
         if (prevScore != scoreValue)
         {
             UpdateUI();
+            SaveScore();
         }
 
         prevScore = scoreValue;
@@ -36,5 +51,41 @@ public class ScoreManager : MonoBehaviour
     void UpdateUI()
     {
         score.text = scoreValue.ToString();
+    }
+
+    void SaveScore() {
+        switch (levelID) {
+            case 1:
+                if (scoreValue > maxScore1) {
+                    Debug.Log("HI");
+                    XMLSave.instance.dataBase.firstDB[2].value = scoreValue;
+                    XMLSave.instance.Save();
+                }
+                break;
+            case 2:
+                if (scoreValue > maxScore2) {
+                    XMLSave.instance.dataBase.firstDB[3].value = scoreValue;
+                    XMLSave.instance.Save();
+                }
+                break;
+            case 3:
+                if (scoreValue > maxScore3) {
+                    XMLSave.instance.dataBase.firstDB[4].value = scoreValue;
+                    XMLSave.instance.Save();
+                }
+                break;
+            case 4:
+                if (scoreValue > maxScore4) {
+                    XMLSave.instance.dataBase.firstDB[5].value = scoreValue;
+                    XMLSave.instance.Save();
+                }
+                break;
+            case 5:
+                if (scoreValue > maxScore5) {
+                    XMLSave.instance.dataBase.firstDB[6].value = scoreValue;
+                    XMLSave.instance.Save();
+                }
+                break;
+        }
     }
 }

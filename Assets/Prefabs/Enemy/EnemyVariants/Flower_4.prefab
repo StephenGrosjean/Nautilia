@@ -251,7 +251,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3114620177920351971}
   serializedVersion: 6
-  lengthInSec: 0.2
+  lengthInSec: 0.3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -4983,6 +4983,7 @@ MonoBehaviour:
   isPlayer: 0
   pingPongValues: 0
   rotationAngle: 0
+  hitParticle: {fileID: 0}
 --- !u!1 &4372924286203783695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5069,7 +5070,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7476748910546420330}
   serializedVersion: 6
-  lengthInSec: 0.2
+  lengthInSec: 0.3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -9801,3 +9802,4 @@ MonoBehaviour:
   isPlayer: 0
   pingPongValues: 0
   rotationAngle: 0
+  hitParticle: {fileID: 0}

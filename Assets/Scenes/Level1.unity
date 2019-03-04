@@ -600,18 +600,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3628748009141436753, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
-      propertyPath: deathAnimation
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628748009141436753, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
       propertyPath: menuScript
       value: 
       objectReference: {fileID: 343559404}
     - target: {fileID: 2792294597957198135, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: life
-      value: 4
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567697662383982395, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335544936125845182, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2276017858428204595, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936904603684412886, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
@@ -2275,20 +2290,30 @@ PrefabInstance:
       propertyPath: waves.Array.data[43].timeBeforeSpawnNext
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
-      propertyPath: dataBase.firstDB.Array.size
-      value: 3
+      propertyPath: waves.Array.data[0].spawnUpgrade
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
-      propertyPath: dataBase.firstDB.Array.data[1].name
-      value: Sound
+      propertyPath: waves.Array.data[1].spawnUpgrade
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
-      propertyPath: dataBase.firstDB.Array.data[2].name
-      value: Score
+      propertyPath: waves.Array.data[2].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[3].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[4].spawnUpgrade
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6734605209460765243, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
@@ -2304,6 +2329,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: dataBase.firstDB.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: dataBase.firstDB.Array.data[1].name
+      value: Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800062137271722028, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: dataBase.firstDB.Array.data[2].name
+      value: Score
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}

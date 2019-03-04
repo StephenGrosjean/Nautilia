@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public enum section { Main, Levels, Settings};
+    public enum section { Main, Levels, Settings, Scores};
 
-    [SerializeField] private GameObject mainMenu, settings, levels, blockScreen;
+    [SerializeField] private GameObject mainMenu, settings, levels, blockScreen, scores;
     [SerializeField] private SpriteRenderer fadeScreen;
     [SerializeField] private GameObject level_1, level_2, level_3, level_4, level_boss;
+    [SerializeField] private GameObject level_2D, level_3D, level_4D, level_bossD;
+    [SerializeField] private TextMeshProUGUI score1, score2, score3, score4, score5;
+
     [SerializeField] private float fadeSpeed = 0.05f;
     [SerializeField] private TextMeshProUGUI sectionIndicator;
     
@@ -33,6 +36,7 @@ public class MenuManager : MonoBehaviour
         maxLevel = levelGetScript.Level;
         currentSection = section.Main;
         ActivateLevels();
+        SetScores();
         
     }
     IEnumerator FadeOut() {
@@ -58,6 +62,10 @@ public class MenuManager : MonoBehaviour
 
     public void Return_MainMenu() {
         StartCoroutine(ChangeScene(section.Main));
+    }
+
+    public void Goto_Scores() {
+        StartCoroutine(ChangeScene(section.Scores));
     }
 
     public void LoadLevel1() {
@@ -112,39 +120,84 @@ public class MenuManager : MonoBehaviour
                 mainMenu.SetActive(true);
                 settings.SetActive(false);
                 levels.SetActive(false);
+                scores.SetActive(false);
                 currentSection = section.Main;
                 break;
             case section.Levels:
                 mainMenu.SetActive(false);
                 settings.SetActive(false);
                 levels.SetActive(true);
+                scores.SetActive(false);
                 currentSection = section.Levels;
                 break;
             case section.Settings:
                 mainMenu.SetActive(false);
                 settings.SetActive(true);
                 levels.SetActive(false);
+                scores.SetActive(false);
+
                 currentSection = section.Settings;
+                break;
+            case section.Scores:
+                mainMenu.SetActive(false);
+                settings.SetActive(false);
+                levels.SetActive(false);
+                scores.SetActive(true);
+                currentSection = section.Scores;
                 break;
         }
     }
-
+    
     void ActivateLevels() {
+        
         switch (maxLevel) {
+            case 0:
+                level_1.SetActive(true);
+                level_2.SetActive(false);
+                level_3.SetActive(false);
+                level_4.SetActive(false);
+                level_boss.SetActive(false);
+
+                level_2D.SetActive(true);
+                level_3D.SetActive(true);
+                level_4D.SetActive(true);
+                level_bossD.SetActive(true);
+                break;
             case 1:
                 level_1.SetActive(true);
                 level_2.SetActive(true);
+                level_3.SetActive(false);
+                level_4.SetActive(false);
+                level_boss.SetActive(false);
+
+                level_2D.SetActive(false);
+                level_3D.SetActive(true);
+                level_4D.SetActive(true);
+                level_bossD.SetActive(true);
                 break;
             case 2:
                 level_1.SetActive(true);
                 level_2.SetActive(true);
                 level_3.SetActive(true);
+                level_4.SetActive(false);
+                level_boss.SetActive(false);
+
+                level_2D.SetActive(false);
+                level_3D.SetActive(false);
+                level_4D.SetActive(true);
+                level_bossD.SetActive(true);
                 break;
             case 3:
                 level_1.SetActive(true);
                 level_2.SetActive(true);
                 level_3.SetActive(true);
                 level_4.SetActive(true);
+                level_boss.SetActive(false);
+
+                level_2D.SetActive(false);
+                level_3D.SetActive(false);
+                level_4D.SetActive(false);
+                level_bossD.SetActive(true);
                 break;
             case 4:
                 level_1.SetActive(true);
@@ -152,6 +205,11 @@ public class MenuManager : MonoBehaviour
                 level_3.SetActive(true);
                 level_4.SetActive(true);
                 level_boss.SetActive(true);
+
+                level_2D.SetActive(false);
+                level_3D.SetActive(false);
+                level_4D.SetActive(false);
+                level_bossD.SetActive(false);
                 break;
         }
     }
@@ -167,6 +225,9 @@ public class MenuManager : MonoBehaviour
             case section.Levels:
                 sectionIndicator.text = "Levels";
                 break;
+            case section.Scores:
+                sectionIndicator.text = "Scores";
+                break;
         }
     }
 
@@ -175,5 +236,14 @@ public class MenuManager : MonoBehaviour
         if (!Application.isEditor) {
             VibrationController.Vibrate(50);
         }
+    }
+
+    void SetScores() {
+        score1.text = XMLSave.instance.dataBase.firstDB[2].value.ToString();
+        score2.text = XMLSave.instance.dataBase.firstDB[3].value.ToString();
+        score3.text = XMLSave.instance.dataBase.firstDB[4].value.ToString();
+        score4.text = XMLSave.instance.dataBase.firstDB[5].value.ToString();
+        score5.text = XMLSave.instance.dataBase.firstDB[6].value.ToString();
+
     }
 }
