@@ -23,6 +23,11 @@ public class EnemyControls : MonoBehaviour
     private SpriteRenderer spriteRendererComponent;
     private BulletPooler poolPoint;
 
+    private bool dropUpgrade;
+    public bool DropUpgrade {
+        set { dropUpgrade = value; }
+    }
+
 
     void Start()
     {
@@ -52,7 +57,6 @@ public class EnemyControls : MonoBehaviour
         {
             if (upgradeDropRate <= upgradeDropChance)
             {
-                Instantiate(upgradeObject, transform.position, Quaternion.identity);
             }
 
             for (int i = 0; i < numberOfPoints; i++) {
@@ -62,7 +66,13 @@ public class EnemyControls : MonoBehaviour
             }
 
             particlesContainer.transform.SetParent(null);
-            VibrationController.Vibrate(50);
+            if (!Application.isEditor) {
+                VibrationController.Vibrate(50);
+            }
+            if (dropUpgrade) {
+                Instantiate(upgradeObject, transform.position, Quaternion.identity);
+            }
+
             Destroy(gameObject);
         }
 
