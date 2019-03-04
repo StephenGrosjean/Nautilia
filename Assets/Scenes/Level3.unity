@@ -299,6 +299,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 99657056}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &99657059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107587317002695998, guid: 22c146cd4d9d6d74399e7a940b481d25,
+    type: 3}
+  m_PrefabInstance: {fileID: 99657056}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &119737820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2916,6 +2922,11 @@ PrefabInstance:
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3628748009141436753, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 99657059}
     - target: {fileID: 921027251, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
       propertyPath: m_Radius
       value: 2

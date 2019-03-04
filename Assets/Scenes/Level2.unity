@@ -956,7 +956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3628748009141436753, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
-      propertyPath: cameraShake
+      propertyPath: deathScreen
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 921027251, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
@@ -1652,6 +1652,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2107587317002695998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107587317002695998, guid: 22c146cd4d9d6d74399e7a940b481d25,
+    type: 3}
+  m_PrefabInstance: {fileID: 1680520580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8311589744896875113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2863,32 +2869,32 @@ PrefabInstance:
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[30].timeBeforeSpawnNext
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[39].timeBeforeSpawnNext
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[40].timeBeforeSpawnNext
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: waves.Array.data[41].timeBeforeSpawnNext
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
+      propertyPath: waves.Array.data[41].timeBeforeSpawnNext
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
       propertyPath: waves.Array.data[42].timeBeforeSpawnNext
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[49].timeBeforeSpawnNext
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
@@ -2915,6 +2921,26 @@ PrefabInstance:
       propertyPath: endLevelPanel
       value: 
       objectReference: {fileID: 1680520582}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waitBeforeStart
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[29].timeBeforeSpawnNext
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[38].timeBeforeSpawnNext
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[48].timeBeforeSpawnNext
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6734605209460765243, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: m_Sprite
