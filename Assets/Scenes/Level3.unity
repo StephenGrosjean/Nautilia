@@ -259,6 +259,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5798677887078602475, guid: 22c146cd4d9d6d74399e7a940b481d25,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 119737821}
+    - target: {fileID: 4712429363733663557, guid: 22c146cd4d9d6d74399e7a940b481d25,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 29.300049
+      objectReference: {fileID: 0}
     - target: {fileID: 5798677887778541620, guid: 22c146cd4d9d6d74399e7a940b481d25,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -269,16 +279,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4712429363733663557, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 29.300049
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798677887078602475, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 119737821}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
 --- !u!114 &99657057 stripped
@@ -293,6 +293,12 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &99657058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1336525070, guid: 22c146cd4d9d6d74399e7a940b481d25,
+    type: 3}
+  m_PrefabInstance: {fileID: 99657056}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &119737820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2734,6 +2740,11 @@ PrefabInstance:
       propertyPath: bar
       value: 
       objectReference: {fileID: 99657057}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: endLevelPanel
+      value: 
+      objectReference: {fileID: 99657058}
     - target: {fileID: 6734605209460765243, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: m_Sprite
@@ -2893,6 +2904,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4247314195982472838, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3628748009141436753, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: cameraShake
@@ -2905,11 +2921,6 @@ PrefabInstance:
     - target: {fileID: 921027250, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
       propertyPath: speed
       value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4247314195982472838, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2276017858428204595, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
