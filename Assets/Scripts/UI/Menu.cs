@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject deathMenu;
+    [SerializeField] private TextMeshProUGUI lifeText;
+    private PlayerLife playerLifeScript;
 
-    private void Start()
+     public void Start()
     {
-        
+        playerLifeScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
+        InvokeRepeating("UpdateLifes", 0, 0.2f);
     }
 
-    private void Update()
-     {
-         
-     }
-
-     public void StartGame()
-    {
-        //SceneManager.LoadScene("EthanScene");
+    private void UpdateLifes() {
+        lifeText.text = playerLifeScript.GetLife().ToString();
     }
 
      public void PauseGame()
@@ -28,12 +27,15 @@ public class Menu : MonoBehaviour
          {
              Time.timeScale = 0;
              pauseCanvas.SetActive(true);
+            SoundManager.instance.Paused();
          }
          else if (pauseCanvas.activeInHierarchy)
          {
              Time.timeScale = 1.0f;
              pauseCanvas.SetActive(false);
-         }
+            SoundManager.instance.UnPaused();
+
+        }
         SoundManager.instance.Play(SoundManager.clip.pauseMenu);
      }
 
@@ -42,6 +44,7 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1.0f;
         pauseCanvas.SetActive(false);
         SoundManager.instance.Play(SoundManager.clip.pauseMenu);
+        SoundManager.instance.UnPaused();
     }
 
     public void ReturnToMainMenu()
@@ -56,6 +59,11 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1.0f;
         SoundManager.instance.Play(SoundManager.clip.ButtonClick);
     }
+
+    public void ShowDeathMenu() {
+        deathMenu.SetActive(true);
+    }
+
     public void QuitGame()
     {
 #if UNITY_EDITOR

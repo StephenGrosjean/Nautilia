@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameObject player;
     public GameObject[] bullets;
     public int bulletsNumber;
 
     public bool check;
+
+
 
     void Start()
     {

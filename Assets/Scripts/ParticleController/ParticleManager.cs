@@ -11,13 +11,11 @@ public class ParticleManager : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private bool isPlayer, pingPongValues;
     [SerializeField] private float rotationAngle;
+    [SerializeField] private GameObject hitParticle;
 
     private float baseOffset;
     private bool increase = true;
 
-    void OnDrawGizmosSelected () {
-
-    }
 
     void Start() {
         baseOffset = transform.localEulerAngles.z;
@@ -39,9 +37,17 @@ public class ParticleManager : MonoBehaviour
                 }
                 else if (colEvent.colliderComponent.gameObject.CompareTag("Enemy") && isPlayer) {
                     colEvent.colliderComponent.gameObject.GetComponent<EnemyControls>().Hit();
+                    float rdmn = Random.Range(0.0f, 100.0f);
+                    if (rdmn < 80) {
+                        Instantiate(hitParticle, colEvent.intersection, hitParticle.transform.rotation);
+                    }
                 }
                 else if (colEvent.colliderComponent.gameObject.CompareTag("Boss") && isPlayer) {
                     colEvent.colliderComponent.gameObject.GetComponent<BossControls>().Hit();
+                    float rdmn = Random.Range(0.0f, 100.0f);
+                    if (rdmn < 80 && !colEvent.colliderComponent.gameObject.GetComponent<BossControls>().IsImortal) {
+                        Instantiate(hitParticle, colEvent.intersection, hitParticle.transform.rotation);
+                    }
                 }
             }
         }

@@ -46,4 +46,8 @@ MonoBehaviour:
   buttonClick: {fileID: 8300000, guid: 7afb3080cff79b34cbf22d28b795cc35, type: 3}
   playerHit: {fileID: 8300000, guid: e27bdd0b75fae094884fb41dec6759c7, type: 3}
   enemyDeath: {fileID: 8300000, guid: 61c082f3ceddf0647b9464239d679717, type: 3}
-  bossHit: {fileID: 0}
+  bossHit: {fileID: 8300000, guid: 97ae47dcdd209ec4d8dab4d01bc7372a, type: 3}
+  pauseMenu: {fileID: 8300000, guid: 86d436bea99614448922de14db361d28, type: 3}
+  normal: {fileID: 24500006, guid: 2a4ee79553b59eb41819bce199e09c5a, type: 2}
+  paused: {fileID: 245753470844138282, guid: 2a4ee79553b59eb41819bce199e09c5a, type: 2}
+  mixer: {fileID: 24100000, guid: 2a4ee79553b59eb41819bce199e09c5a, type: 2}

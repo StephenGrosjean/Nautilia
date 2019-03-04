@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
 
     // Start is called before the first frame update
     private void Awake() {
+        Time.timeScale = 1;
         levelGetScript = GetComponent<LevelGet>();
     }
 
@@ -60,47 +61,33 @@ public class MenuManager : MonoBehaviour
     }
 
     public void LoadLevel1() {
-        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
-        if (!Application.isEditor) {
-            VibrationController.Vibrate(50);
-        }
+        ClickEffect();
+
         SceneManager.LoadScene("Level1");
     }
     public void LoadLevel2() {
-        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
-        if (!Application.isEditor) {
-            VibrationController.Vibrate(50);
-        }
+        ClickEffect();
+
         SceneManager.LoadScene("Level2");
     }
     public void LoadLevel3() {
-        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
-        if (!Application.isEditor) {
-            VibrationController.Vibrate(50);
-        }
+        ClickEffect();
+
         SceneManager.LoadScene("Level3");
     }
     public void LoadLevel4() {
-        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
-        if (!Application.isEditor) {
-            VibrationController.Vibrate(50);
-        }
+        ClickEffect();
+
         SceneManager.LoadScene("Level4");
     }
     public void LoadLevel5() {
-        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
-        if (!Application.isEditor) {
-            VibrationController.Vibrate(50);
-        }
+        ClickEffect();
         SceneManager.LoadScene("BossScene");
     }
 
 
     IEnumerator ChangeScene(section section) {
-        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
-        if (!Application.isEditor) {
-            VibrationController.Vibrate(50);
-        }
+        ClickEffect();
 
         blockScreen.SetActive(true);
         for(float i = 0; i < 1.1f; i += 0.05f) {
@@ -180,6 +167,13 @@ public class MenuManager : MonoBehaviour
             case section.Levels:
                 sectionIndicator.text = "Levels";
                 break;
+        }
+    }
+
+    void ClickEffect() {
+        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+        if (!Application.isEditor) {
+            VibrationController.Vibrate(50);
         }
     }
 }

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     private Collider2D hitColliders;
     #region Player variable
+    [SerializeField] private GameObject deathParticles;
     [SerializeField] private GameObject firstUpgradePoint; 
     [SerializeField] private GameObject secondUpgradePoint;
     [SerializeField] private GameObject thirdUpgradePoint;
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
     [SerializeField] private SpriteRenderer _playerSpriteRenderer;
-    [SerializeField] private GameObject deathScreen;
+    [SerializeField] private Menu menuScript;
 
     private bool _isBlinking = false;
     private bool _isInvincible = false;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
     private PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
     private bool isBlinking;
+    private bool isDying;
     #endregion
 
     private void Start()
@@ -45,7 +47,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(Die(deathAnimation)); //let the time to play the death animation
+        if(_playerScript.GetLife() <= 0 && !isDying) {
+            isDying = true;
+            StartCoroutine(Die(deathAnimation));
+        }
     }
 
     public void Hit() {
@@ -108,12 +113,17 @@ public class Player : MonoBehaviour
 
     private IEnumerator Die(float time)
     {
-        if (_playerScript.GetLife() == 0)
-        {
-            deathScreen.SetActive(true);
-        }
 
-        yield return new WaitForSeconds(time);
+            GetComponent<PlayerMovement>().enabled = false;
+            Instantiate(deathParticles, transform.position, transform.rotation);
+            Time.timeScale = 0.5f;
+        SoundManager.instance.Paused();
+        yield return new WaitForSecondsRealtime(time);
+            menuScript.ShowDeathMenu();
+            Destroy(gameObject);
+            /*Scene loadedLevel = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(loadedLevel.buildIndex);*/
+        
     }
     
     private IEnumerator InvincibilityBlink(float time)
