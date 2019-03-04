@@ -25,6 +25,7 @@ public class Intro : MonoBehaviour
         }
     }
     public void Continue() {
+        SoundManager.instance.Play(SoundManager.clip.ButtonClick);
         StartCoroutine(FadeIn());
     }
 
