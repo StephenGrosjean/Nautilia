@@ -7,6 +7,8 @@ public class LevelGet : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private XMLSave saveScript;
+    [SerializeField] private VolumeSlider slider;
+
     private int level;
     public int Level {
         get { return level; }
@@ -27,6 +29,7 @@ public class LevelGet : MonoBehaviour
     public void ResetSettings() {
         saveScript.dataBase.firstDB[1].value = 1;
         saveScript.Save();
+        slider.ResetSlider();
     }
 
     public void ResetGame() {

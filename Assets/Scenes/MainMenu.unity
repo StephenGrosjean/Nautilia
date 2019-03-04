@@ -1561,6 +1561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   saveScript: {fileID: 2000423975}
+  slider: {fileID: 1338762762}
 --- !u!1 &433075687
 GameObject:
   m_ObjectHideFlags: 0

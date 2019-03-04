@@ -78,6 +78,10 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator ChangeScene(section section) {
         SoundManager.instance.Play(SoundManager.clip.ButtonClick);
+#if !UNITY_ANDROID
+        VibrationController.Vibrate(50);
+#endif
+
         blockScreen.SetActive(true);
         for(float i = 0; i < 1.1f; i += 0.05f) {
             fadeScreen.color = Color.Lerp(transparent, Color.black, i);
