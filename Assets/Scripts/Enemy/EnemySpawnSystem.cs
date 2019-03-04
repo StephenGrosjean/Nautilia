@@ -30,6 +30,7 @@ public class EnemySpawnSystem : MonoBehaviour
         Burst_30_Wait_Omni,
         Burst_12_3_Omni
     };
+    [SerializeField] private float waitBeforeStart;
     [SerializeField] private Image bar;
     [SerializeField] private XMLSave saveSystem;
     [SerializeField] private int levelID;
@@ -44,6 +45,7 @@ public class EnemySpawnSystem : MonoBehaviour
         public enemies toSpawn;
         public zone zoneToSpawn;
         public bool waitUntilDestruction;
+        public bool spawnUpgrade;
         public float timeBeforeSpawnNext;
     }
     
@@ -81,10 +83,11 @@ public class EnemySpawnSystem : MonoBehaviour
     }
 
     IEnumerator SpawnWaves() {
-        foreach (Wave wave in waves) {
-
+        yield return new WaitForSeconds(waitBeforeStart);
+        foreach (Wave wave in waves) { 
             GameObject enemy = Instantiate(GetEnemy(wave.toSpawn), GetSpawnPosition(wave.zoneToSpawn).position, Quaternion.identity); //Instantiate enemy in correct zone
             enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn); //Put the enemy in the zone transform
+            enemy.GetComponent<EnemyControls>().DropUpgrade = wave.spawnUpgrade;
             enemy.transform.position = Vector3.zero; //Set the enemy position to the zone transform position
             currentEnemies.Add(enemy); //Add the enemy to the list
             enemy.tag = "Enemy"; //Set the tag of the enemies
