@@ -15,7 +15,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         score = GetComponent<TMP_Text>();
-        score.text = "Score : " + scoreValue;
+        score.text = scoreValue.ToString();
     }
 
     private void Update()
@@ -35,6 +35,6 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateUI()
     {
-        score.text = "Score : " + scoreValue;
+        score.text = scoreValue.ToString();
     }
 }

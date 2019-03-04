@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawnSystem : MonoBehaviour
 {
@@ -15,18 +16,27 @@ public class EnemySpawnSystem : MonoBehaviour
         Rotating_1,
         Rotating_2,
         Rotating_3,
-        Rotating_4_Changing,
+        Rotating_4,
+        Rotating_5,
+        Rotating_6,
         Burst_1_5_Down,
         Burst_2_5_Down,
         Burst_3_5_Down,
         Burst_4_5_Down,
-        Burst_12_3_Omni,
-        Burst_30_Wait_Omni
+        Burst_5_5_Down,
+        Burst_5_Wait_Omni,
+        Burst_10_Wait_Omni,
+        Burst_20_Wait_Omni,
+        Burst_30_Wait_Omni,
+        Burst_12_3_Omni
     };
-
+    [SerializeField] private Image bar;
+    [SerializeField] private XMLSave saveSystem;
+    [SerializeField] private int levelID;
     [SerializeField] private GameObject[] enemiesObject;
     [SerializeField] private Transform[] zones; //Zones transform
     [SerializeField] private Wave[] waves; //Waves array
+
 
     //Wave setup class
     [System.Serializable]
@@ -35,6 +45,7 @@ public class EnemySpawnSystem : MonoBehaviour
         public zone zoneToSpawn;
         public bool waitUntilDestruction;
         public float timeBeforeSpawnNext;
+        //public bool isEndLevel; //to set the en of the level
     }
     
     //List of enemies
@@ -47,11 +58,22 @@ public class EnemySpawnSystem : MonoBehaviour
     //Enemy container
     private Transform enemyContainer;
 
+    //Level Variables
+    private float percentage, currentPercentage;
+    private float currentWave, totalWaves;
     
     void Start()
     {
         enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform; //Get the enemy container transform
         StartCoroutine("SpawnWaves"); //Start the wave spawn
+        totalWaves = waves.Length;
+    }
+
+    private void Update() {
+        if(currentPercentage != percentage) {
+            currentPercentage = Mathf.Lerp(currentPercentage, percentage, Time.deltaTime);
+            bar.fillAmount = currentPercentage;
+        }
     }
 
     IEnumerator SpawnWaves() {
@@ -61,14 +83,27 @@ public class EnemySpawnSystem : MonoBehaviour
             enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn); //Put the enemy in the zone transform
             enemy.transform.position = Vector3.zero; //Set the enemy position to the zone transform position
             currentEnemies.Add(enemy); //Add the enemy to the list
-            enemy.tag = "Enemy";
+            enemy.tag = "Enemy"; //Set the tag of the enemies
             //If the wave need to wait before spawning the next wave
             if (wave.waitUntilDestruction) {
                 while (currentEnemies.Count > 0) { //Check if all the enemies are destroyed
                     yield return new WaitForSeconds(0.1f);
                 }
+                DrawBar();
             }
             yield return new WaitForSeconds(wave.timeBeforeSpawnNext);
+
+        }
+
+        while(currentEnemies.Count > 0) {
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        //Save level
+        saveSystem.Load();
+        if (saveSystem.dataBase.firstDB[0].value < levelID) {
+            saveSystem.dataBase.firstDB[0].value = levelID;
+            saveSystem.Save();
         }
     }
 
@@ -95,26 +130,44 @@ public class EnemySpawnSystem : MonoBehaviour
             case enemies.Rotating_3:
                 return enemiesObject[6];
                 break;
-            case enemies.Rotating_4_Changing:
+            case enemies.Rotating_4:
                 return enemiesObject[7];
                 break;
-            case enemies.Burst_1_5_Down:
+            case enemies.Rotating_5:
                 return enemiesObject[8];
                 break;
-            case enemies.Burst_2_5_Down:
+            case enemies.Rotating_6:
                 return enemiesObject[9];
                 break;
-            case enemies.Burst_3_5_Down:
+            case enemies.Burst_1_5_Down:
                 return enemiesObject[10];
                 break;
-            case enemies.Burst_4_5_Down:
+            case enemies.Burst_2_5_Down:
                 return enemiesObject[11];
                 break;
-            case enemies.Burst_12_3_Omni:
+            case enemies.Burst_3_5_Down:
                 return enemiesObject[12];
                 break;
-            case enemies.Burst_30_Wait_Omni:
+            case enemies.Burst_4_5_Down:
                 return enemiesObject[13];
+                break;
+            case enemies.Burst_5_5_Down:
+                return enemiesObject[14];
+                break;
+            case enemies.Burst_5_Wait_Omni:
+                return enemiesObject[15];
+                break;
+            case enemies.Burst_10_Wait_Omni:
+                return enemiesObject[16];
+                break;
+            case enemies.Burst_20_Wait_Omni:
+                return enemiesObject[17];
+                break;
+            case enemies.Burst_30_Wait_Omni:
+                return enemiesObject[18];
+                break;
+            case enemies.Burst_12_3_Omni:
+                return enemiesObject[19];
                 break;
         }
         return null;
@@ -154,5 +207,10 @@ public class EnemySpawnSystem : MonoBehaviour
 
         return null;
        
+    }
+
+    void DrawBar() {
+        currentWave++;
+        percentage = currentWave / totalWaves;
     }
 }

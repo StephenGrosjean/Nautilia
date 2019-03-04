@@ -13,9 +13,10 @@ public class EnemyControls : MonoBehaviour
     [Space(10)]
     [SerializeField] private int numberOfPoints;
     [SerializeField] private float pointSpawnRadius;
+    [SerializeField] private Color blinkColor = Color.red;
 
-
-    private int upgradeDropRate;
+    private int upgradeDropChance = 20;
+    public int upgradeDropRate = 1;
     private EnemySpawnSystem enemySpawnSystem;
     private EnemyLife lifeScript;
     private bool isBlinking;
@@ -30,7 +31,7 @@ public class EnemyControls : MonoBehaviour
         spriteRendererComponent = GetComponentInChildren<SpriteRenderer>();
         lifeScript = GetComponent<EnemyLife>(); //Get life script 
         enemySpawnSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnSystem>(); //Find the enemySpawnSystem
-        upgradeDropRate = Random.Range(1, 100);
+        upgradeDropRate = Random.Range(1, 60);
     }
 
     public void Hit() {
@@ -43,13 +44,13 @@ public class EnemyControls : MonoBehaviour
     
     void FixedUpdate()
     {
-        upgradeDropRate = Random.Range(1, 100);
+        upgradeDropRate = Random.Range(1, 60);
 
 
         //Destroy the object if life is lower than 0
         if (lifeScript.GetLife() <= 0)
         {
-            if (upgradeDropRate <= 20)
+            if (upgradeDropRate <= upgradeDropChance)
             {
                 Instantiate(upgradeObject, transform.position, Quaternion.identity);
             }
@@ -86,7 +87,7 @@ private void OnDestroy()
         float time = 0.03f;
         spriteRendererComponent.color = new Color(1, 0, 0);
         yield return new WaitForSeconds(time);
-        spriteRendererComponent.color = new Color(1, 1, 1);
+        spriteRendererComponent.color = Color.white;
         yield return new WaitForSeconds(time);
         isBlinking = false;
 

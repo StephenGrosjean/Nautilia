@@ -48,18 +48,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb597b6bf4d7e214eb0313c3dd5427c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delete: 0
   powerupsDrop: []
+  particlesContainer: {fileID: 4372924286203783695}
   upgradeObject: {fileID: 5845843904931835803, guid: e9e59f0121d76ec42a226f5c092b340e,
     type: 3}
   rotateObject: {fileID: 4372924286203783695}
   rotationSpeed: 0
   incrementRotation: 0
-  time: 0
-  poolPoint: {fileID: 0}
   numberOfPoints: 40
   pointSpawnRadius: 2
-  particlesContainer: {fileID: 4372924286203783695}
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  upgradeDropRate: 1
 --- !u!58 &6137384853510712115
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -88,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7219890cb840978408919d17eba21e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 100
+  life: 150
 --- !u!95 &4370359453349501467
 Animator:
   serializedVersion: 3
@@ -4980,11 +4979,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378399aa795255b4e94660bb537c73fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationIncrement: 10
+  rotationSpeed: 10
   isPlayer: 0
   pingPongValues: 1
-  minimumRotation: -25
-  maximumRotation: 25
+  rotationAngle: 25
 --- !u!1 &4372924286203783695
 GameObject:
   m_ObjectHideFlags: 0

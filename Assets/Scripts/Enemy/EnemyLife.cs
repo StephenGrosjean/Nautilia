@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
 {
-    [SerializeField] private int life = 100; //Life script 
+    [SerializeField] private int life; //Life script 
 
     private bool isImortal;
     public bool IsImortal {

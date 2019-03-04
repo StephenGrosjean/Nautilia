@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float blinkInterval = 0.2f;
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
-    [SerializeField] private CameraShake cameraShake;
+    [SerializeField] private SpriteRenderer _playerSpriteRenderer;
 
     private bool _isBlinking = false;
     private bool _isInvincible = false;
@@ -27,14 +27,17 @@ public class Player : MonoBehaviour
         get { return _isInvincible; }
     }
 
-    public SpriteRenderer _playerSpriteRenderer;
+    private EnemyControls _enemyScript;
+    private CameraShake cameraShake;
     private PlayerUpgrade _playerUpgrade;
     private PlayerLife _playerScript;
+    private bool isBlinking;
     #endregion
 
     private void Start()
     {
-        _playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+        _enemyScript = GetComponent<EnemyControls>();
         _playerScript = GetComponent<PlayerLife>();
         ShootingMode();
     }
@@ -56,7 +59,7 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Upgrade"))
         {
-            
+            Debug.Log("Upgrade");
             ScoreManager.AddScore(10000);
             if (!_isBlinking)
             {
@@ -66,6 +69,8 @@ public class Player : MonoBehaviour
             
             _playerUpgrade++;
             ShootingMode();
+            StartCoroutine(Blink());
+            //_enemyScript.upgradeDropRate = 1;
         }
     }
 
@@ -136,12 +141,13 @@ public class Player : MonoBehaviour
 
     private IEnumerator Blink()
     {
-        float time = 1f;
-        _playerSpriteRenderer.color = new Color(0, 1, 0);
-        yield return new WaitForSeconds(time);
-        _playerSpriteRenderer.color = new Color(1, 1, 1);
-        yield return new WaitForSeconds(time);
-        _isBlinking = false;
-
+        float time = 0.3f;
+        for (int i = 0; i <= 1; i++) {
+            _playerSpriteRenderer.color = new Color(0, 1, 0);
+            yield return new WaitForSeconds(time);
+            _playerSpriteRenderer.color = new Color(1, 1, 1);
+            yield return new WaitForSeconds(time);
+        }
+        isBlinking = false;
     }
 }
