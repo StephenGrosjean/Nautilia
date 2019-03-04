@@ -116,5 +116,6 @@ public class Boss : MonoBehaviour
 
     void Shake() {
         StartCoroutine(Camera.main.GetComponent<CameraShake>().DoShake(0.02f, 3));
+        SoundManager.instance.Play(SoundManager.clip.bossHit);
     }
 }

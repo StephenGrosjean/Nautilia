@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class BossGameManager : MonoBehaviour
 {
+   
     [SerializeField] private GameObject bossIntro, bossAppear, bossReal;
     [SerializeField] private float waitBetweenPhases;
 
     public enum phases { Intro, Standby, BossStart};
     private phases currentPhase;
-
+    private AudioSource source;
 
     void Start()
     {
+        source = Camera.main.GetComponent<AudioSource>();
         currentPhase = phases.Intro;
         StartCoroutine(Coordinator());
     }
@@ -28,6 +30,7 @@ public class BossGameManager : MonoBehaviour
                 break;
             case phases.Standby:
                 Debug.Log("Appear");
+                source.Play();
                 bossIntro.SetActive(false);
                 bossAppear.SetActive(true);
                 yield return new WaitForSeconds(waitBetweenPhases);

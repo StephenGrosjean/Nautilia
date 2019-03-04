@@ -12,8 +12,8 @@ public class SoundManager : MonoBehaviour {
     }
     //END SINGLETON//
 
-    public enum clip { ButtonClick, PlayerHit};
-    [SerializeField] private AudioClip buttonClick, playerHit;
+    public enum clip { ButtonClick, PlayerHit, enemyDeath, bossHit, pauseMenu};
+    [SerializeField] private AudioClip buttonClick, playerHit, enemyDeath, bossHit, pauseMenu;
 
     private AudioSource source;
 
@@ -35,6 +35,15 @@ public class SoundManager : MonoBehaviour {
                 break;
             case clip.PlayerHit:
                 source.PlayOneShot(playerHit);
+                break;
+            case clip.enemyDeath:
+                source.PlayOneShot(enemyDeath);
+                break;
+            case clip.bossHit:
+                source.PlayOneShot(bossHit);
+                break;
+            case clip.pauseMenu:
+                source.PlayOneShot(pauseMenu);
                 break;
         }
     }
