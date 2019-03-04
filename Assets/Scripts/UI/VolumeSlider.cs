@@ -24,10 +24,10 @@ public class VolumeSlider : MonoBehaviour
 
     public void RegisterAudio() {
         float volume = slider.value;
-        float vibration = (50*volume) - 50;
-#if !UNITY_ANDROID
-        VibrationController.Vibrate((long)vibration);
-#endif
+        float vibration = (130*volume);
+        if (!Application.isEditor) {
+            VibrationController.Vibrate((long)vibration);
+        }
         if (volume >= 0) {
             xmlSystem.dataBase.firstDB[1].value = volume;
 

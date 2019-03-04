@@ -5185,21 +5185,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4970630977651896656, guid: 27833a04ccb810d43a270c12cdf4a0bd,
-        type: 3}
-      propertyPath: dataBase.firstDB.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4970630977651896656, guid: 27833a04ccb810d43a270c12cdf4a0bd,
-        type: 3}
-      propertyPath: dataBase.firstDB.Array.data[1].name
-      value: Sound
-      objectReference: {fileID: 0}
-    - target: {fileID: 4970630977651896656, guid: 27833a04ccb810d43a270c12cdf4a0bd,
-        type: 3}
-      propertyPath: nameFile
-      value: /database.xml
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27833a04ccb810d43a270c12cdf4a0bd, type: 3}
 --- !u!114 &2000423975 stripped

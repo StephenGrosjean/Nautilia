@@ -78,9 +78,9 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator ChangeScene(section section) {
         SoundManager.instance.Play(SoundManager.clip.ButtonClick);
-#if !UNITY_ANDROID
-        VibrationController.Vibrate(50);
-#endif
+        if (!Application.isEditor) {
+            VibrationController.Vibrate(50);
+        }
 
         blockScreen.SetActive(true);
         for(float i = 0; i < 1.1f; i += 0.05f) {
