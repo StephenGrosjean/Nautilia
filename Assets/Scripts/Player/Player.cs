@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxInvincibilityTime = 1.0f;
     [SerializeField] private float deathAnimation = 1.0f;
     [SerializeField] private SpriteRenderer _playerSpriteRenderer;
+    [SerializeField] private GameObject deathScreen;
 
     private bool _isBlinking = false;
     private bool _isInvincible = false;
@@ -44,7 +45,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(Die(deathAnimation));
+        StartCoroutine(Die(deathAnimation)); //let the time to play the death animation
     }
 
     public void Hit() {
@@ -72,7 +73,6 @@ public class Player : MonoBehaviour
             _playerUpgrade++;
             ShootingMode();
             StartCoroutine(Blink());
-            //_enemyScript.upgradeDropRate = 1;
         }
     }
 
@@ -110,10 +110,10 @@ public class Player : MonoBehaviour
     {
         if (_playerScript.GetLife() == 0)
         {
-            yield return new WaitForSeconds(time);
-            Scene loadedLevel = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(loadedLevel.buildIndex);
+            deathScreen.SetActive(true);
         }
+
+        yield return new WaitForSeconds(time);
     }
     
     private IEnumerator InvincibilityBlink(float time)
