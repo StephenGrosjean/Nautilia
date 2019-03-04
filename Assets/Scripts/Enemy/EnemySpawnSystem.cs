@@ -36,7 +36,7 @@ public class EnemySpawnSystem : MonoBehaviour
     [SerializeField] private GameObject[] enemiesObject;
     [SerializeField] private Transform[] zones; //Zones transform
     [SerializeField] private Wave[] waves; //Waves array
-
+    [SerializeField] private GameObject endLevelPanel;
 
     //Wave setup class
     [System.Serializable]
@@ -45,7 +45,6 @@ public class EnemySpawnSystem : MonoBehaviour
         public zone zoneToSpawn;
         public bool waitUntilDestruction;
         public float timeBeforeSpawnNext;
-        //public bool isEndLevel; //to set the en of the level
     }
     
     //List of enemies
@@ -61,7 +60,7 @@ public class EnemySpawnSystem : MonoBehaviour
     //Level Variables
     private float percentage, currentPercentage;
     private float currentWave, totalWaves;
-    
+    private bool isEndLevel; //to set the en of the level
     void Start()
     {
         enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform; //Get the enemy container transform
@@ -73,6 +72,11 @@ public class EnemySpawnSystem : MonoBehaviour
         if(currentPercentage != percentage) {
             currentPercentage = Mathf.Lerp(currentPercentage, percentage, Time.deltaTime);
             bar.fillAmount = currentPercentage;
+        }
+
+        if (isEndLevel)
+        {
+            endLevelPanel.SetActive(true);
         }
     }
 
@@ -89,13 +93,12 @@ public class EnemySpawnSystem : MonoBehaviour
                 while (currentEnemies.Count > 0) { //Check if all the enemies are destroyed
                     yield return new WaitForSeconds(0.1f);
                 }
-                DrawBar();
             }
             yield return new WaitForSeconds(wave.timeBeforeSpawnNext);
-
+            DrawBar();
         }
 
-        while(currentEnemies.Count > 0) {
+        while (currentEnemies.Count > 0) {
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -105,6 +108,8 @@ public class EnemySpawnSystem : MonoBehaviour
             saveSystem.dataBase.firstDB[0].value = levelID;
             saveSystem.Save();
         }
+
+        isEndLevel = true;
     }
 
     GameObject GetEnemy(enemies enemy) {

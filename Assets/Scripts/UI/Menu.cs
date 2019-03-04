@@ -14,41 +14,37 @@ public class Menu : MonoBehaviour
 
     private void Update()
      {
-         PauseGame();
+         
      }
 
      public void StartGame()
     {
         SceneManager.LoadScene("EthanScene");
     }
-    
-    private void PauseGame()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (!pauseCanvas.activeInHierarchy)
-            {
-                Time.timeScale = 0;
-                pauseCanvas.SetActive(true);
-            }
-            else if(pauseCanvas.activeInHierarchy)
-            {
-                Time.timeScale = 1.0f;
-                pauseCanvas.SetActive(false);
-            }
 
-        }
-    }
+     public void PauseGame()
+     {
+         if (!pauseCanvas.activeInHierarchy)
+         {
+             Time.timeScale = 0;
+             pauseCanvas.SetActive(true);
+         }
+         else if (pauseCanvas.activeInHierarchy)
+         {
+             Time.timeScale = 1.0f;
+             pauseCanvas.SetActive(false);
+         }
+     }
 
-    public void ResumeGame()
+     public void ResumeGame()
     {
         Time.timeScale = 1.0f;
         pauseCanvas.SetActive(false);
     }
     
-    public void LoadLevelSelectMenu()
+    public void RetunrToMainMenu()
     {
-        SceneManager.LoadScene("LevelSelectScene");
+        SceneManager.LoadScene("MainMenu");
     }
     public void RestartLevel()
     {
