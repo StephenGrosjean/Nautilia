@@ -60,4 +60,14 @@ MonoBehaviour:
       value: 0
     - name: Score_Lvl5
       value: 0
+    - name: Difficulty
+      value: 0
+    - name: babyCompleted
+      value: 0
+    - name: normalCompleted
+      value: 0
+    - name: hardCompleted
+      value: 0
+    - name: impossibleCompleted
+      value: 0
     secondDB: []

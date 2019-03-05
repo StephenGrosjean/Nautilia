@@ -41,6 +41,10 @@ public class LevelGet : MonoBehaviour
         saveScript.dataBase.firstDB[4].value = 0;
         saveScript.dataBase.firstDB[5].value = 0;
         saveScript.dataBase.firstDB[6].value = 0;
+        saveScript.dataBase.firstDB[8].value = 0;
+        saveScript.dataBase.firstDB[9].value = 0;
+        saveScript.dataBase.firstDB[10].value = 0;
+        saveScript.dataBase.firstDB[11].value = 0;
         saveScript.Save();
 
         SceneManager.LoadScene("MainMenu");
