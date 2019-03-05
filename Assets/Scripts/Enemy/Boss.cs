@@ -19,6 +19,7 @@ public class Boss : MonoBehaviour
     private bool leftArm_Destroyed, rightArm_Destroyed;
     private stage currentStage;
     private int leftLife, rightLife, headLife;
+    private float difficulty;
 
     void Start()
     {
@@ -49,7 +50,7 @@ public class Boss : MonoBehaviour
             case stage.Head:
                 if (head.GetLife() <= 0) {
                     DetatchObjects(thirdSequenceObj);
-                        StartCoroutine("WinSequence");
+                    StartCoroutine("WinSequence");
                     pauseSnap.TransitionTo(0.2f);
                 }
                 break;
@@ -126,9 +127,13 @@ public class Boss : MonoBehaviour
     }
 
     IEnumerator WinSequence() {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
 
         Time.timeScale = 0;
         winScreen.SetActive(true);
+        XMLSave.instance.Load();
+        difficulty = XMLSave.instance.dataBase.firstDB[7].value;
+        XMLSave.instance.dataBase.firstDB[8 + (int)difficulty].value = 1;
+        XMLSave.instance.Save();
     }
 }

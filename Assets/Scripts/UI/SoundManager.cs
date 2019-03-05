@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour {
     void Start()
     {
         XMLSave.instance.Load();
+        normal.TransitionTo(0.2f);
         source = Camera.main.transform.Find("FX").GetComponent<AudioSource>();
 
     }

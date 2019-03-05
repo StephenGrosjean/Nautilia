@@ -31,6 +31,7 @@ public class MenuManager : MonoBehaviour
     private void Awake() {
         Time.timeScale = 1;
         levelGetScript = GetComponent<LevelGet>();
+        XMLSave.instance.Load();
     }
 
     void Start()
@@ -39,7 +40,7 @@ public class MenuManager : MonoBehaviour
         maxLevel = levelGetScript.Level;
         currentSection = section.Main;
         ActivateLevels();
-        SetScores();
+
         
     }
     IEnumerator FadeOut() {
@@ -59,20 +60,26 @@ public class MenuManager : MonoBehaviour
             case 0:
                 ColorBlock cb1 = babyDif.colors;
                 cb1.normalColor = selectedColorDif;
+                babyDif.colors = cb1;
+
                 break;
             case 1:
-                ColorBlock cb2 = babyDif.colors;
+                ColorBlock cb2 = normalDif.colors;
                 cb2.normalColor = selectedColorDif;
+                normalDif.colors = cb2;
                 break;
             case 2:
-                ColorBlock cb3 = babyDif.colors;
+                ColorBlock cb3 = hardDif.colors;
                 cb3.normalColor = selectedColorDif;
+                hardDif.colors = cb3;
                 break;
             case 3:
-                ColorBlock cb4 = babyDif.colors;
+                ColorBlock cb4 = impossibleDif.colors;
                 cb4.normalColor = selectedColorDif;
+                impossibleDif.colors = cb4;
                 break;
         }
+        SetScores();
     }
 
     public void Goto_Levels() {
@@ -272,15 +279,34 @@ public class MenuManager : MonoBehaviour
 
 
     public void SetBaby() {
+        XMLSave.instance.Load();
         XMLSave.instance.dataBase.firstDB[7].value = 0;
+        XMLSave.instance.Save();
+        XMLSave.instance.Load();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
     public void SetNormal() {
+        XMLSave.instance.Load();
         XMLSave.instance.dataBase.firstDB[7].value = 1;
+        XMLSave.instance.Save();
+        XMLSave.instance.Load();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
     public void SetHard() {
+        XMLSave.instance.Load();
         XMLSave.instance.dataBase.firstDB[7].value = 2;
+        XMLSave.instance.Save();
+        XMLSave.instance.Load();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
     public void SetImpossible() {
+        XMLSave.instance.Load();
         XMLSave.instance.dataBase.firstDB[7].value = 3;
+        XMLSave.instance.Save();
+        XMLSave.instance.Load();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
