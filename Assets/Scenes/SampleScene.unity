@@ -634,6 +634,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4970630977651896656, guid: 27833a04ccb810d43a270c12cdf4a0bd,
+        type: 3}
+      propertyPath: dataBase.firstDB.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970630977651896656, guid: 27833a04ccb810d43a270c12cdf4a0bd,
+        type: 3}
+      propertyPath: dataBase.firstDB.Array.data[7].name
+      value: Difficulty
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27833a04ccb810d43a270c12cdf4a0bd, type: 3}
 --- !u!114 &2127277561 stripped

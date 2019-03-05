@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class BossGameManager : MonoBehaviour
 {
-   
+
+    //SINGLETON//
+    public static BossGameManager instance;
+
+    private void Awake() {
+        instance = this;
+    }
+    //END SINGLETON//
+
     [SerializeField] private GameObject bossIntro, bossAppear, bossReal;
     [SerializeField] private float waitBetweenPhases;
+    [SerializeField] private int levelID;
+    public int LevelID => levelID;
 
     public enum phases { Intro, Standby, BossStart};
     private phases currentPhase;
     private AudioSource source;
+
+   
 
     void Start()
     {
