@@ -39,6 +39,7 @@ public class EnemySpawnSystem : MonoBehaviour
         Burst_30_Wait_Omni,
         Burst_12_3_Omni
     };
+    
     [SerializeField] private float waitBeforeStart;
     [SerializeField] private Image bar;
     [SerializeField] private XMLSave saveSystem;
@@ -73,6 +74,7 @@ public class EnemySpawnSystem : MonoBehaviour
     private float percentage, currentPercentage;
     private float currentWave, totalWaves;
     private bool isEndLevel; //to set the en of the level
+    
     void Start()
     {
         enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform; //Get the enemy container transform
@@ -88,6 +90,8 @@ public class EnemySpawnSystem : MonoBehaviour
 
         if (isEndLevel)
         {
+            Debug.Log("Level ended");
+            Time.timeScale = 0;
             endLevelPanel.SetActive(true);
         }
     }
@@ -122,7 +126,9 @@ public class EnemySpawnSystem : MonoBehaviour
             saveSystem.Save();
         }
 
+        Debug.Log("Hello");
         isEndLevel = true;
+        
     }
 
     GameObject GetEnemy(enemies enemy) {

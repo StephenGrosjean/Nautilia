@@ -433,7 +433,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.994483, g: 0, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1748,7 +1748,7 @@ ParticleSystem:
     uvChannelMask: -1
     randomRow: 1
     sprites:
-    - sprite: {fileID: 21300044, guid: 9d8b76d573b2d9a4ea20d7c23a721934, type: 3}
+    - sprite: {fileID: 21300000, guid: 0c685efb51d3c284680f22c05a884dfb, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4983,6 +4983,7 @@ MonoBehaviour:
   isPlayer: 0
   pingPongValues: 1
   rotationAngle: 25
+  hitParticle: {fileID: 0}
 --- !u!1 &4372924286203783695
 GameObject:
   m_ObjectHideFlags: 0

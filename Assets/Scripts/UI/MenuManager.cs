@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
     private void Awake() {
         Time.timeScale = 1;
         levelGetScript = GetComponent<LevelGet>();
-        XMLSave.instance.Load();
+        
     }
 
     void Start()
@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour
         maxLevel = levelGetScript.Level;
         currentSection = section.Main;
         ActivateLevels();
-
+        XMLSave.instance.Load();
         
     }
     IEnumerator FadeOut() {
