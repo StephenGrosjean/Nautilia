@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+/// <summary>
+/// Menu script (In game)
+/// </summary>
 public class Menu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseCanvas;

@@ -15,12 +15,7 @@ public class SpriteAnimation : MonoBehaviour
         StartCoroutine("PlayAnimation");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Animate sprite without using the animator (Save FPS and file size)
     IEnumerator PlayAnimation() {
         while (true) {
             foreach(Sprite frame in frames) {

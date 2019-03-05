@@ -15,8 +15,6 @@ public class EnemyControls : MonoBehaviour
     [SerializeField] private float pointSpawnRadius;
     [SerializeField] private Color blinkColor = Color.red;
 
-    private int upgradeDropChance = 20;
-    public int upgradeDropRate = 1;
     private EnemySpawnSystem enemySpawnSystem;
     private EnemyLife lifeScript;
     private bool isBlinking;
@@ -31,12 +29,11 @@ public class EnemyControls : MonoBehaviour
 
     void Start()
     {
-        poolPoint = GameObject.FindGameObjectWithTag("PoolPoint").GetComponent<BulletPooler>();
-        StartCoroutine("AddRotation");
+        poolPoint = GameObject.FindGameObjectWithTag("PoolPoint").GetComponent<BulletPooler>(); //Point pooler
+        StartCoroutine("AddRotation"); //Add rotation
         spriteRendererComponent = GetComponentInChildren<SpriteRenderer>();
         lifeScript = GetComponent<EnemyLife>(); //Get life script 
         enemySpawnSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemySpawnSystem>(); //Find the enemySpawnSystem
-        upgradeDropRate = Random.Range(1, 60);
     }
 
     public void Hit() {
@@ -49,16 +46,9 @@ public class EnemyControls : MonoBehaviour
     
     void FixedUpdate()
     {
-        upgradeDropRate = Random.Range(1, 60);
-
-
         //Destroy the object if life is lower than 0
         if (lifeScript.GetLife() <= 0)
         {
-            if (upgradeDropRate <= upgradeDropChance)
-            {
-            }
-
             for (int i = 0; i < numberOfPoints; i++) {
                 GameObject point = poolPoint.GetBullet();
                 point.transform.position = new Vector2(Random.Range(transform.position.x- pointSpawnRadius, transform.position.x+ pointSpawnRadius), Random.Range(transform.position.y - pointSpawnRadius, transform.position.y + pointSpawnRadius));
@@ -78,8 +68,6 @@ public class EnemyControls : MonoBehaviour
 
         //Rotate the object 
         rotateObject.transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
-
-
     }
 
 //Remove the object from the List in enemySpawnSystem at object destroy
@@ -90,7 +78,7 @@ private void OnDestroy()
             Instantiate(powerupsDrop[Random.Range(0, powerupsDrop.Length)], transform.position, Quaternion.identity);
         }
 
-        enemySpawnSystem.CurrentEnemies.Remove(gameObject);
+        enemySpawnSystem.CurrentEnemies.Remove(gameObject); //Remove enemy from array
     }
 
     //Blink Ienumerator (Need optimisation)
@@ -104,7 +92,7 @@ private void OnDestroy()
 
     }
 
-
+    //Rotate
     IEnumerator AddRotation() {
         while (true) {
             rotationSpeed += incrementRotation;

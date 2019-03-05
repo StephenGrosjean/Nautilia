@@ -9,14 +9,13 @@ public class ParticleContainer : MonoBehaviour
     private string firstParent;
 
     private bool called;
-    // Start is called before the first frame update
+
     void Start()
     {
         system = GetComponentsInChildren<ParticleSystem>();
         firstParent = transform.parent.name;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (parent != "None") {

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Get level value for menu unlocking
+/// </summary>
 public class LevelGet : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
@@ -15,7 +17,6 @@ public class LevelGet : MonoBehaviour
         get { return level; }
     }
 
-    // Start is called before the first frame update
     void Awake() {
         saveScript.Load();
 

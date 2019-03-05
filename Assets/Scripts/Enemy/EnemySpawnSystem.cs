@@ -79,25 +79,26 @@ public class EnemySpawnSystem : MonoBehaviour
     {
         enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer").transform; //Get the enemy container transform
         StartCoroutine("SpawnWaves"); //Start the wave spawn
-        totalWaves = waves.Length;
+        totalWaves = waves.Length; //Get total level length
     }
 
     private void Update() {
+        //Bar percentage
         if(currentPercentage != percentage) {
             currentPercentage = Mathf.Lerp(currentPercentage, percentage, Time.deltaTime);
             bar.fillAmount = currentPercentage;
         }
 
+        //End level
         if (isEndLevel)
         {
-            Debug.Log("Level ended");
             Time.timeScale = 0;
             endLevelPanel.SetActive(true);
         }
     }
 
     IEnumerator SpawnWaves() {
-        yield return new WaitForSeconds(waitBeforeStart);
+        yield return new WaitForSeconds(waitBeforeStart); //Wait before spawning first wave
         foreach (Wave wave in waves) { 
             GameObject enemy = Instantiate(GetEnemy(wave.toSpawn), GetSpawnPosition(wave.zoneToSpawn).position, Quaternion.identity); //Instantiate enemy in correct zone
             enemy.transform.parent = GetSpawnPosition(wave.zoneToSpawn); //Put the enemy in the zone transform
@@ -112,11 +113,11 @@ public class EnemySpawnSystem : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(wave.timeBeforeSpawnNext);
-            DrawBar();
+            DrawBar();//Draw progress bar
         }
 
         while (currentEnemies.Count > 0) {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.1f); //Wait for all enemies to die
         }
 
         //Save level
@@ -126,11 +127,12 @@ public class EnemySpawnSystem : MonoBehaviour
             saveSystem.Save();
         }
 
-        Debug.Log("Hello");
+        //Tell that the level has ended
         isEndLevel = true;
         
     }
 
+    //Get enemy
     GameObject GetEnemy(enemies enemy) {
         switch (enemy) {
             case enemies.Flower_4:
@@ -233,6 +235,7 @@ public class EnemySpawnSystem : MonoBehaviour
        
     }
 
+    //Draw progress bar
     void DrawBar() {
         currentWave++;
         percentage = currentWave / totalWaves;

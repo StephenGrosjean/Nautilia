@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Touch controls for mobile
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -18,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
         _camera = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!cursorMode)
@@ -39,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("TouchField"))
                     {
-
                         _isInPlayerZone = true;
                     }
                 }

@@ -22,12 +22,13 @@ public class BossControls : MonoBehaviour {
 
     void Start()
     {
-        poolPoint = GameObject.FindGameObjectWithTag("PoolPoint").GetComponent<BulletPooler>();
-        spriteRendererComponent = transform.Find("EnemySprite").GetComponent<SpriteRenderer>();
+        poolPoint = GameObject.FindGameObjectWithTag("PoolPoint").GetComponent<BulletPooler>(); //Point pooler
+        spriteRendererComponent = transform.Find("EnemySprite").GetComponent<SpriteRenderer>(); //Enemy sprite
         lifeScript = GetComponent<EnemyLife>(); //Get life script 
-        maxLife = lifeScript.GetLife();
+        maxLife = lifeScript.GetLife(); //get maximum life
     }
 
+    //Hit function
     public void Hit() {
         if (!lifeScript.IsImortal) {
             lifeScript.DecreaseLife(1); //Decrease life
@@ -41,6 +42,8 @@ public class BossControls : MonoBehaviour {
     void FixedUpdate()
     {
         isImortal = lifeScript.IsImortal;
+
+        //Spawn powerups 
         if(lifeScript.GetLife() < maxLife / 2 && !firstPowerupSpawned) {
             firstPowerupSpawned = true;
             Instantiate(powerup, transform.position, transform.rotation);
@@ -60,7 +63,7 @@ public class BossControls : MonoBehaviour {
             GetComponent<PolygonCollider2D>().enabled = false;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(60, Vector3.forward), 1 * Time.deltaTime);
             if (!defeated) {
-                SoundManager.instance.Play(SoundManager.clip.bossHit);
+                SoundManager.instance.Play(SoundManager.clip.bossHit); //Play sound
                 StartCoroutine(Fade());
                 SpawnPoints();
             }
@@ -79,6 +82,7 @@ public class BossControls : MonoBehaviour {
 
     }
 
+    //Fade the enemy
     IEnumerator Fade() {
         GetComponent<PolygonCollider2D>().enabled = false;
         defeated = true;
@@ -89,6 +93,7 @@ public class BossControls : MonoBehaviour {
         gameObject.transform.Find("EnemySprite").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
     }
 
+    //Spawn collectable points
     void SpawnPoints() {
         for (int i = 0; i < numberOfPoints; i++) {
             GameObject point = poolPoint.GetBullet();

@@ -4,34 +4,36 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Menu manager (Mostly button interaction)
+/// </summary>
 public class MenuManager : MonoBehaviour
 {
     public enum section { Main, Levels, Settings, Scores};
 
     [SerializeField] private GameObject mainMenu, settings, levels, blockScreen, scores;
-    [SerializeField] private SpriteRenderer fadeScreen;
     [SerializeField] private GameObject level_1, level_2, level_3, level_4, level_boss;
     [SerializeField] private GameObject level_2D, level_3D, level_4D, level_bossD;
     [SerializeField] private TextMeshProUGUI score1, score2, score3, score4, score5;
-    [SerializeField] private Button babyDif, normalDif, hardDif, impossibleDif;
-
-    [SerializeField] private float fadeSpeed = 0.05f;
     [SerializeField] private TextMeshProUGUI sectionIndicator;
+    [SerializeField] private Button babyDif, normalDif, hardDif, impossibleDif;
+    [SerializeField] private SpriteRenderer fadeScreen;
+
     [SerializeField] private Color selectedColorDif;
+    [SerializeField] private float fadeSpeed = 0.05f;
+
 
     private Color transparent = new Color(0, 0, 0, 0);
     private section currentSection;
     private bool canClick = true;
-    private LevelGet levelGetScript;
     private int maxLevel;
     private float difficulty;
+    private LevelGet levelGetScript;
 
-    // Start is called before the first frame update
+
     private void Awake() {
         Time.timeScale = 1;
         levelGetScript = GetComponent<LevelGet>();
-        
     }
 
     void Start()
@@ -43,22 +45,8 @@ public class MenuManager : MonoBehaviour
         XMLSave.instance.Load();
         
     }
-    IEnumerator FadeOut() {
-        for (float i = 0; i < 1.1f; i += 0.05f) {
-            fadeScreen.color = Color.Lerp(Color.black, transparent, i);
-            yield return new WaitForSeconds(fadeSpeed);
-        }
-    }
-    IEnumerator FadeInAndLoad(string level) {
-        for (float i = 0; i < 1.1f; i += 0.05f) {
-            fadeScreen.color = Color.Lerp(transparent, Color.black,i);
-            yield return new WaitForSeconds(fadeSpeed);
-        }
-        SceneManager.LoadScene(level);
 
 
-    }
-    // Update is called once per frame
     void Update()
     {
         maxLevel = levelGetScript.Level;
@@ -185,7 +173,8 @@ public class MenuManager : MonoBehaviour
                 break;
         }
     }
-    
+
+    #region enable_levels
     void ActivateLevels() {
         
         switch (maxLevel) {
@@ -251,6 +240,7 @@ public class MenuManager : MonoBehaviour
                 break;
         }
     }
+    #endregion
 
     void setIndicatorText() {
         switch (currentSection) {
@@ -285,7 +275,7 @@ public class MenuManager : MonoBehaviour
 
     }
 
-
+    #region difficulty_functions
     public void SetBaby() {
         XMLSave.instance.Load();
         XMLSave.instance.dataBase.firstDB[7].value = 0;
@@ -317,5 +307,20 @@ public class MenuManager : MonoBehaviour
         XMLSave.instance.Load();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    #endregion
 
+    IEnumerator FadeOut() {
+        for (float i = 0; i < 1.1f; i += 0.05f) {
+            fadeScreen.color = Color.Lerp(Color.black, transparent, i);
+            yield return new WaitForSeconds(fadeSpeed);
+        }
+    }
+
+    IEnumerator FadeInAndLoad(string level) {
+        for (float i = 0; i < 1.1f; i += 0.05f) {
+            fadeScreen.color = Color.Lerp(transparent, Color.black, i);
+            yield return new WaitForSeconds(fadeSpeed);
+        }
+        SceneManager.LoadScene(level);
+    }
 }

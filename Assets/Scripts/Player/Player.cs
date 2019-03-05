@@ -67,7 +67,6 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Upgrade"))
         {
-            Debug.Log("Upgrade");
             ScoreManager.AddScore(10000);
             if (!_isBlinking)
             {
@@ -81,6 +80,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Change upgrade
     private void ShootingMode()
     {
         switch (_playerUpgrade)
@@ -115,6 +115,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Die sequence
     private IEnumerator Die(float time)
     {
 
@@ -125,11 +126,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSecondsRealtime(time);
             menuScript.ShowDeathMenu();
             Destroy(gameObject);
-            /*Scene loadedLevel = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(loadedLevel.buildIndex);*/
         
     }
     
+    //Blink if touched
     private IEnumerator InvincibilityBlink(float time)
     {
         _isInvincible = true;
@@ -155,6 +155,7 @@ public class Player : MonoBehaviour
         _isInvincible = false;
     }
 
+    //Upgrade blink
     private IEnumerator Blink()
     {
         float time = 0.3f;

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Intro script
+/// </summary>
 public class Intro : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer fadeObject;
@@ -16,14 +18,6 @@ public class Intro : MonoBehaviour
         StartCoroutine(Blink());
         StartCoroutine(Fade());
     }
-
-    IEnumerator Fade()
-    {
-        for (float i = 0; i < 1.1f; i += 0.05f) {
-            fadeObject.color = Color.Lerp(Color.black, transparent, i);
-            yield return new WaitForSeconds(fadeSpeed);
-        }
-    }
     public void Continue() {
         SoundManager.instance.Play(SoundManager.clip.ButtonClick);
         if (!Application.isEditor) {
@@ -32,6 +26,15 @@ public class Intro : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
+   
+    IEnumerator Fade()
+    {
+        for (float i = 0; i < 1.1f; i += 0.05f) {
+            fadeObject.color = Color.Lerp(Color.black, transparent, i);
+            yield return new WaitForSeconds(fadeSpeed);
+        }
+    }
+    //Fade and load scene
     IEnumerator FadeIn() {
         for (float i = 0; i < 1.1f; i += 0.05f) {
             fadeObject.color = Color.Lerp(transparent, Color.black, i);
@@ -39,6 +42,8 @@ public class Intro : MonoBehaviour
         }
         SceneManager.LoadScene("MainMenu");
     }
+
+    //Blink the text
     IEnumerator Blink() {
         while (true) {
             yield return new WaitForSeconds(blinkSpeed);
