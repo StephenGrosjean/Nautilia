@@ -73,7 +73,6 @@ public class Player : MonoBehaviour
             {
                 _isBlinking = true;
                 StartCoroutine("Blink");
-                SoundManager.instance.Play(SoundManager.clip.upgrade);
             }
             
             _playerUpgrade++;
@@ -91,21 +90,25 @@ public class Player : MonoBehaviour
                 break;
 
             case PlayerUpgrade.SecondUpgrade:
+                SoundManager.instance.Play(SoundManager.clip.upgrade);
                 firstUpgradePoint.SetActive(false);
                 secondUpgradePoint.SetActive(true);
                 break;
 
             case PlayerUpgrade.ThirdUpgrade:
+                SoundManager.instance.Play(SoundManager.clip.upgrade);
                 secondUpgradePoint.SetActive(false);
                 thirdUpgradePoint.SetActive(true);
                 break;
 
             case PlayerUpgrade.FourthUpgrade:
+                SoundManager.instance.Play(SoundManager.clip.upgrade);
                 thirdUpgradePoint.SetActive(false);
                 fourthUpgradePoint.SetActive(true);
                 break;
 
             case PlayerUpgrade.FifthUpgrade:
+                SoundManager.instance.Play(SoundManager.clip.upgrade);
                 fourthUpgradePoint.SetActive(false);
                 fifthUpgradePoint.SetActive(true);
                 break;

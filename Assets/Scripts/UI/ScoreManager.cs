@@ -63,7 +63,6 @@ public class ScoreManager : MonoBehaviour
         switch (levelID) {
             case 1:
                 if (scoreValue > maxScore1) {
-                    Debug.Log("HI");
                     XMLSave.instance.dataBase.firstDB[2].value = scoreValue;
                     XMLSave.instance.Save();
                 }

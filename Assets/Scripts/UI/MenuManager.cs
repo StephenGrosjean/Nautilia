@@ -49,7 +49,15 @@ public class MenuManager : MonoBehaviour
             yield return new WaitForSeconds(fadeSpeed);
         }
     }
+    IEnumerator FadeInAndLoad(string level) {
+        for (float i = 0; i < 1.1f; i += 0.05f) {
+            fadeScreen.color = Color.Lerp(transparent, Color.black,i);
+            yield return new WaitForSeconds(fadeSpeed);
+        }
+        SceneManager.LoadScene(level);
 
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -100,27 +108,27 @@ public class MenuManager : MonoBehaviour
 
     public void LoadLevel1() {
         ClickEffect();
-
-        SceneManager.LoadScene("Level1");
+        StartCoroutine(FadeInAndLoad("Level1"));
     }
     public void LoadLevel2() {
         ClickEffect();
+        StartCoroutine(FadeInAndLoad("Level2"));
 
-        SceneManager.LoadScene("Level2");
     }
     public void LoadLevel3() {
         ClickEffect();
+        StartCoroutine(FadeInAndLoad("Level3"));
 
-        SceneManager.LoadScene("Level3");
     }
     public void LoadLevel4() {
         ClickEffect();
+        StartCoroutine(FadeInAndLoad("Level4"));
 
-        SceneManager.LoadScene("Level4");
     }
     public void LoadLevel5() {
         ClickEffect();
-        SceneManager.LoadScene("BossScene");
+        StartCoroutine(FadeInAndLoad("BossScene"));
+
     }
 
 
@@ -309,4 +317,5 @@ public class MenuManager : MonoBehaviour
         XMLSave.instance.Load();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
 }

@@ -49,7 +49,7 @@ MonoBehaviour:
     - name: Level
       value: 0
     - name: Sound
-      value: 0
+      value: 1
     - name: Score_Lvl1
       value: 0
     - name: Score_Lvl2
@@ -61,7 +61,7 @@ MonoBehaviour:
     - name: Score_Lvl5
       value: 0
     - name: Difficulty
-      value: 0
+      value: 1
     - name: babyCompleted
       value: 0
     - name: normalCompleted
