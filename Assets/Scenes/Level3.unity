@@ -1697,7 +1697,7 @@ PrefabInstance:
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[6].waitUntilDestruction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
@@ -2898,7 +2898,7 @@ PrefabInstance:
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[4].spawnUpgrade
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}

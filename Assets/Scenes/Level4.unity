@@ -3010,7 +3010,7 @@ PrefabInstance:
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[0].spawnUpgrade
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
@@ -3020,23 +3020,83 @@ PrefabInstance:
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[2].spawnUpgrade
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[3].spawnUpgrade
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: waves.Array.data[4].spawnUpgrade
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: saveSystem
       value: 
       objectReference: {fileID: 1624508096}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[9].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[15].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[19].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[23].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[34].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[39].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[43].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[46].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[49].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[69].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[64].spawnUpgrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: waves.Array.data[57].spawnUpgrade
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4326230869199928031, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: m_RaycastTarget
