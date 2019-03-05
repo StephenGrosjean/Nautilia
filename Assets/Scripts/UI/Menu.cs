@@ -65,7 +65,9 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(loadedLevel.buildIndex);
     }
 
-    public void ShowDeathMenu() {
+    public void ShowDeathMenu()
+    {
+        Time.timeScale = 0;
         deathMenu.SetActive(true);
     }
 
