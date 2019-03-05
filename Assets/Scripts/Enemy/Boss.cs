@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
-
+/// <summary>
+/// Boss Script
+/// </summary>
 public class Boss : MonoBehaviour
 {
-    public enum stage { Left, Right, Head};
+    public enum stage { Left, Right, Head}; //Different stages
 
     [SerializeField] private int globalLife, timeBeforeNextPhase;
     [SerializeField] private GameObject winScreen;
@@ -17,21 +19,23 @@ public class Boss : MonoBehaviour
 
     private int maxLife;
     private bool leftArm_Destroyed, rightArm_Destroyed;
-    private stage currentStage;
+    private stage currentStage; //Current stage
     private int leftLife, rightLife, headLife;
     private float difficulty;
 
     void Start()
     {
-        currentStage = stage.Left;
-        GetLifes();
+        currentStage = stage.Left; 
+
         StartCoroutine(SwitchPhase());
         maxLife = leftLife + rightLife + headLife;
         InvokeRepeating("UpdateLife", 0, 0.1f);
+        GetLifes();
     }
 
     void Update() {
         GetLifes();
+        //Check current stage
         switch (currentStage) {
             case stage.Left:
                 if (leftArm.GetLife() <= 0) {
@@ -57,12 +61,14 @@ public class Boss : MonoBehaviour
         }
     }
 
+    //Set lifes variables
     void GetLifes() {
         rightLife = rightArm.GetLife();
         leftLife = leftArm.GetLife();
         headLife = head.GetLife();
     }
 
+    //Update the life
     void UpdateLife() {
         switch (currentStage) {
             case stage.Left:
@@ -79,6 +85,7 @@ public class Boss : MonoBehaviour
         lifeImage.fillAmount = percentage;
     }
 
+    //Switch phases
     IEnumerator SwitchPhase() {
         switch (currentStage) {
             case stage.Left:
@@ -100,18 +107,19 @@ public class Boss : MonoBehaviour
                 yield return new WaitForSeconds(timeBeforeNextPhase);
                 head.IsImortal = false;
                 EnableObjects(thirdSequenceObj);
-
                 break;
         }
         
     }
 
+    //Enable objects in list
     void EnableObjects(List<GameObject> toActivate) {
         foreach(GameObject obj in toActivate) {
             obj.SetActive(true);
         }
     }
 
+    //Detatch object from it's parent
     void DetatchObjects(List<GameObject> toActivate) {
         foreach (GameObject obj in toActivate) {
             if (obj != null) {
@@ -122,18 +130,19 @@ public class Boss : MonoBehaviour
         
     }
 
+    //Shake the screen
     void Shake() {
         StartCoroutine(Camera.main.GetComponent<CameraShake>().DoShake(0.02f, 3));
     }
 
+    //Win Sequence
     IEnumerator WinSequence() {
         yield return new WaitForSeconds(1.5f);
-
-        Time.timeScale = 0;
-        winScreen.SetActive(true);
-        XMLSave.instance.Load();
-        difficulty = XMLSave.instance.dataBase.firstDB[7].value;
-        XMLSave.instance.dataBase.firstDB[8 + (int)difficulty].value = 1;
-        XMLSave.instance.Save();
+        Time.timeScale = 0; //Stop time
+        winScreen.SetActive(true); //Activate winScreen
+        XMLSave.instance.Load(); //Load the save
+        difficulty = XMLSave.instance.dataBase.firstDB[7].value; //Load current difficulty
+        XMLSave.instance.dataBase.firstDB[8 + (int)difficulty].value = 1; //Save level done
+        XMLSave.instance.Save(); //Save all changes
     }
 }

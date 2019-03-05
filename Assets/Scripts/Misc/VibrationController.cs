@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+/// <summary>
+/// Vibration intensity for android (Look like black magic....but hey...it's working fine)
+/// </summary>
 public class VibrationController {
 
-
+#if UNITY_ANDROID
     private static readonly AndroidJavaObject Vibrator =
     new AndroidJavaClass("com.unity3d.player.UnityPlayer")// Get the Unity Player.
     .GetStatic<AndroidJavaObject>("currentActivity")// Get the Current Activity from the Unity Player.
@@ -22,6 +24,6 @@ public class VibrationController {
     public static void Vibrate(long[] pattern, int repeat) {
         Vibrator.Call("vibrate", pattern, repeat);
     }
-
+#endif
 }
 

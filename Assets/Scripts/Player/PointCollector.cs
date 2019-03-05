@@ -13,16 +13,10 @@ public class PointCollector : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, collisionRadius);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        hitColliders = Physics2D.OverlapCircleAll(transform.position, collisionRadius, mask);
+        hitColliders = Physics2D.OverlapCircleAll(transform.position, collisionRadius, mask); //Using an overlap circle instead of a collision check save FPS
 
         foreach(Collider2D col in hitColliders) {
             ScoreManager.AddScore(scorePerPoint);

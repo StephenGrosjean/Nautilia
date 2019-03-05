@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+/// <summary>
+/// CHeck if boss has been completed in difficulty
+/// </summary>
 public class FinishedDiff : MonoBehaviour
 {
     [SerializeField] private int difficulty;
@@ -10,7 +12,6 @@ public class FinishedDiff : MonoBehaviour
     private float completed;
     private TextMeshProUGUI text;
 
-    // Start is called before the first frame update
     void Start()
     {
         text = GetComponentInChildren<TextMeshProUGUI>();
@@ -18,7 +19,6 @@ public class FinishedDiff : MonoBehaviour
         completed = XMLSave.instance.dataBase.firstDB[8 + difficulty].value;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(completed == 1) {

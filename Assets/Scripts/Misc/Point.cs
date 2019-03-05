@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Collectable points
+/// </summary>
 public class Point : MonoBehaviour
 {
     private GameObject player;
@@ -16,16 +18,9 @@ public class Point : MonoBehaviour
 
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("PointCollector"))
-        {
-            Destroy(gameObject);
-        }
-    }*/
-
     private void Update()
     {
+        //Enable collider if close to player (Save some FPS)
         float distance = Vector2.Distance(transform.position, player.transform.position);
         if (distance < 1)
         {

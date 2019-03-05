@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+/// <summary>
+/// Setting manager
+/// </summary>
 public class SettingMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
@@ -34,6 +37,9 @@ public class SettingMenu : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
 
+    /// <summary>
+    /// Button interactions
+    /// </summary>
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];

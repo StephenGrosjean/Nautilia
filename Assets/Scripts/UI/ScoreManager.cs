@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Score manager. Manage score.
+/// </summary>
 public class ScoreManager : MonoBehaviour
 {
     public static int scoreValue;

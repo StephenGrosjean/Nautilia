@@ -7,24 +7,26 @@ public class Borders : MonoBehaviour
 {
 
     [SerializeField] private Transform upBorder, downBorder, leftBorder, rightBorder;
-    private Vector2 screenSize;
     [SerializeField] private float offset;
     Vector2 topLeft, topRight, bottomLeft, bottomRight;
+    private Vector2 screenSize;
 
-   /* private void OnDrawGizmos() {
+    //Draw screen border
+#if UNITY_EDITOR
+    private void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(topLeft, .5f);
         Gizmos.DrawWireSphere(topRight, .5f);
         Gizmos.DrawWireSphere(bottomLeft, .5f);
         Gizmos.DrawWireSphere(bottomRight, .5f);
 
-    }*/
+    }
+#endif
 
-    // Start is called before the first frame update
+    //Set colliders position to stop bullets from escaping the screen (Save a lot of FPS)
     void Start()
     {
         screenSize = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-
 
         topLeft = new Vector2(-screenSize.x, screenSize.y);
         topRight = new Vector2(screenSize.x, screenSize.y);
@@ -37,11 +39,4 @@ public class Borders : MonoBehaviour
         rightBorder.transform.position = new Vector2(topRight.x + offset, 0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
-    }
 }

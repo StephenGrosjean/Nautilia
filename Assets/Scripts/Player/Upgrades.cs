@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Upgrade script
 public class Upgrades : MonoBehaviour
 {
     private GameObject player;

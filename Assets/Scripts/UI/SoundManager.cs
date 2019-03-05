@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-
+/// <summary>
+/// Sound manager. can be called anywhere to play sound
+/// </summary>
 public class SoundManager : MonoBehaviour {
 
     //SINGLETON//
@@ -33,7 +35,7 @@ public class SoundManager : MonoBehaviour {
     void Update()
     {
         volume = XMLSave.instance.dataBase.firstDB[1].value;
-        mixer.SetFloat("volume", -80+(160*volume)-(80*Mathf.Pow(volume,2)));
+        mixer.SetFloat("volume", -80+(160*volume)-(80*Mathf.Pow(volume,2))); //Calculate mixer volume (Curve that look like a condensator charge curve)
     }
 
     public void Play(clip clip) {
