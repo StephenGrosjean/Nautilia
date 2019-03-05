@@ -33703,7 +33703,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -34510,7 +34510,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 7
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -38303,10 +38303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378399aa795255b4e94660bb537c73fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: -7
+  rotationSpeed: -10
   isPlayer: 0
   pingPongValues: 1
-  rotationAngle: 20
+  rotationAngle: 30
   hitParticle: {fileID: 0}
 --- !u!1 &1421678319
 GameObject:
@@ -52817,7 +52817,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -53624,7 +53624,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 7
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -57417,10 +57417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378399aa795255b4e94660bb537c73fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 7
+  rotationSpeed: 10
   isPlayer: 0
   pingPongValues: 1
-  rotationAngle: 20
+  rotationAngle: 30
   hitParticle: {fileID: 0}
 --- !u!1 &2042702263
 GameObject:
@@ -81949,6 +81949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalLife: 0
   timeBeforeNextPhase: 3
+  winScreen: {fileID: 0}
+  pauseSnap: {fileID: 0}
   lifeImage: {fileID: 0}
   leftArm: {fileID: 152690536300326386}
   rightArm: {fileID: 6652434077505811169}

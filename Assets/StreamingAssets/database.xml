@@ -3,7 +3,7 @@
   <First_Dataset>
     <FirstDataset>
       <name>Level</name>
-      <value>3</value>
+      <value>4</value>
     </FirstDataset>
     <FirstDataset>
       <name>Sound</name>
@@ -23,11 +23,15 @@
     </FirstDataset>
     <FirstDataset>
       <name>Score_Lvl4</name>
-      <value>274000</value>
+      <value>326000</value>
     </FirstDataset>
     <FirstDataset>
       <name>Score_Lvl5</name>
+<<<<<<< HEAD
       <value>52000</value>
+=======
+      <value>62000</value>
+>>>>>>> master
     </FirstDataset>
     <FirstDataset>
       <name>Difficulty</name>
@@ -43,7 +47,7 @@
     </FirstDataset>
     <FirstDataset>
       <name>hardCompleted</name>
-      <value>0</value>
+      <value>1</value>
     </FirstDataset>
     <FirstDataset>
       <name>impossibleCompleted</name>
