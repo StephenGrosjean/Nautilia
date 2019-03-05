@@ -48,6 +48,7 @@ MonoBehaviour:
   enemyDeath: {fileID: 8300000, guid: 61c082f3ceddf0647b9464239d679717, type: 3}
   bossHit: {fileID: 8300000, guid: 97ae47dcdd209ec4d8dab4d01bc7372a, type: 3}
   pauseMenu: {fileID: 8300000, guid: 86d436bea99614448922de14db361d28, type: 3}
+  upgrade: {fileID: 8300000, guid: a6ff2b75c3a279249aaca04d058fcaa8, type: 3}
   normal: {fileID: 24500006, guid: 2a4ee79553b59eb41819bce199e09c5a, type: 2}
   paused: {fileID: 245753470844138282, guid: 2a4ee79553b59eb41819bce199e09c5a, type: 2}
   mixer: {fileID: 24100000, guid: 2a4ee79553b59eb41819bce199e09c5a, type: 2}
