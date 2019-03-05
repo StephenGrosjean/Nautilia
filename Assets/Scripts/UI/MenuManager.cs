@@ -14,15 +14,18 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject level_1, level_2, level_3, level_4, level_boss;
     [SerializeField] private GameObject level_2D, level_3D, level_4D, level_bossD;
     [SerializeField] private TextMeshProUGUI score1, score2, score3, score4, score5;
+    [SerializeField] private Button babyDif, normalDif, hardDif, impossibleDif;
 
     [SerializeField] private float fadeSpeed = 0.05f;
     [SerializeField] private TextMeshProUGUI sectionIndicator;
-    
+    [SerializeField] private Color selectedColorDif;
+
     private Color transparent = new Color(0, 0, 0, 0);
     private section currentSection;
     private bool canClick = true;
     private LevelGet levelGetScript;
     private int maxLevel;
+    private float difficulty;
 
     // Start is called before the first frame update
     private void Awake() {
@@ -50,6 +53,26 @@ public class MenuManager : MonoBehaviour
     void Update()
     {
         maxLevel = levelGetScript.Level;
+        difficulty = XMLSave.instance.dataBase.firstDB[7].value;
+
+        switch (difficulty) {
+            case 0:
+                ColorBlock cb1 = babyDif.colors;
+                cb1.normalColor = selectedColorDif;
+                break;
+            case 1:
+                ColorBlock cb2 = babyDif.colors;
+                cb2.normalColor = selectedColorDif;
+                break;
+            case 2:
+                ColorBlock cb3 = babyDif.colors;
+                cb3.normalColor = selectedColorDif;
+                break;
+            case 3:
+                ColorBlock cb4 = babyDif.colors;
+                cb4.normalColor = selectedColorDif;
+                break;
+        }
     }
 
     public void Goto_Levels() {
@@ -245,5 +268,19 @@ public class MenuManager : MonoBehaviour
         score4.text = XMLSave.instance.dataBase.firstDB[5].value.ToString();
         score5.text = XMLSave.instance.dataBase.firstDB[6].value.ToString();
 
+    }
+
+
+    public void SetBaby() {
+        XMLSave.instance.dataBase.firstDB[7].value = 0;
+    }
+    public void SetNormal() {
+        XMLSave.instance.dataBase.firstDB[7].value = 1;
+    }
+    public void SetHard() {
+        XMLSave.instance.dataBase.firstDB[7].value = 2;
+    }
+    public void SetImpossible() {
+        XMLSave.instance.dataBase.firstDB[7].value = 3;
     }
 }

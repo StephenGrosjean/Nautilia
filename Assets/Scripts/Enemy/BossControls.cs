@@ -6,18 +6,23 @@ public class BossControls : MonoBehaviour {
     [SerializeField] private Color blinkColor;
     [SerializeField] private GameObject particlesContainer;
     [SerializeField] private GameObject powerup;
+    [SerializeField] private int numberOfPoints;
+    [SerializeField] private float pointSpawnRadius;
+
     private EnemyLife lifeScript;
     private int maxLife;
     private bool isBlinking;
     private SpriteRenderer spriteRendererComponent;
     private bool defeated;
     private bool firstPowerupSpawned, secondPowerupSpawned;
+    private BulletPooler poolPoint;
 
     private bool isImortal;
     public bool IsImortal => isImortal;
 
     void Start()
     {
+        poolPoint = GameObject.FindGameObjectWithTag("PoolPoint").GetComponent<BulletPooler>();
         spriteRendererComponent = transform.Find("EnemySprite").GetComponent<SpriteRenderer>();
         lifeScript = GetComponent<EnemyLife>(); //Get life script 
         maxLife = lifeScript.GetLife();
@@ -52,11 +57,12 @@ public class BossControls : MonoBehaviour {
             particlesContainer.transform.SetParent(null);
             Destroy(gameObject, 5);
             transform.position = Vector2.MoveTowards(transform.position, transform.up*500, Time.deltaTime);
-            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<PolygonCollider2D>().enabled = false;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(60, Vector3.forward), 1 * Time.deltaTime);
             if (!defeated) {
                 SoundManager.instance.Play(SoundManager.clip.bossHit);
                 StartCoroutine(Fade());
+                SpawnPoints();
             }
         }
 
@@ -81,6 +87,14 @@ public class BossControls : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
         }
         gameObject.transform.Find("EnemySprite").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+    }
+
+    void SpawnPoints() {
+        for (int i = 0; i < numberOfPoints; i++) {
+            GameObject point = poolPoint.GetBullet();
+            point.transform.position = new Vector2(Random.Range(transform.position.x - pointSpawnRadius, transform.position.x + pointSpawnRadius), Random.Range(transform.position.y - pointSpawnRadius, transform.position.y + pointSpawnRadius));
+            point.SetActive(true);
+        }
     }
 }
 

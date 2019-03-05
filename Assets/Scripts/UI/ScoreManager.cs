@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -21,7 +22,12 @@ public class ScoreManager : MonoBehaviour
         scoreValue = 0;
         score = GetComponent<TMP_Text>();
         score.text = scoreValue.ToString();
-        levelID = EnemySpawnSystem.instance.LevelID;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("BossScene")) {
+            levelID = BossGameManager.instance.LevelID;
+        }
+        else {
+            levelID = EnemySpawnSystem.instance.LevelID;
+        }
 
         maxScore1 = XMLSave.instance.dataBase.firstDB[2].value;
         maxScore2 = XMLSave.instance.dataBase.firstDB[3].value;

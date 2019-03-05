@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Boss : MonoBehaviour
 {
     public enum stage { Left, Right, Head};
 
     [SerializeField] private int globalLife, timeBeforeNextPhase;
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private AudioMixerSnapshot pauseSnap;
     [SerializeField] private Image lifeImage;
     [SerializeField] private EnemyLife leftArm, rightArm, head;
     [SerializeField] private List<GameObject> firstSequenceObj, secondSequenceObj, thirdSequenceObj;
@@ -46,6 +49,8 @@ public class Boss : MonoBehaviour
             case stage.Head:
                 if (head.GetLife() <= 0) {
                     DetatchObjects(thirdSequenceObj);
+                        StartCoroutine("WinSequence");
+                    pauseSnap.TransitionTo(0.2f);
                 }
                 break;
         }
@@ -94,6 +99,7 @@ public class Boss : MonoBehaviour
                 yield return new WaitForSeconds(timeBeforeNextPhase);
                 head.IsImortal = false;
                 EnableObjects(thirdSequenceObj);
+
                 break;
         }
         
@@ -112,9 +118,17 @@ public class Boss : MonoBehaviour
                 obj.GetComponent<ParticleSystem>().Stop();
             }
         }
+        
     }
 
     void Shake() {
         StartCoroutine(Camera.main.GetComponent<CameraShake>().DoShake(0.02f, 3));
+    }
+
+    IEnumerator WinSequence() {
+        yield return new WaitForSeconds(2);
+
+        Time.timeScale = 0;
+        winScreen.SetActive(true);
     }
 }

@@ -7,7 +7,7 @@
     </FirstDataset>
     <FirstDataset>
       <name>Sound</name>
-      <value>0.5259019</value>
+      <value>0</value>
     </FirstDataset>
     <FirstDataset>
       <name>Score_Lvl1</name>
@@ -27,6 +27,10 @@
     </FirstDataset>
     <FirstDataset>
       <name>Score_Lvl5</name>
+      <value>0</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>Difficulty</name>
       <value>0</value>
     </FirstDataset>
   </First_Dataset>
