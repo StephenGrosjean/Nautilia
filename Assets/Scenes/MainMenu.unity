@@ -5668,7 +5668,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Finished hard
+  m_text: Boss hard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0e7be3dd858b5e4a848987a5dc121eb, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 6f3688c0fc17e644d8dee452533be986, type: 2}
@@ -5745,11 +5745,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -6412,7 +6412,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Finished impossible
+  m_text: Boss impossible
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0e7be3dd858b5e4a848987a5dc121eb, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 6f3688c0fc17e644d8dee452533be986, type: 2}
@@ -6489,11 +6489,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -10249,7 +10249,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Finished normal
+  m_text: Boss normal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0e7be3dd858b5e4a848987a5dc121eb, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 6f3688c0fc17e644d8dee452533be986, type: 2}
@@ -10326,11 +10326,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -11462,7 +11462,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Finished baby
+  m_text: Boss baby
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0e7be3dd858b5e4a848987a5dc121eb, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 6f3688c0fc17e644d8dee452533be986, type: 2}
@@ -11539,11 +11539,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

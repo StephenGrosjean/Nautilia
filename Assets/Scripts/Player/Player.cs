@@ -73,7 +73,6 @@ public class Player : MonoBehaviour
             {
                 _isBlinking = true;
                 StartCoroutine("Blink");
-                SoundManager.instance.Play(SoundManager.clip.upgrade);
             }
             
             _playerUpgrade++;
@@ -84,6 +83,7 @@ public class Player : MonoBehaviour
 
     private void ShootingMode()
     {
+        SoundManager.instance.Play(SoundManager.clip.upgrade);
         switch (_playerUpgrade)
         {
             case PlayerUpgrade.FirstUpgrade:
