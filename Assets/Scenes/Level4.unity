@@ -613,6 +613,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4247314195982472838, guid: 3ca90e19e649517459546dcb25562cc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3628748009141436753, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: cameraShake
@@ -628,23 +633,18 @@ PrefabInstance:
       propertyPath: menuScript
       value: 
       objectReference: {fileID: 2065260522}
+    - target: {fileID: 921027251, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2792294597957198135, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
       propertyPath: life
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 921027251, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
-      propertyPath: m_Radius
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 921027250, guid: 3ca90e19e649517459546dcb25562cc0, type: 3}
       propertyPath: speed
       value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4247314195982472838, guid: 3ca90e19e649517459546dcb25562cc0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2276017858428204595, guid: 3ca90e19e649517459546dcb25562cc0,
         type: 3}
@@ -3017,6 +3017,16 @@ PrefabInstance:
       propertyPath: waves.Array.data[4].spawnUpgrade
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5595510066910373952, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: saveSystem
+      value: 
+      objectReference: {fileID: 1624508096}
+    - target: {fileID: 4326230869199928031, guid: 03cc38ff084c5304ba4c95496702d40c,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6734605209460765243, guid: 03cc38ff084c5304ba4c95496702d40c,
         type: 3}
       propertyPath: m_Sprite
@@ -3037,11 +3047,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.6037736
-      objectReference: {fileID: 0}
-    - target: {fileID: 4326230869199928031, guid: 03cc38ff084c5304ba4c95496702d40c,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cc38ff084c5304ba4c95496702d40c, type: 3}
@@ -3114,6 +3119,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27833a04ccb810d43a270c12cdf4a0bd, type: 3}
+--- !u!114 &1624508096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4970630977651896656, guid: 27833a04ccb810d43a270c12cdf4a0bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1624508095}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1cad958126b7e4383d2292b48f36d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1789068321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4933637889695717127, guid: fa8909d6b80a1d544adda57667996cf4,
@@ -3508,16 +3525,20 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4712429363733663557, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 29.300049
-      objectReference: {fileID: 0}
     - target: {fileID: 5798677887078602475, guid: 22c146cd4d9d6d74399e7a940b481d25,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 784909140}
+    - target: {fileID: 4712429363733663557, guid: 22c146cd4d9d6d74399e7a940b481d25,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 29.300049
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336525070, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3058791715766287863, guid: 22c146cd4d9d6d74399e7a940b481d25,
         type: 3}
       propertyPath: m_Sprite
@@ -3527,10 +3548,6 @@ PrefabInstance:
     - target: {fileID: 3058791715766287863, guid: 22c146cd4d9d6d74399e7a940b481d25,
         type: 3}
       propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1336525070, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
