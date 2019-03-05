@@ -7,11 +7,11 @@
     </FirstDataset>
     <FirstDataset>
       <name>Sound</name>
-      <value>0</value>
+      <value>1</value>
     </FirstDataset>
     <FirstDataset>
       <name>Score_Lvl1</name>
-      <value>0</value>
+      <value>14000</value>
     </FirstDataset>
     <FirstDataset>
       <name>Score_Lvl2</name>
@@ -31,6 +31,22 @@
     </FirstDataset>
     <FirstDataset>
       <name>Difficulty</name>
+      <value>2</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>babyCompleted</name>
+      <value>0</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>normalCompleted</name>
+      <value>0</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>hardCompleted</name>
+      <value>0</value>
+    </FirstDataset>
+    <FirstDataset>
+      <name>impossibleCompleted</name>
       <value>0</value>
     </FirstDataset>
   </First_Dataset>

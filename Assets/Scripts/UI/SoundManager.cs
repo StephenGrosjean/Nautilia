@@ -13,8 +13,8 @@ public class SoundManager : MonoBehaviour {
     }
     //END SINGLETON//
 
-    public enum clip { ButtonClick, PlayerHit, enemyDeath, bossHit, pauseMenu};
-    [SerializeField] private AudioClip buttonClick, playerHit, enemyDeath, bossHit, pauseMenu;
+    public enum clip { ButtonClick, PlayerHit, enemyDeath, bossHit, pauseMenu, upgrade};
+    [SerializeField] private AudioClip buttonClick, playerHit, enemyDeath, bossHit, pauseMenu, upgrade;
     [SerializeField] private AudioMixerSnapshot normal, paused;
     [SerializeField] private AudioMixer mixer;
 
@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour {
     void Start()
     {
         XMLSave.instance.Load();
+        normal.TransitionTo(0.2f);
         source = Camera.main.transform.Find("FX").GetComponent<AudioSource>();
 
     }
@@ -51,6 +52,9 @@ public class SoundManager : MonoBehaviour {
                 break;
             case clip.pauseMenu:
                 source.PlayOneShot(pauseMenu);
+                break;
+            case clip.upgrade:
+                source.PlayOneShot(upgrade);
                 break;
         }
     }

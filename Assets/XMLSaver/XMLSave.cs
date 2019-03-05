@@ -29,6 +29,12 @@ public class XMLSave : MonoBehaviour {
     //Database item
     public DataBase dataBase;
 
+    private void Start() {
+        /*if (!File.Exists(dataPath + nameFile)) {
+            Save();
+        }*/
+    }
+
     //Save function
     public void Save() {
         //open xml file

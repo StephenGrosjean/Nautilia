@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7561311705009106431}
   - component: {fileID: 3813288433128985678}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 5845843904931835792}
   - component: {fileID: 5208353078302693927}
   - component: {fileID: 1921835291602484762}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Upgrades
   m_TagString: Upgrade
   m_Icon: {fileID: 0}
