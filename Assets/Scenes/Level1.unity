@@ -732,9 +732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34758f95e5304f04bbbcdfee8108c15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets: []
-  bulletsNumber: 0
-  check: 0
 --- !u!4 &1116360581
 Transform:
   m_ObjectHideFlags: 0
@@ -2688,38 +2685,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2047248688, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2047248688, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337219693, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337219693, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1310124176, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1310124176, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154701467, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154701467, guid: 22c146cd4d9d6d74399e7a940b481d25, type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5798677887078602475, guid: 22c146cd4d9d6d74399e7a940b481d25,
         type: 3}
       propertyPath: m_Camera
@@ -2733,26 +2698,6 @@ PrefabInstance:
     - target: {fileID: 6926278187624830888, guid: 22c146cd4d9d6d74399e7a940b481d25,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798677887078602474, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798677887078602474, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1440
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798677887078602474, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 2560
-      objectReference: {fileID: 0}
-    - target: {fileID: 5798677887078602474, guid: 22c146cd4d9d6d74399e7a940b481d25,
-        type: 3}
-      propertyPath: m_ScreenMatchMode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

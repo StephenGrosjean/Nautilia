@@ -25,5 +25,16 @@ public class VibrationController {
         Vibrator.Call("vibrate", pattern, repeat);
     }
 #endif
+
+#if UNITY_IOS
+     public static void Vibrate(long milliseconds) {
+
+        Handheld.Vibrate();
+    }
+
+    public static void Vibrate(long[] pattern, int repeat) {
+        Handheld.Vibrate();
+    }
+#endif
 }
 
